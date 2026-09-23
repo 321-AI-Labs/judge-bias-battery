@@ -1,0 +1,19 @@
+{
+  "run_tag": "my-battery-run",
+  "endpoints_file": "examples/endpoints.example.json",
+  "items_files": {
+    "position": "battery/items/position-items.json",
+    "verbosity": "battery/items/verbosity-items.json",
+    "cbw": "battery/items/cbw-items.json",
+    "anchoring": "battery/items/anchoring-items.json",
+    "selfpref_generation": "battery/items/selfpref_generation-items.json"
+  },
+  "bias_classes": ["position"],
+  "log_path": "logs/judge-calls.jsonl",
+  "summary_out": "logs/summary-position.json",
+  "seed": 20260914,
+  "temperature": 0.0,
+  "max_tokens": 256,
+  "max_calls_per_judge": 72,
+  "judges": ["my-judge"]
+}

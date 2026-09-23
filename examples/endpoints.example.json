@@ -1,0 +1,10 @@
+{
+  "endpoints": [
+    {
+      "name": "my-judge",
+      "base_url": "http://localhost:8080",
+      "model": "my-judge-model-id",
+      "timeout_s": 240
+    }
+  ]
+}
