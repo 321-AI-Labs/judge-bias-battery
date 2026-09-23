@@ -1,0 +1,63 @@
+{
+  "envelope": {
+    "agent": "WORKER-2 (GLM)",
+    "artifact_type": "smoke-config",
+    "created_utc": "2026-09-14T19:46:46Z",
+    "data": {
+      "n_keys": 10
+    },
+    "environment": {
+      "harness_version": "1.0.0",
+      "machine": "AMD64",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+      "stdlib_only": true
+    },
+    "inputs": [
+      {
+        "name": "smoke-config flat form (consumed by the 2026-09-14 smoke run)",
+        "sha256": "3eab2c2052248bb29d6c76175036287ddaea8c9f0e4cf9066efe78424460a669"
+      }
+    ],
+    "method": {
+      "call_cap_provenance": "binding rule 7 (<=10 smoke calls per judge per day) set by orchestrator mission prompt, 2026-09-14",
+      "consumed_by": "harness/run_smoke.py (accepts both flat and envelope+payload forms; flat form is what the 2026-09-14 smoke actually consumed)",
+      "path_resolution": "endpoints_file/log_path/summary_out/items_files resolve relative to this config file directory",
+      "values": {
+        "max_day_calls_per_judge": 10,
+        "max_tokens": 256,
+        "seed": 20260914,
+        "temperature": 0.0
+      }
+    },
+    "mission_brief": "glm/briefs/BRIEF-20260914-sprint-p8-judge-audit.md",
+    "provenance": {
+      "artifact_type_extension_note": "artifact_type 'smoke-config' is a section-3 enum extension, declared per steward policy (glm/work/p8/REVIEW-STEWARD.md, 2026-09-14)",
+      "estimated": [],
+      "measured": [
+        "config values",
+        "flat-form sha256"
+      ],
+      "measured_vs_estimated": "measured: the configuration values themselves and the sha256 of the flat form consumed by the smoke run; estimated: none"
+    }
+  },
+  "payload": {
+    "day_calls_already_used": {
+      "glm": 1,
+      "llama": 1,
+      "qwen": 1
+    },
+    "endpoints_file": "../../judge-endpoints.json",
+    "items_files": {
+      "cbw": "../../bias-battery/items/cbw-items.json",
+      "position": "../../bias-battery/items/position-items.json"
+    },
+    "log_path": "judge-calls.jsonl",
+    "max_day_calls_per_judge": 10,
+    "max_tokens": 256,
+    "run_tag": "smoke",
+    "seed": 20260914,
+    "summary_out": "smoke-summary.json",
+    "temperature": 0.0
+  }
+}

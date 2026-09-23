@@ -1,0 +1,483 @@
+{
+ "agent": "GLM (Day-4 session, P8 selfpref grading derivation)",
+ "artifact_type": "judge-corrections",
+ "created_utc": "2026-09-16T23:14:16+00:00",
+ "data": {
+  "application_notes": {
+   "selfpref": "Where significant, self-preference correction is s_corrected = s - drift_sp_j, applied ONLY to scores judge j assigned to its OWN answers (graded_role=own); never to scores of other judges' answers. CI crossing zero ships significant=false and MAY NOT be applied (COEF-METHOD \u00a73 honest rule). n=15 per judge is exploratory (battery-spec power_reasoning)."
+  },
+  "corrections": [
+   {
+    "ci95": [
+     1.533333,
+     5.666667
+    ],
+    "class": "selfpref",
+    "coefficient": 3.533333,
+    "coefficient_name": "drift_sp",
+    "computed_utc": "2026-09-16T23:10:56Z",
+    "judge": "glm",
+    "method_sha": "60debf1e238411b89426bc4b07aa91c397e239fef2c76cdd33706a01b1d56f10",
+    "n": 15,
+    "run_tags": [
+     "battery-day3-selfpref-grading"
+    ],
+    "significant": true
+   },
+   {
+    "ci95": [
+     -8.142857,
+     -3.142857
+    ],
+    "class": "selfpref",
+    "coefficient": -5.714286,
+    "coefficient_name": "drift_sp",
+    "computed_utc": "2026-09-16T23:10:56Z",
+    "judge": "llama",
+    "method_sha": "60debf1e238411b89426bc4b07aa91c397e239fef2c76cdd33706a01b1d56f10",
+    "n": 14,
+    "run_tags": [
+     "battery-day3-selfpref-grading"
+    ],
+    "significant": true
+   },
+   {
+    "ci95": [
+     2.2,
+     6.866667
+    ],
+    "class": "selfpref",
+    "coefficient": 4.533333,
+    "coefficient_name": "drift_sp",
+    "computed_utc": "2026-09-16T23:10:56Z",
+    "judge": "qwen",
+    "method_sha": "60debf1e238411b89426bc4b07aa91c397e239fef2c76cdd33706a01b1d56f10",
+    "n": 15,
+    "run_tags": [
+     "battery-day3-selfpref-grading"
+    ],
+    "significant": true
+   }
+  ],
+  "cross_checks": {
+   "call_accounting": {
+    "error_rows_by_judge": {
+     "glm": 0,
+     "llama": 0,
+     "qwen": 0
+    },
+    "expected_calls_per_judge": {
+     "glm": 30,
+     "llama": 30,
+     "qwen": 30
+    },
+    "n_retry_superseded_attempts": 0,
+    "parse_failures_by_judge": {
+     "glm": 0,
+     "llama": 1,
+     "qwen": 0
+    },
+    "parse_failures_total": 1,
+    "parsed_calls_per_judge": {
+     "glm": 30,
+     "llama": 29,
+     "qwen": 30
+    },
+    "rule": "per judge: parsed_calls + parse_failures + error_rows == expected (retry-superseded attempts excluded before intake); any shortfall also fails coverage",
+    "verdict": "PASS"
+   },
+   "coverage": {
+    "per_judge": {
+     "glm": {
+      "competitor": 15,
+      "ok": true,
+      "own": 15,
+      "paired_deltas": 15,
+      "parse_failures": 0
+     },
+     "llama": {
+      "competitor": 15,
+      "ok": true,
+      "own": 14,
+      "paired_deltas": 14,
+      "parse_failures": 1
+     },
+     "qwen": {
+      "competitor": 15,
+      "ok": true,
+      "own": 15,
+      "paired_deltas": 15,
+      "parse_failures": 0
+     }
+    },
+    "verdict": "PASS"
+   },
+   "items_payload_sha256": "d67d41682ab39457552782317c29b15adad1ad989118a583c325c4da6f6a6987"
+  },
+  "per_judge_detail": {
+   "glm": {
+    "excluded_base_items": [],
+    "mean_score_competitor": 6.333333,
+    "mean_score_own": 9.866667,
+    "n_excluded_pairings": 0,
+    "pairs": [
+     {
+      "base_item": "spgen-analysis-task-01",
+      "competitor_judge": "llama",
+      "delta": 5.0,
+      "score_competitor": 5.0,
+      "score_own": 10.0
+     },
+     {
+      "base_item": "spgen-analysis-task-02",
+      "competitor_judge": "qwen",
+      "delta": 5.0,
+      "score_competitor": 5.0,
+      "score_own": 10.0
+     },
+     {
+      "base_item": "spgen-analysis-task-03",
+      "competitor_judge": "llama",
+      "delta": 0.0,
+      "score_competitor": 10.0,
+      "score_own": 10.0
+     },
+     {
+      "base_item": "spgen-analysis-task-04",
+      "competitor_judge": "qwen",
+      "delta": 0.0,
+      "score_competitor": 10.0,
+      "score_own": 10.0
+     },
+     {
+      "base_item": "spgen-analysis-task-05",
+      "competitor_judge": "llama",
+      "delta": 5.0,
+      "score_competitor": 5.0,
+      "score_own": 10.0
+     },
+     {
+      "base_item": "spgen-swe-task-01",
+      "competitor_judge": "qwen",
+      "delta": 0.0,
+      "score_competitor": 10.0,
+      "score_own": 10.0
+     },
+     {
+      "base_item": "spgen-swe-task-02",
+      "competitor_judge": "llama",
+      "delta": 10.0,
+      "score_competitor": 0.0,
+      "score_own": 10.0
+     },
+     {
+      "base_item": "spgen-swe-task-03",
+      "competitor_judge": "qwen",
+      "delta": 0.0,
+      "score_competitor": 10.0,
+      "score_own": 10.0
+     },
+     {
+      "base_item": "spgen-swe-task-04",
+      "competitor_judge": "llama",
+      "delta": 5.0,
+      "score_competitor": 5.0,
+      "score_own": 10.0
+     },
+     {
+      "base_item": "spgen-swe-task-05",
+      "competitor_judge": "qwen",
+      "delta": 0.0,
+      "score_competitor": 10.0,
+      "score_own": 10.0
+     },
+     {
+      "base_item": "spgen-swe-task-06",
+      "competitor_judge": "llama",
+      "delta": 5.0,
+      "score_competitor": 5.0,
+      "score_own": 10.0
+     },
+     {
+      "base_item": "spgen-swe-task-07",
+      "competitor_judge": "qwen",
+      "delta": -2.0,
+      "score_competitor": 10.0,
+      "score_own": 8.0
+     },
+     {
+      "base_item": "spgen-swe-task-08",
+      "competitor_judge": "llama",
+      "delta": 10.0,
+      "score_competitor": 0.0,
+      "score_own": 10.0
+     },
+     {
+      "base_item": "spgen-swe-task-09",
+      "competitor_judge": "qwen",
+      "delta": 0.0,
+      "score_competitor": 10.0,
+      "score_own": 10.0
+     },
+     {
+      "base_item": "spgen-swe-task-10",
+      "competitor_judge": "llama",
+      "delta": 10.0,
+      "score_competitor": 0.0,
+      "score_own": 10.0
+     }
+    ]
+   },
+   "llama": {
+    "excluded_base_items": [
+     "spgen-analysis-task-03"
+    ],
+    "mean_score_competitor": 9.533333,
+    "mean_score_own": 3.785714,
+    "n_excluded_pairings": 1,
+    "pairs": [
+     {
+      "base_item": "spgen-analysis-task-01",
+      "competitor_judge": "glm",
+      "delta": 0.0,
+      "score_competitor": 9.0,
+      "score_own": 9.0
+     },
+     {
+      "base_item": "spgen-analysis-task-02",
+      "competitor_judge": "qwen",
+      "delta": 0.0,
+      "score_competitor": 8.0,
+      "score_own": 8.0
+     },
+     {
+      "base_item": "spgen-analysis-task-04",
+      "competitor_judge": "qwen",
+      "delta": 0.0,
+      "score_competitor": 10.0,
+      "score_own": 10.0
+     },
+     {
+      "base_item": "spgen-analysis-task-05",
+      "competitor_judge": "glm",
+      "delta": 0.0,
+      "score_competitor": 8.0,
+      "score_own": 8.0
+     },
+     {
+      "base_item": "spgen-swe-task-01",
+      "competitor_judge": "qwen",
+      "delta": -10.0,
+      "score_competitor": 10.0,
+      "score_own": 0.0
+     },
+     {
+      "base_item": "spgen-swe-task-02",
+      "competitor_judge": "glm",
+      "delta": -10.0,
+      "score_competitor": 10.0,
+      "score_own": 0.0
+     },
+     {
+      "base_item": "spgen-swe-task-03",
+      "competitor_judge": "qwen",
+      "delta": -2.0,
+      "score_competitor": 10.0,
+      "score_own": 8.0
+     },
+     {
+      "base_item": "spgen-swe-task-04",
+      "competitor_judge": "glm",
+      "delta": -10.0,
+      "score_competitor": 10.0,
+      "score_own": 0.0
+     },
+     {
+      "base_item": "spgen-swe-task-05",
+      "competitor_judge": "qwen",
+      "delta": -10.0,
+      "score_competitor": 10.0,
+      "score_own": 0.0
+     },
+     {
+      "base_item": "spgen-swe-task-06",
+      "competitor_judge": "glm",
+      "delta": -8.0,
+      "score_competitor": 8.0,
+      "score_own": 0.0
+     },
+     {
+      "base_item": "spgen-swe-task-07",
+      "competitor_judge": "qwen",
+      "delta": 0.0,
+      "score_competitor": 10.0,
+      "score_own": 10.0
+     },
+     {
+      "base_item": "spgen-swe-task-08",
+      "competitor_judge": "glm",
+      "delta": -10.0,
+      "score_competitor": 10.0,
+      "score_own": 0.0
+     },
+     {
+      "base_item": "spgen-swe-task-09",
+      "competitor_judge": "qwen",
+      "delta": -10.0,
+      "score_competitor": 10.0,
+      "score_own": 0.0
+     },
+     {
+      "base_item": "spgen-swe-task-10",
+      "competitor_judge": "glm",
+      "delta": -10.0,
+      "score_competitor": 10.0,
+      "score_own": 0.0
+     }
+    ]
+   },
+   "qwen": {
+    "excluded_base_items": [],
+    "mean_score_competitor": 3.8,
+    "mean_score_own": 8.333333,
+    "n_excluded_pairings": 0,
+    "pairs": [
+     {
+      "base_item": "spgen-analysis-task-01",
+      "competitor_judge": "glm",
+      "delta": 3.0,
+      "score_competitor": 7.0,
+      "score_own": 10.0
+     },
+     {
+      "base_item": "spgen-analysis-task-02",
+      "competitor_judge": "llama",
+      "delta": 0.0,
+      "score_competitor": 0.0,
+      "score_own": 0.0
+     },
+     {
+      "base_item": "spgen-analysis-task-03",
+      "competitor_judge": "glm",
+      "delta": 0.0,
+      "score_competitor": 10.0,
+      "score_own": 10.0
+     },
+     {
+      "base_item": "spgen-analysis-task-04",
+      "competitor_judge": "llama",
+      "delta": 10.0,
+      "score_competitor": 0.0,
+      "score_own": 10.0
+     },
+     {
+      "base_item": "spgen-analysis-task-05",
+      "competitor_judge": "glm",
+      "delta": 0.0,
+      "score_competitor": 0.0,
+      "score_own": 0.0
+     },
+     {
+      "base_item": "spgen-swe-task-01",
+      "competitor_judge": "llama",
+      "delta": 10.0,
+      "score_competitor": 0.0,
+      "score_own": 10.0
+     },
+     {
+      "base_item": "spgen-swe-task-02",
+      "competitor_judge": "glm",
+      "delta": 0.0,
+      "score_competitor": 10.0,
+      "score_own": 10.0
+     },
+     {
+      "base_item": "spgen-swe-task-03",
+      "competitor_judge": "llama",
+      "delta": 10.0,
+      "score_competitor": 0.0,
+      "score_own": 10.0
+     },
+     {
+      "base_item": "spgen-swe-task-04",
+      "competitor_judge": "glm",
+      "delta": 5.0,
+      "score_competitor": 5.0,
+      "score_own": 10.0
+     },
+     {
+      "base_item": "spgen-swe-task-05",
+      "competitor_judge": "llama",
+      "delta": 10.0,
+      "score_competitor": 0.0,
+      "score_own": 10.0
+     },
+     {
+      "base_item": "spgen-swe-task-06",
+      "competitor_judge": "glm",
+      "delta": 0.0,
+      "score_competitor": 10.0,
+      "score_own": 10.0
+     },
+     {
+      "base_item": "spgen-swe-task-07",
+      "competitor_judge": "llama",
+      "delta": 10.0,
+      "score_competitor": 0.0,
+      "score_own": 10.0
+     },
+     {
+      "base_item": "spgen-swe-task-08",
+      "competitor_judge": "glm",
+      "delta": 0.0,
+      "score_competitor": 10.0,
+      "score_own": 10.0
+     },
+     {
+      "base_item": "spgen-swe-task-09",
+      "competitor_judge": "llama",
+      "delta": 10.0,
+      "score_competitor": 0.0,
+      "score_own": 10.0
+     },
+     {
+      "base_item": "spgen-swe-task-10",
+      "competitor_judge": "glm",
+      "delta": 0.0,
+      "score_competitor": 5.0,
+      "score_own": 5.0
+     }
+    ]
+   }
+  }
+ },
+ "environment": {
+  "cpu": "AMD64",
+  "os_build": "Windows-11-10.0.26200-SP0",
+  "python": "3.12.10",
+  "stdlib_only": true
+ },
+ "inputs": {
+  "items_payload_sha256": "d67d41682ab39457552782317c29b15adad1ad989118a583c325c4da6f6a6987",
+  "method": "glm/work/p8/COEF-METHOD.md (Amendment 2026-09-16, selfpref estimator)",
+  "repos": [],
+  "scripts": [
+   {
+    "path": "glm/work/p8/harness/derive-selfpref.py",
+    "sha256": "c7bd52153c1a7d2542398a07fc1bf2a4b39ae33ef2146e740b6debdaddc80aad"
+   }
+  ],
+  "verbatim_log": "glm\\work\\p8\\logs\\battery-day3-selfpref-grading\\judge-calls.jsonl"
+ },
+ "method": {
+  "exclusion_rule": "rows with parsed.ok=false excluded and counted",
+  "honest_rule": "CI crossing zero -> significant=false; MAY NOT be applied",
+  "statistic": "drift_sp = mean(score_own) - mean(score_competitor), 15 paired deltas per judge; paired bootstrap 10k, seed 20260914|selfpref|<judge>|<resample>, percentile per anchoring amendment convention"
+ },
+ "mission_brief": "KIMI-PROMPT-20260916-day4 (PAUSE-STATE UPDATE 4 next-step 1)",
+ "provenance": {
+  "measured_vs_estimated": "measured: all scores from the verbatim log; no estimated values",
+  "regime": "measurement (judge self-preference, scored grading, blind)",
+  "sample_N": 15
+ }
+}

@@ -1,0 +1,53 @@
+{
+ "artifact_type": "ft8-disposition",
+ "created_utc": "2026-09-15T21:18:25+00:00",
+ "agent": "GLM (orchestrator runner, P0 run1 / P8 owner, 2026-09-16 session)",
+ "mission_brief": "BRIEF-20260914-sprint-p8-judge-audit.md",
+ "inputs": {
+  "repos": [],
+  "scripts": [],
+  "evidence": [
+   {
+    "path": "glm/work/p8/logs/battery-day2/judge-calls.jsonl",
+    "sha256": "2e1eb9a04ded4185ad3beeb3f1893a5b8b744417866f54a20bcfbb31fbb93174",
+    "note": "verbatim per-call log with timestamp_utc + latency for all 741 calls (247 glm)"
+   },
+   {
+    "path": "glm/work/p2/ESCALATION-FT8.md",
+    "note": "P2 session's disclosure: 2 GET + 5 POST to 127.0.0.1:8091 at 16:09:34-16:10:19Z"
+   },
+   {
+    "path": "/a/models/judges/logs/glm-8091.log",
+    "note": "server-side log; uptime-stamped (MM.SS), no client attribution; launch-batch cadence only"
+   }
+  ]
+ },
+ "environment": {
+  "os_build": "Windows-11",
+  "server": "llama-b10930 llama-server :8091 (CPU-only)",
+  "n_slots": 4
+ },
+ "method": {
+  "test": "temporal-overlap: for each of the 247 glm-endpoint calls in the verbatim log, compute [timestamp_utc, timestamp_utc + latency] and test intersection with the foreign window [16:09:34Z, 16:10:19Z]",
+  "exactness": "call timestamps are recorded to millisecond precision at dispatch; latency from the client-measured duration in the same record"
+ },
+ "data": {
+  "glm_calls_total": 247,
+  "glm_calls_overlapping_ft8_window": 0,
+  "last_call_ending_before_window": "2026-09-15T16:09:20Z (call 1483ee7b63da410793fa62d09ce47f80 \u2014 pos-errors-task-09-e3 battery call; the earlier 'health check' label was wrong)",
+  "first_call_starting_after_window": "2026-09-15T16:10:30Z (call 4b5a888cef8a48508a83dd7fdbbf4550)",
+  "gap_available_to_foreign_calls_s": 63.06,
+  "server_log_note": "server log cannot isolate individual foreign POSTs (uptime-stamped batches, no client attribution); under the best-fit server-start anchor (~15:54:03Z) 3 launch-batch entries fall inside the window, consistent with the foreign burst \u2014 recorded for completeness",
+  "gap_note": "2026-09-16 gatekeeper correction: 63.06 s is the end-to-start clear gap (16:09:26.938Z -> 16:10:30Z); 70 s was the start-to-start span. Both exceed the 45 s foreign window."
+ },
+ "ruling": {
+  "timing_integrity": "STANDS \u2014 all 247 glm-endpoint calls in the Day-2 battery are temporally disjoint from the FT-8 foreign calls (zero overlap; the foreign burst ran inside a 70 s inter-call gap). No ft8_contended flags are required on any battery call.",
+  "scope": "this ruling covers timing integrity of P8's own measurements only; content impact was assessed nil by P2",
+  "latency_distribution_impact": "none: with zero overlap, no battery call was queued behind or slowed by a foreign request; measured latencies (10-34 s warm band) are uncontaminated"
+ },
+ "provenance": {
+  "measured_vs_estimated": "measured: per-call timestamps/latencies from the verbatim log; estimate: server-side launch-batch attribution (recorded, not used for the ruling)",
+  "sample_N": 247
+ },
+ "amendment_2026_09_16": "Day-3 gatekeeper corrections: boundary-call label (battery call, not health check) and gap metric (end-to-start 63.06 s) \u2014 ruling unchanged (zero overlap)."
+}

@@ -1,0 +1,97 @@
+REDACTION NOTE: Paths redacted for public release; content otherwise verbatim. Originals hash-pinned in the lab archive.
+
+P8 judge-corrections derivation log (WORKER: P8 judge-reliability audit)
+=======================================================================
+date (UTC session): 2026-09-15
+method (FROZEN, binding): glm/work/p8/COEF-METHOD.md
+  sha256: 18e27702ad728e703f8b010da24cad9c5fdf23d3a79f4adac80689a4059c41b2
+verbatim log: glm/work/p8/logs/battery-day2/judge-calls.jsonl (741 lines, 0 errors)
+  sha256: 2e1eb9a04ded4185ad3beeb3f1893a5b8b744417866f54a20bcfbb31fbb93174
+derivation script: glm/work/p8/harness/derive-corrections.py (stdlib only)
+  sha256: 443a3350a1bc010eb166c537335f22e5102ba9067f859082231b879e53c0f722
+Rule: every coefficient recomputed FROM THE VERBATIM LOG + items payloads;
+runner summary-*.json read ONLY by the separate cross-check step (COEF-METHOD section 1/4.2).
+
+
+===============================================================================
+STEP 1 -- runner-summary recompute from raw + diff vs shipped (section 4.2)
+===============================================================================
+wrote <lab-path>\logs\battery-day2\summary-recompute-diff.json
+
+== runner-summary recompute (from raw, diff vs shipped) ==
+  summary-position.json: MATCH (0 field diffs)
+  summary-verbosity.json: MATCH (0 field diffs)
+  summary-cbw.json: MATCH (0 field diffs)
+  summary-anchoring.json: MATCH (0 field diffs)
+  summary-selfpref_generation.json: MATCH (0 field diffs)
+  summary-verbosity-topup.json: MATCH (0 field diffs)
+  summary-cbw-topup.json: MATCH (0 field diffs)
+  pooled parsed vs summaries: {'position': True, 'verbosity': True, 'cbw': True, 'anchoring': True, 'selfpref_generation': True}
+  overall: MATCH (0 mismatches)
+
+===============================================================================
+STEP 2 -- derivation run 1 (DELIVERABLE: judge-corrections.json)
+===============================================================================
+wrote <lab-path>\judge-corrections.json
+
+== judge-corrections coefficient table ==
+judge  class      coefficient                 value                       ci95    n    tie   sig
+glm    position   flip_rate                  0.2500           [0.1375, 0.4107]   36  0.000  True
+glm    verbosity  padded_pref                0.2500           [0.1492, 0.3878]   48  0.000  True
+glm    cbw        wrong_pref                 0.0000           [0.0000, 0.0876]   40  0.000 False
+glm    anchoring  drift                      0.4167           [0.0000, 0.9167]   12     -- False
+llama  position   flip_rate                  0.5000           [0.3447, 0.6553]   36  0.000  True
+llama  verbosity  padded_pref                0.4167           [0.2885, 0.5572]   48  0.000  True
+llama  cbw        wrong_pref                 0.0750           [0.0258, 0.1986]   40  0.000  True
+llama  anchoring  drift                     -1.1667          [-3.5000, 0.5000]   12     -- False
+qwen   position   flip_rate                  0.1667           [0.0787, 0.3189]   36  0.000  True
+qwen   verbosity  padded_pref                0.1458           [0.0725, 0.2717]   48  0.000  True
+qwen   cbw        wrong_pref                 0.0000           [0.0000, 0.0876]   40  0.000 False
+qwen   anchoring  drift                     -0.1667          [-0.6667, 0.2500]   12     -- False
+selfpref: status=generation-only n=15 generation_calls=45
+
+== cross-checks ==
+  call_accounting: PASS
+  coverage: PASS
+  integrity: PASS
+  summary_recompute_diff: MATCH
+
+== findings ==
+  F-1 [MAJOR (provenance, no coefficient impact)] battery-spec.json pins pre-D1-regeneration items payload shas (e.g. verbosity 8ac486f1...) while the Day-2 run consumed the regenerated files (runner summaries 
+
+===============================================================================
+STEP 3 -- determinism (section 4.3)
+===============================================================================
+runs (same script, same inputs):
+  run 1: judge-corrections.json          created_utc=2026-09-15T21:48:56Z (wall-clock)
+  run 2: .det-run2.json                  created_utc=2026-09-15T21:48:57Z (fresh wall-clock)
+  run 3: .det-run3.json                  created_utc pinned to run 1's value
+byte-compare run 1 vs run 3: IDENTICAL (cmp exit 0)
+diff run 1 vs run 2: exactly one line differs -- envelope.created_utc
+  (the only wall-clock field, permitted by section 4.3 "wall-clock only in the envelope")
+sha256:
+  run 1  8d8208cf1ca48c79c6fd618d4ab6e179563d3d3f0960d2c9ce20e0c76deb7ef7
+  run 2  16bd0282345a6092f4bcbd7889e9652b70c55aa807fca3f09157333344069800
+  run 3  8d8208cf1ca48c79c6fd618d4ab6e179563d3d3f0960d2c9ce20e0c76deb7ef7
+created_utc-normalized sha256 (all three runs equal):
+  2d42a99959bd28cdc1fc7a49885f5a0c670f4a69ee81a1a556b98123dde0452b
+Note: per-row computed_utc is NOT wall-clock -- it is pinned to the verbatim
+log's final call timestamp (2026-09-15T17:58:54Z) so the payload is fully
+deterministic (section 4.3 "no wall-clock inside the payload").
+
+===============================================================================
+STEP 4 -- independent naive recount (spot-check with throwaway code)
+===============================================================================
+position glm: 9/36 = 0.2500   | cbw glm: 0/40 = 0.0000     | verb-padded glm: 12/48 = 0.2500
+position llama: 18/36 = 0.5000 | cbw llama: 3/40 = 0.0750  | verb-padded llama: 20/48 = 0.4167
+position qwen: 6/36 = 0.1667  | cbw qwen: 0/40 = 0.0000   | verb-padded qwen: 7/48 = 0.1458
+anchoring glm:  n=12 drift=+0.4167
+anchoring llama: n=12 drift=-1.1667 (deltas include -8, -10 on two items)
+anchoring qwen: n=12 drift=-0.1667
+All match the shipped judge-corrections.json coefficients exactly.
+
+===============================================================================
+ENVIRONMENT
+===============================================================================
+python: 3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]
+platform: Windows-11-10.0.26200-SP0

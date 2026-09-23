@@ -1,0 +1,106 @@
+{
+  "health": {
+    "glm": {
+      "healthy": true,
+      "status": 200,
+      "detail": "{\"models\":[{\"name\":\"glm-4-9b-chat\",\"model\":\"glm-4-9b-chat\",\"modified_at\":\"\",\"size\":\"\",\"digest\":\"\",\"type\":\"model\",\"description\":\"\",\"tags\":[\"\"],\"capabilities\":[\"completion\"],\"parameters\":\"\",\"details\":{\"parent_model\":\"\",\"format\":\"gguf\",\"family\":\"\",\"families\":[\"\"],\"parameter_size\":\"\",\"quantization_level\":\"\"}}],\"object\":\"list\",\"data\":[{\"id\":\"glm-4-9b-chat\",\"aliases\":[\"glm-4-9b-chat\"],\"tags\":[],\"object\":\"model\",\"created\":1789493117,\"owned_by\":\"llamacpp\",\"meta\":{\"vocab_type\":true,\"n_vocab\":151552,\"n_ct"
+    },
+    "llama": {
+      "healthy": true,
+      "status": 200,
+      "detail": "{\"models\":[{\"name\":\"llama-3.1-8b-instruct\",\"model\":\"llama-3.1-8b-instruct\",\"modified_at\":\"\",\"size\":\"\",\"digest\":\"\",\"type\":\"model\",\"description\":\"\",\"tags\":[\"\"],\"capabilities\":[\"completion\"],\"parameters\":\"\",\"details\":{\"parent_model\":\"\",\"format\":\"gguf\",\"family\":\"\",\"families\":[\"\"],\"parameter_size\":\"\",\"quantization_level\":\"\"}}],\"object\":\"list\",\"data\":[{\"id\":\"llama-3.1-8b-instruct\",\"aliases\":[\"llama-3.1-8b-instruct\"],\"tags\":[],\"object\":\"model\",\"created\":1789493117,\"owned_by\":\"llamacpp\",\"meta\":{\"vocab_t"
+    },
+    "qwen": {
+      "healthy": true,
+      "status": 200,
+      "detail": "{\"models\":[{\"name\":\"qwen3-8b\",\"model\":\"qwen3-8b\",\"modified_at\":\"\",\"size\":\"\",\"digest\":\"\",\"type\":\"model\",\"description\":\"\",\"tags\":[\"\"],\"capabilities\":[\"completion\"],\"parameters\":\"\",\"details\":{\"parent_model\":\"\",\"format\":\"gguf\",\"family\":\"\",\"families\":[\"\"],\"parameter_size\":\"\",\"quantization_level\":\"\"}}],\"object\":\"list\",\"data\":[{\"id\":\"qwen3-8b\",\"aliases\":[\"qwen3-8b\"],\"tags\":[],\"object\":\"model\",\"created\":1789493117,\"owned_by\":\"llamacpp\",\"meta\":{\"vocab_type\":true,\"n_vocab\":151936,\"n_ctx\":8192,\"n_ctx_train"
+    }
+  },
+  "summaries": {
+    "verbosity": {
+      "bias_class": "verbosity",
+      "n_items": 48,
+      "n_specs": 96,
+      "n_jobs": 288,
+      "n_jobs_total": 288,
+      "n_jobs_by_judge": {
+        "glm": 96,
+        "llama": 96,
+        "qwen": 96
+      },
+      "calls_made": {
+        "glm": 48,
+        "llama": 48,
+        "qwen": 48
+      },
+      "n_already_logged": 144,
+      "n_skipped_already_logged": 144,
+      "n_already_logged_by_judge": {
+        "glm": 48,
+        "llama": 48,
+        "qwen": 48
+      },
+      "n_skipped_by_cap": 0,
+      "n_skipped_by_cap_by_judge": {
+        "glm": 0,
+        "llama": 0,
+        "qwen": 0
+      },
+      "n_errors": 0,
+      "n_parsed": 144
+    }
+  }
+}
+{
+  "health": {
+    "glm": {
+      "healthy": true,
+      "status": 200,
+      "detail": "{\"models\":[{\"name\":\"glm-4-9b-chat\",\"model\":\"glm-4-9b-chat\",\"modified_at\":\"\",\"size\":\"\",\"digest\":\"\",\"type\":\"model\",\"description\":\"\",\"tags\":[\"\"],\"capabilities\":[\"completion\"],\"parameters\":\"\",\"details\":{\"parent_model\":\"\",\"format\":\"gguf\",\"family\":\"\",\"families\":[\"\"],\"parameter_size\":\"\",\"quantization_level\":\"\"}}],\"object\":\"list\",\"data\":[{\"id\":\"glm-4-9b-chat\",\"aliases\":[\"glm-4-9b-chat\"],\"tags\":[],\"object\":\"model\",\"created\":1789494312,\"owned_by\":\"llamacpp\",\"meta\":{\"vocab_type\":true,\"n_vocab\":151552,\"n_ct"
+    },
+    "llama": {
+      "healthy": true,
+      "status": 200,
+      "detail": "{\"models\":[{\"name\":\"llama-3.1-8b-instruct\",\"model\":\"llama-3.1-8b-instruct\",\"modified_at\":\"\",\"size\":\"\",\"digest\":\"\",\"type\":\"model\",\"description\":\"\",\"tags\":[\"\"],\"capabilities\":[\"completion\"],\"parameters\":\"\",\"details\":{\"parent_model\":\"\",\"format\":\"gguf\",\"family\":\"\",\"families\":[\"\"],\"parameter_size\":\"\",\"quantization_level\":\"\"}}],\"object\":\"list\",\"data\":[{\"id\":\"llama-3.1-8b-instruct\",\"aliases\":[\"llama-3.1-8b-instruct\"],\"tags\":[],\"object\":\"model\",\"created\":1789494312,\"owned_by\":\"llamacpp\",\"meta\":{\"vocab_t"
+    },
+    "qwen": {
+      "healthy": true,
+      "status": 200,
+      "detail": "{\"models\":[{\"name\":\"qwen3-8b\",\"model\":\"qwen3-8b\",\"modified_at\":\"\",\"size\":\"\",\"digest\":\"\",\"type\":\"model\",\"description\":\"\",\"tags\":[\"\"],\"capabilities\":[\"completion\"],\"parameters\":\"\",\"details\":{\"parent_model\":\"\",\"format\":\"gguf\",\"family\":\"\",\"families\":[\"\"],\"parameter_size\":\"\",\"quantization_level\":\"\"}}],\"object\":\"list\",\"data\":[{\"id\":\"qwen3-8b\",\"aliases\":[\"qwen3-8b\"],\"tags\":[],\"object\":\"model\",\"created\":1789494312,\"owned_by\":\"llamacpp\",\"meta\":{\"vocab_type\":true,\"n_vocab\":151936,\"n_ctx\":8192,\"n_ctx_train"
+    }
+  },
+  "summaries": {
+    "cbw": {
+      "bias_class": "cbw",
+      "n_items": 20,
+      "n_specs": 40,
+      "n_jobs": 120,
+      "n_jobs_total": 120,
+      "n_jobs_by_judge": {
+        "glm": 40,
+        "llama": 40,
+        "qwen": 40
+      },
+      "calls_made": {
+        "glm": 20,
+        "llama": 20,
+        "qwen": 20
+      },
+      "n_already_logged": 60,
+      "n_skipped_already_logged": 60,
+      "n_already_logged_by_judge": {
+        "glm": 20,
+        "llama": 20,
+        "qwen": 20
+      },
+      "n_skipped_by_cap": 0,
+      "n_skipped_by_cap_by_judge": {
+        "glm": 0,
+        "llama": 0,
+        "qwen": 0
+      },
+      "n_errors": 0,
+      "n_parsed": 60
+    }
+  }
+}

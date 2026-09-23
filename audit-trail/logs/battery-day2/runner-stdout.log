@@ -1,0 +1,175 @@
+{
+  "health": {
+    "glm": {
+      "healthy": true,
+      "status": 200,
+      "detail": "{\"models\":[{\"name\":\"glm-4-9b-chat\",\"model\":\"glm-4-9b-chat\",\"modified_at\":\"\",\"size\":\"\",\"digest\":\"\",\"type\":\"model\",\"description\":\"\",\"tags\":[\"\"],\"capabilities\":[\"completion\"],\"parameters\":\"\",\"details\":{\"parent_model\":\"\",\"format\":\"gguf\",\"family\":\"\",\"families\":[\"\"],\"parameter_size\":\"\",\"quantization_level\":\"\"}}],\"object\":\"list\",\"data\":[{\"id\":\"glm-4-9b-chat\",\"aliases\":[\"glm-4-9b-chat\"],\"tags\":[],\"object\":\"model\",\"created\":1789487649,\"owned_by\":\"llamacpp\",\"meta\":{\"vocab_type\":true,\"n_vocab\":151552,\"n_ct"
+    },
+    "llama": {
+      "healthy": true,
+      "status": 200,
+      "detail": "{\"models\":[{\"name\":\"llama-3.1-8b-instruct\",\"model\":\"llama-3.1-8b-instruct\",\"modified_at\":\"\",\"size\":\"\",\"digest\":\"\",\"type\":\"model\",\"description\":\"\",\"tags\":[\"\"],\"capabilities\":[\"completion\"],\"parameters\":\"\",\"details\":{\"parent_model\":\"\",\"format\":\"gguf\",\"family\":\"\",\"families\":[\"\"],\"parameter_size\":\"\",\"quantization_level\":\"\"}}],\"object\":\"list\",\"data\":[{\"id\":\"llama-3.1-8b-instruct\",\"aliases\":[\"llama-3.1-8b-instruct\"],\"tags\":[],\"object\":\"model\",\"created\":1789487649,\"owned_by\":\"llamacpp\",\"meta\":{\"vocab_t"
+    },
+    "qwen": {
+      "healthy": true,
+      "status": 200,
+      "detail": "{\"models\":[{\"name\":\"qwen3-8b\",\"model\":\"qwen3-8b\",\"modified_at\":\"\",\"size\":\"\",\"digest\":\"\",\"type\":\"model\",\"description\":\"\",\"tags\":[\"\"],\"capabilities\":[\"completion\"],\"parameters\":\"\",\"details\":{\"parent_model\":\"\",\"format\":\"gguf\",\"family\":\"\",\"families\":[\"\"],\"parameter_size\":\"\",\"quantization_level\":\"\"}}],\"object\":\"list\",\"data\":[{\"id\":\"qwen3-8b\",\"aliases\":[\"qwen3-8b\"],\"tags\":[],\"object\":\"model\",\"created\":1789487649,\"owned_by\":\"llamacpp\",\"meta\":{\"vocab_type\":true,\"n_vocab\":151936,\"n_ctx\":8192,\"n_ctx_train"
+    }
+  },
+  "summaries": {
+    "position": {
+      "bias_class": "position",
+      "n_items": 36,
+      "n_specs": 72,
+      "n_jobs": 216,
+      "calls_made": {
+        "glm": 72,
+        "llama": 72,
+        "qwen": 72
+      },
+      "n_skipped_by_cap": 0,
+      "n_errors": 0,
+      "n_parsed": 216
+    }
+  }
+}
+{
+  "health": {
+    "glm": {
+      "healthy": true,
+      "status": 200,
+      "detail": "{\"models\":[{\"name\":\"glm-4-9b-chat\",\"model\":\"glm-4-9b-chat\",\"modified_at\":\"\",\"size\":\"\",\"digest\":\"\",\"type\":\"model\",\"description\":\"\",\"tags\":[\"\"],\"capabilities\":[\"completion\"],\"parameters\":\"\",\"details\":{\"parent_model\":\"\",\"format\":\"gguf\",\"family\":\"\",\"families\":[\"\"],\"parameter_size\":\"\",\"quantization_level\":\"\"}}],\"object\":\"list\",\"data\":[{\"id\":\"glm-4-9b-chat\",\"aliases\":[\"glm-4-9b-chat\"],\"tags\":[],\"object\":\"model\",\"created\":1789489260,\"owned_by\":\"llamacpp\",\"meta\":{\"vocab_type\":true,\"n_vocab\":151552,\"n_ct"
+    },
+    "llama": {
+      "healthy": true,
+      "status": 200,
+      "detail": "{\"models\":[{\"name\":\"llama-3.1-8b-instruct\",\"model\":\"llama-3.1-8b-instruct\",\"modified_at\":\"\",\"size\":\"\",\"digest\":\"\",\"type\":\"model\",\"description\":\"\",\"tags\":[\"\"],\"capabilities\":[\"completion\"],\"parameters\":\"\",\"details\":{\"parent_model\":\"\",\"format\":\"gguf\",\"family\":\"\",\"families\":[\"\"],\"parameter_size\":\"\",\"quantization_level\":\"\"}}],\"object\":\"list\",\"data\":[{\"id\":\"llama-3.1-8b-instruct\",\"aliases\":[\"llama-3.1-8b-instruct\"],\"tags\":[],\"object\":\"model\",\"created\":1789489260,\"owned_by\":\"llamacpp\",\"meta\":{\"vocab_t"
+    },
+    "qwen": {
+      "healthy": true,
+      "status": 200,
+      "detail": "{\"models\":[{\"name\":\"qwen3-8b\",\"model\":\"qwen3-8b\",\"modified_at\":\"\",\"size\":\"\",\"digest\":\"\",\"type\":\"model\",\"description\":\"\",\"tags\":[\"\"],\"capabilities\":[\"completion\"],\"parameters\":\"\",\"details\":{\"parent_model\":\"\",\"format\":\"gguf\",\"family\":\"\",\"families\":[\"\"],\"parameter_size\":\"\",\"quantization_level\":\"\"}}],\"object\":\"list\",\"data\":[{\"id\":\"qwen3-8b\",\"aliases\":[\"qwen3-8b\"],\"tags\":[],\"object\":\"model\",\"created\":1789489260,\"owned_by\":\"llamacpp\",\"meta\":{\"vocab_type\":true,\"n_vocab\":151936,\"n_ctx\":8192,\"n_ctx_train"
+    }
+  },
+  "summaries": {
+    "verbosity": {
+      "bias_class": "verbosity",
+      "n_items": 48,
+      "n_specs": 96,
+      "n_jobs": 288,
+      "calls_made": {
+        "glm": 48,
+        "llama": 48,
+        "qwen": 48
+      },
+      "n_skipped_by_cap": 144,
+      "n_errors": 0,
+      "n_parsed": 144
+    }
+  }
+}
+{
+  "health": {
+    "glm": {
+      "healthy": true,
+      "status": 200,
+      "detail": "{\"models\":[{\"name\":\"glm-4-9b-chat\",\"model\":\"glm-4-9b-chat\",\"modified_at\":\"\",\"size\":\"\",\"digest\":\"\",\"type\":\"model\",\"description\":\"\",\"tags\":[\"\"],\"capabilities\":[\"completion\"],\"parameters\":\"\",\"details\":{\"parent_model\":\"\",\"format\":\"gguf\",\"family\":\"\",\"families\":[\"\"],\"parameter_size\":\"\",\"quantization_level\":\"\"}}],\"object\":\"list\",\"data\":[{\"id\":\"glm-4-9b-chat\",\"aliases\":[\"glm-4-9b-chat\"],\"tags\":[],\"object\":\"model\",\"created\":1789490288,\"owned_by\":\"llamacpp\",\"meta\":{\"vocab_type\":true,\"n_vocab\":151552,\"n_ct"
+    },
+    "llama": {
+      "healthy": true,
+      "status": 200,
+      "detail": "{\"models\":[{\"name\":\"llama-3.1-8b-instruct\",\"model\":\"llama-3.1-8b-instruct\",\"modified_at\":\"\",\"size\":\"\",\"digest\":\"\",\"type\":\"model\",\"description\":\"\",\"tags\":[\"\"],\"capabilities\":[\"completion\"],\"parameters\":\"\",\"details\":{\"parent_model\":\"\",\"format\":\"gguf\",\"family\":\"\",\"families\":[\"\"],\"parameter_size\":\"\",\"quantization_level\":\"\"}}],\"object\":\"list\",\"data\":[{\"id\":\"llama-3.1-8b-instruct\",\"aliases\":[\"llama-3.1-8b-instruct\"],\"tags\":[],\"object\":\"model\",\"created\":1789490288,\"owned_by\":\"llamacpp\",\"meta\":{\"vocab_t"
+    },
+    "qwen": {
+      "healthy": true,
+      "status": 200,
+      "detail": "{\"models\":[{\"name\":\"qwen3-8b\",\"model\":\"qwen3-8b\",\"modified_at\":\"\",\"size\":\"\",\"digest\":\"\",\"type\":\"model\",\"description\":\"\",\"tags\":[\"\"],\"capabilities\":[\"completion\"],\"parameters\":\"\",\"details\":{\"parent_model\":\"\",\"format\":\"gguf\",\"family\":\"\",\"families\":[\"\"],\"parameter_size\":\"\",\"quantization_level\":\"\"}}],\"object\":\"list\",\"data\":[{\"id\":\"qwen3-8b\",\"aliases\":[\"qwen3-8b\"],\"tags\":[],\"object\":\"model\",\"created\":1789490288,\"owned_by\":\"llamacpp\",\"meta\":{\"vocab_type\":true,\"n_vocab\":151936,\"n_ctx\":8192,\"n_ctx_train"
+    }
+  },
+  "summaries": {
+    "cbw": {
+      "bias_class": "cbw",
+      "n_items": 20,
+      "n_specs": 40,
+      "n_jobs": 120,
+      "calls_made": {
+        "glm": 20,
+        "llama": 20,
+        "qwen": 20
+      },
+      "n_skipped_by_cap": 60,
+      "n_errors": 0,
+      "n_parsed": 60
+    }
+  }
+}
+{
+  "health": {
+    "glm": {
+      "healthy": true,
+      "status": 200,
+      "detail": "{\"models\":[{\"name\":\"glm-4-9b-chat\",\"model\":\"glm-4-9b-chat\",\"modified_at\":\"\",\"size\":\"\",\"digest\":\"\",\"type\":\"model\",\"description\":\"\",\"tags\":[\"\"],\"capabilities\":[\"completion\"],\"parameters\":\"\",\"details\":{\"parent_model\":\"\",\"format\":\"gguf\",\"family\":\"\",\"families\":[\"\"],\"parameter_size\":\"\",\"quantization_level\":\"\"}}],\"object\":\"list\",\"data\":[{\"id\":\"glm-4-9b-chat\",\"aliases\":[\"glm-4-9b-chat\"],\"tags\":[],\"object\":\"model\",\"created\":1789490675,\"owned_by\":\"llamacpp\",\"meta\":{\"vocab_type\":true,\"n_vocab\":151552,\"n_ct"
+    },
+    "llama": {
+      "healthy": true,
+      "status": 200,
+      "detail": "{\"models\":[{\"name\":\"llama-3.1-8b-instruct\",\"model\":\"llama-3.1-8b-instruct\",\"modified_at\":\"\",\"size\":\"\",\"digest\":\"\",\"type\":\"model\",\"description\":\"\",\"tags\":[\"\"],\"capabilities\":[\"completion\"],\"parameters\":\"\",\"details\":{\"parent_model\":\"\",\"format\":\"gguf\",\"family\":\"\",\"families\":[\"\"],\"parameter_size\":\"\",\"quantization_level\":\"\"}}],\"object\":\"list\",\"data\":[{\"id\":\"llama-3.1-8b-instruct\",\"aliases\":[\"llama-3.1-8b-instruct\"],\"tags\":[],\"object\":\"model\",\"created\":1789490675,\"owned_by\":\"llamacpp\",\"meta\":{\"vocab_t"
+    },
+    "qwen": {
+      "healthy": true,
+      "status": 200,
+      "detail": "{\"models\":[{\"name\":\"qwen3-8b\",\"model\":\"qwen3-8b\",\"modified_at\":\"\",\"size\":\"\",\"digest\":\"\",\"type\":\"model\",\"description\":\"\",\"tags\":[\"\"],\"capabilities\":[\"completion\"],\"parameters\":\"\",\"details\":{\"parent_model\":\"\",\"format\":\"gguf\",\"family\":\"\",\"families\":[\"\"],\"parameter_size\":\"\",\"quantization_level\":\"\"}}],\"object\":\"list\",\"data\":[{\"id\":\"qwen3-8b\",\"aliases\":[\"qwen3-8b\"],\"tags\":[],\"object\":\"model\",\"created\":1789490675,\"owned_by\":\"llamacpp\",\"meta\":{\"vocab_type\":true,\"n_vocab\":151936,\"n_ctx\":8192,\"n_ctx_train"
+    }
+  },
+  "summaries": {
+    "anchoring": {
+      "bias_class": "anchoring",
+      "n_items": 12,
+      "n_specs": 24,
+      "n_jobs": 72,
+      "calls_made": {
+        "glm": 24,
+        "llama": 24,
+        "qwen": 24
+      },
+      "n_skipped_by_cap": 0,
+      "n_errors": 0,
+      "n_parsed": 72
+    }
+  }
+}
+{
+  "health": {
+    "glm": {
+      "healthy": true,
+      "status": 200,
+      "detail": "{\"models\":[{\"name\":\"glm-4-9b-chat\",\"model\":\"glm-4-9b-chat\",\"modified_at\":\"\",\"size\":\"\",\"digest\":\"\",\"type\":\"model\",\"description\":\"\",\"tags\":[\"\"],\"capabilities\":[\"completion\"],\"parameters\":\"\",\"details\":{\"parent_model\":\"\",\"format\":\"gguf\",\"family\":\"\",\"families\":[\"\"],\"parameter_size\":\"\",\"quantization_level\":\"\"}}],\"object\":\"list\",\"data\":[{\"id\":\"glm-4-9b-chat\",\"aliases\":[\"glm-4-9b-chat\"],\"tags\":[],\"object\":\"model\",\"created\":1789491215,\"owned_by\":\"llamacpp\",\"meta\":{\"vocab_type\":true,\"n_vocab\":151552,\"n_ct"
+    },
+    "llama": {
+      "healthy": true,
+      "status": 200,
+      "detail": "{\"models\":[{\"name\":\"llama-3.1-8b-instruct\",\"model\":\"llama-3.1-8b-instruct\",\"modified_at\":\"\",\"size\":\"\",\"digest\":\"\",\"type\":\"model\",\"description\":\"\",\"tags\":[\"\"],\"capabilities\":[\"completion\"],\"parameters\":\"\",\"details\":{\"parent_model\":\"\",\"format\":\"gguf\",\"family\":\"\",\"families\":[\"\"],\"parameter_size\":\"\",\"quantization_level\":\"\"}}],\"object\":\"list\",\"data\":[{\"id\":\"llama-3.1-8b-instruct\",\"aliases\":[\"llama-3.1-8b-instruct\"],\"tags\":[],\"object\":\"model\",\"created\":1789491215,\"owned_by\":\"llamacpp\",\"meta\":{\"vocab_t"
+    },
+    "qwen": {
+      "healthy": true,
+      "status": 200,
+      "detail": "{\"models\":[{\"name\":\"qwen3-8b\",\"model\":\"qwen3-8b\",\"modified_at\":\"\",\"size\":\"\",\"digest\":\"\",\"type\":\"model\",\"description\":\"\",\"tags\":[\"\"],\"capabilities\":[\"completion\"],\"parameters\":\"\",\"details\":{\"parent_model\":\"\",\"format\":\"gguf\",\"family\":\"\",\"families\":[\"\"],\"parameter_size\":\"\",\"quantization_level\":\"\"}}],\"object\":\"list\",\"data\":[{\"id\":\"qwen3-8b\",\"aliases\":[\"qwen3-8b\"],\"tags\":[],\"object\":\"model\",\"created\":1789491215,\"owned_by\":\"llamacpp\",\"meta\":{\"vocab_type\":true,\"n_vocab\":151936,\"n_ctx\":8192,\"n_ctx_train"
+    }
+  },
+  "summaries": {
+    "selfpref_generation": {
+      "bias_class": "selfpref_generation",
+      "n_items": 15,
+      "n_specs": 15,
+      "n_jobs": 45,
+      "calls_made": {
+        "glm": 15,
+        "llama": 15,
+        "qwen": 15
+      },
+      "n_skipped_by_cap": 0,
+      "n_errors": 0,
+      "n_parsed": 0
+    }
+  }
+}

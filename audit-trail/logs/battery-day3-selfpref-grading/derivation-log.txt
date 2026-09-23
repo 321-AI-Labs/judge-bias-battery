@@ -1,0 +1,20 @@
+REDACTION NOTE: Paths redacted for public release; content otherwise verbatim. Originals hash-pinned in the lab archive.
+
+wrote <lab-path>\selfpref-corrections.json
+glm    drift_sp=+3.5333 ci95=[+1.5333, +5.6667] n=15 sig=True
+llama  drift_sp=-5.7143 ci95=[-8.1429, -3.1429] n=14 sig=True
+qwen   drift_sp=+4.5333 ci95=[+2.2000, +6.8667] n=15 sig=True
+cross-checks: PASS PASS
+sha256: 0fcd7e85ab0cf97577b28e50adbfc97b90bf0f191e8a3987882c6d8c113113e1
+
+=== derivation determinism record (written 2026-09-16 ~19:22 EDT) ===
+run1 (deliverable state)  sha256 21a9b812b63c2ffdb3e0721c0e514b983cdd39b9ab2ae32d634a15e1c84aa88b
+run2 (this run)           sha256 0fcd7e85ab0cf97577b28e50adbfc97b90bf0f191e8a3987882c6d8c113113e1
+raw hashes differ only by envelope.created_utc (wall-clock second);
+created_utc-normalized sha256 of both runs: b2b62af05779fafc07ac1f2d982f464efb67598afb8056589210d9490a445be5
+(match criterion: normalized identity — two runs can straddle a wall-clock second)
+script: glm/work/p8/harness/derive-selfpref.py
+NOTE: script aligned to COEF-METHOD §1 exclusion rule post-data (1 llama
+parse failure, task-confusion family; pairing analysis-task-03 dropped,
+llama n=14; estimator math/seeds/CI untouched) — disclosed OPEN-ISSUES
+ISSUE-011 + daily entry; flagged for the post-run review pass.

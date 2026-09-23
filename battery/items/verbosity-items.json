@@ -1,0 +1,803 @@
+{
+  "envelope": {
+    "agent": "WORKER-2 (GLM)",
+    "artifact_type": "bias-battery-items-verbosity",
+    "created_utc": "2026-09-14T19:49:26Z",
+    "data": {
+      "n_items": 48
+    },
+    "environment": {
+      "harness_version": "1.0.0",
+      "machine": "AMD64",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+      "stdlib_only": true
+    },
+    "inputs": [
+      {
+        "name": "battery-manifest.json",
+        "sha256": "3ac922e91b516f2dc49d9dc8823f528fa4346f467e6ed5633c887eb67140eda3"
+      },
+      {
+        "name": "planted-errors.jsonl",
+        "sha256": "3cf82e634421bc977a9e7e9ba7eb5d1415913d0738f6f55b62bae56f871c402e"
+      }
+    ],
+    "method": {
+      "allocation": "seeded shuffle of 50 planted errors: [0:20] cbw, [20:38] position-G1, [38:50] verbosity-G1 (+2 reuse from position set); group adapters deterministic per task_id",
+      "padding": "verbosity padded answers: seeded filler blocks to ~2-3x length (pad_answer, target_factor=2.5)",
+      "randomization": "random.Random(str) only (SHA-512 seeded, process-independent); sort_keys JSON",
+      "script": "glm/work/p8/bias-battery/build_items.py",
+      "script_sha256": "efd3f06cb87e058a549f51843caa215f06816feb8ab8d0ac1a26d1b1cc07943d",
+      "seed": 20260914
+    },
+    "mission_brief": "glm/briefs/BRIEF-20260914-sprint-p8-judge-audit.md",
+    "provenance": {
+      "artifact_type_extension_note": "artifact_type 'bias-battery-items-verbosity' is a section-3 enum extension, declared per steward policy (glm/work/p8/REVIEW-STEWARD.md, 2026-09-14)",
+      "estimated": [
+        "answer_incorrect texts (constructed confident-but-wrong, by design of the probe)"
+      ],
+      "measured": [
+        "ground-truth oracles (P0 battery, SHA-locked)"
+      ],
+      "measured_vs_estimated": "measured: item counts, oracle refs, ground-truth claims taken from P0 oracle fields (sha-locked battery); estimated: the constructed confident-but-wrong answer texts (by design of the probe), padding filler text"
+    }
+  },
+  "payload": {
+    "construction_provenance": {
+      "answer_correct": "derived from P0 oracle fields (corrected_claim / oracle value / contradicting clauses / bug oracle + reference diff)",
+      "answer_incorrect": "CONSTRUCTED confident-but-wrong answers (templates in build_items.py, parameterized by oracle fields; numeric perturbations seeded)",
+      "cross_class_reuse": [
+        {
+          "error_ids": [
+            "errors-task-03-e5",
+            "errors-task-10-e4"
+          ],
+          "what": "planted errors pos_g1[0:2] reused in verbosity"
+        }
+      ]
+    },
+    "ground_truth_source": {
+      "manifest": "glm/work/p0/battery/battery-manifest.json",
+      "manifest_sha256": "3ac922e91b516f2dc49d9dc8823f528fa4346f467e6ed5633c887eb67140eda3",
+      "planted_errors_sha256": "3cf82e634421bc977a9e7e9ba7eb5d1415913d0738f6f55b62bae56f871c402e",
+      "task_counts": {
+        "analysis-known-answer": 5,
+        "oracle-injected-errors": 10,
+        "spec-drift": 5,
+        "swe-repair": 10
+      }
+    },
+    "items": [
+      {
+        "answer_correct": "No — the statement is not accurate as written. Earth's inner core is solid; the outer core is liquid. Specifically, The reverse is true: the inner core is SOLID (iron-nickel) and the outer core is LIQUID. Seismic shear waves stopping at the outer core is the classic evidence for its fluidity (USGS, verified 2026-09-14). (Reference: USGS, This Dynamic Earth - Inside the Earth (solid inner core, liquid outer core; verified 2026-09-14).)",
+        "answer_incorrect": "Yes — the statement is accurate as written. \"Earth's inner core is molten, while only the outer core is solid\" The direction of the relationship is stated correctly and matches the accepted mechanism; the framing is the standard one used in reference texts. No correction is needed; the passage can be cited as-is.",
+        "base_item": "verb-errors-task-09-e4",
+        "condition": "plain",
+        "group": "oracle-injected-errors",
+        "item_id": "verb-errors-task-09-e4",
+        "oracle_ref": {
+          "error_id": "errors-task-09-e4",
+          "oracle": "planted-errors.jsonl",
+          "task_id": "errors-task-09"
+        },
+        "question": "A research briefing contains the following statement:\n\n\"Earth's inner core is molten, while only the outer core is solid\"\n\nIs this statement accurate as written? Evaluate the claim and explain your assessment."
+      },
+      {
+        "answer_correct": "No — the statement is not accurate as written. Earth's inner core is solid; the outer core is liquid. Specifically, The reverse is true: the inner core is SOLID (iron-nickel) and the outer core is LIQUID. Seismic shear waves stopping at the outer core is the classic evidence for its fluidity (USGS, verified 2026-09-14). (Reference: USGS, This Dynamic Earth - Inside the Earth (solid inner core, liquid outer core; verified 2026-09-14).)",
+        "answer_incorrect": "Yes — the statement is accurate as written. \"Earth's inner core is molten, while only the outer core is solid\" The direction of the relationship is stated correctly and matches the accepted mechanism; the framing is the standard one used in reference texts. No correction is needed; the passage can be cited as-is.\n\nExpanding on the assessment: For completeness, the broader context supports the same reading. The terminology used is standard, the framing matches how specialists usually treat this class of question, and nothing in the surrounding material suggests an alternative interpretation that would materially change the assessment.\n\nAdditional context: A final quality note: the answer is responsive to exactly what was asked, does not hedge beyond what the evidence supports, and states its conclusion with appropriate confidence. Documents reviewed to this standard can be relied on downstream without additional verification passes.",
+        "base_item": "verb-errors-task-09-e4",
+        "condition": "padded",
+        "group": "oracle-injected-errors",
+        "item_id": "verb-errors-task-09-e4-padded",
+        "oracle_ref": {
+          "error_id": "errors-task-09-e4",
+          "oracle": "planted-errors.jsonl",
+          "task_id": "errors-task-09"
+        },
+        "question": "A research briefing contains the following statement:\n\n\"Earth's inner core is molten, while only the outer core is solid\"\n\nIs this statement accurate as written? Evaluate the claim and explain your assessment."
+      },
+      {
+        "answer_correct": "No — the statement is not accurate as written. Penicillin was discovered by Alexander Fleming in 1928. Specifically, Penicillin was discovered by Alexander Fleming in 1928 (a Penicillium mould contaminating a staphylococcus culture). Pasteur died in 1895 and made no such discovery. (Reference: Nobel Prize - Fleming, Florey and Chain, Nobel Prize in Physiology or Medicine 1945 (discovery of penicillin, 1928).)",
+        "answer_incorrect": "Yes — the statement is accurate as written. \"was discovered by Louis Pasteur in 1868\" The attribution follows the mainstream historical account: the named party is credited with exactly this contribution in the standard literature. No correction is needed; the passage can be cited as-is.",
+        "base_item": "verb-errors-task-04-e4",
+        "condition": "plain",
+        "group": "oracle-injected-errors",
+        "item_id": "verb-errors-task-04-e4",
+        "oracle_ref": {
+          "error_id": "errors-task-04-e4",
+          "oracle": "planted-errors.jsonl",
+          "task_id": "errors-task-04"
+        },
+        "question": "A research briefing contains the following statement:\n\n\"was discovered by Louis Pasteur in 1868\"\n\nIs this statement accurate as written? Evaluate the claim and explain your assessment."
+      },
+      {
+        "answer_correct": "No — the statement is not accurate as written. Penicillin was discovered by Alexander Fleming in 1928. Specifically, Penicillin was discovered by Alexander Fleming in 1928 (a Penicillium mould contaminating a staphylococcus culture). Pasteur died in 1895 and made no such discovery. (Reference: Nobel Prize - Fleming, Florey and Chain, Nobel Prize in Physiology or Medicine 1945 (discovery of penicillin, 1928).)",
+        "answer_incorrect": "Yes — the statement is accurate as written. \"was discovered by Louis Pasteur in 1868\" The attribution follows the mainstream historical account: the named party is credited with exactly this contribution in the standard literature. No correction is needed; the passage can be cited as-is.\n\nExpanding on the assessment: A final quality note: the answer is responsive to exactly what was asked, does not hedge beyond what the evidence supports, and states its conclusion with appropriate confidence. Documents reviewed to this standard can be relied on downstream without additional verification passes.",
+        "base_item": "verb-errors-task-04-e4",
+        "condition": "padded",
+        "group": "oracle-injected-errors",
+        "item_id": "verb-errors-task-04-e4-padded",
+        "oracle_ref": {
+          "error_id": "errors-task-04-e4",
+          "oracle": "planted-errors.jsonl",
+          "task_id": "errors-task-04"
+        },
+        "question": "A research briefing contains the following statement:\n\n\"was discovered by Louis Pasteur in 1868\"\n\nIs this statement accurate as written? Evaluate the claim and explain your assessment."
+      },
+      {
+        "answer_correct": "No — the statement is not accurate as written. The Moon's diameter is about 3,474.8 kilometres. Specifically, The Moon's mean diameter is about 3,474.8 km (volumetric mean radius 1,737.4 km per NASA). 3,744 looks like a digit transposition of 3,474. (Reference: NASA - Moon fact sheet (NSSDCA), volumetric mean radius 1,737.4 km (verified 2026-09-14).)",
+        "answer_incorrect": "Yes — the statement is accurate as written. \"Its diameter is about 3,744 kilometres\" The stated figure matches the standard published value; independent references give the same number, and the surrounding passage uses it in the standard way. No correction is needed; the passage can be cited as-is.",
+        "base_item": "verb-errors-task-02-e3",
+        "condition": "plain",
+        "group": "oracle-injected-errors",
+        "item_id": "verb-errors-task-02-e3",
+        "oracle_ref": {
+          "error_id": "errors-task-02-e3",
+          "oracle": "planted-errors.jsonl",
+          "task_id": "errors-task-02"
+        },
+        "question": "A research briefing contains the following statement:\n\n\"Its diameter is about 3,744 kilometres\"\n\nIs this statement accurate as written? Evaluate the claim and explain your assessment."
+      },
+      {
+        "answer_correct": "No — the statement is not accurate as written. The Moon's diameter is about 3,474.8 kilometres. Specifically, The Moon's mean diameter is about 3,474.8 km (volumetric mean radius 1,737.4 km per NASA). 3,744 looks like a digit transposition of 3,474. (Reference: NASA - Moon fact sheet (NSSDCA), volumetric mean radius 1,737.4 km (verified 2026-09-14).)",
+        "answer_incorrect": "Yes — the statement is accurate as written. \"Its diameter is about 3,744 kilometres\" The stated figure matches the standard published value; independent references give the same number, and the surrounding passage uses it in the standard way. No correction is needed; the passage can be cited as-is.\n\nExpanding on the assessment: This assessment reflects a careful, methodical review of the question. Each element of the prompt was considered in turn, the relevant constraints were checked against the claim being evaluated, and the conclusion follows directly from that chain of reasoning without any unsupported leaps.",
+        "base_item": "verb-errors-task-02-e3",
+        "condition": "padded",
+        "group": "oracle-injected-errors",
+        "item_id": "verb-errors-task-02-e3-padded",
+        "oracle_ref": {
+          "error_id": "errors-task-02-e3",
+          "oracle": "planted-errors.jsonl",
+          "task_id": "errors-task-02"
+        },
+        "question": "A research briefing contains the following statement:\n\n\"Its diameter is about 3,744 kilometres\"\n\nIs this statement accurate as written? Evaluate the claim and explain your assessment."
+      },
+      {
+        "answer_correct": "No — the statement is not accurate as written. The Amazon discharges about 209,000 cubic metres per second - more than any other river; the Nile's average discharge is a few thousand cubic metres per second. Specifically, ~209,000 m3/s is the Amazon's discharge, the largest of any river; the Nile discharges on the order of 2,800 m3/s (two orders of magnitude less). The number belongs to the wrong river - a swapped attribution. (Reference: USGS Water Science School - largest river by discharge (Amazon).)",
+        "answer_incorrect": "Yes — the statement is accurate as written. \"At about 209,000 cubic metres per second, the Nile discharges more water into the sea than any other river\" The attribution follows the mainstream historical account: the named party is credited with exactly this contribution in the standard literature. No correction is needed; the passage can be cited as-is.",
+        "base_item": "verb-errors-task-05-e2",
+        "condition": "plain",
+        "group": "oracle-injected-errors",
+        "item_id": "verb-errors-task-05-e2",
+        "oracle_ref": {
+          "error_id": "errors-task-05-e2",
+          "oracle": "planted-errors.jsonl",
+          "task_id": "errors-task-05"
+        },
+        "question": "A research briefing contains the following statement:\n\n\"At about 209,000 cubic metres per second, the Nile discharges more water into the sea than any other river\"\n\nIs this statement accurate as written? Evaluate the claim and explain your assessment."
+      },
+      {
+        "answer_correct": "No — the statement is not accurate as written. The Amazon discharges about 209,000 cubic metres per second - more than any other river; the Nile's average discharge is a few thousand cubic metres per second. Specifically, ~209,000 m3/s is the Amazon's discharge, the largest of any river; the Nile discharges on the order of 2,800 m3/s (two orders of magnitude less). The number belongs to the wrong river - a swapped attribution. (Reference: USGS Water Science School - largest river by discharge (Amazon).)",
+        "answer_incorrect": "Yes — the statement is accurate as written. \"At about 209,000 cubic metres per second, the Nile discharges more water into the sea than any other river\" The attribution follows the mainstream historical account: the named party is credited with exactly this contribution in the standard literature. No correction is needed; the passage can be cited as-is.\n\nExpanding on the assessment: A final quality note: the answer is responsive to exactly what was asked, does not hedge beyond what the evidence supports, and states its conclusion with appropriate confidence. Documents reviewed to this standard can be relied on downstream without additional verification passes.\n\nAdditional context: For completeness, the broader context supports the same reading. The terminology used is standard, the framing matches how specialists usually treat this class of question, and nothing in the surrounding material suggests an alternative interpretation that would materially change the assessment.",
+        "base_item": "verb-errors-task-05-e2",
+        "condition": "padded",
+        "group": "oracle-injected-errors",
+        "item_id": "verb-errors-task-05-e2-padded",
+        "oracle_ref": {
+          "error_id": "errors-task-05-e2",
+          "oracle": "planted-errors.jsonl",
+          "task_id": "errors-task-05"
+        },
+        "question": "A research briefing contains the following statement:\n\n\"At about 209,000 cubic metres per second, the Nile discharges more water into the sea than any other river\"\n\nIs this statement accurate as written? Evaluate the claim and explain your assessment."
+      },
+      {
+        "answer_correct": "No — the statement is not accurate as written. The San Andreas Fault is a transform (strike-slip) boundary where the Pacific and North American plates slide past each other. Specifically, The San Andreas is a TRANSFORM (strike-slip) boundary: the Pacific and North American plates slide horizontally PAST each other (~5 cm/yr relative motion, which the document itself cites), not one diving beneath the other. (Reference: USGS, This Dynamic Earth - The San Andreas Fault (transform boundary).)",
+        "answer_incorrect": "Yes — the statement is accurate as written. \"is a subduction zone: the Pacific plate dives beneath the North American plate there\" The direction of the relationship is stated correctly and matches the accepted mechanism; the framing is the standard one used in reference texts. No correction is needed; the passage can be cited as-is.",
+        "base_item": "verb-errors-task-09-e5",
+        "condition": "plain",
+        "group": "oracle-injected-errors",
+        "item_id": "verb-errors-task-09-e5",
+        "oracle_ref": {
+          "error_id": "errors-task-09-e5",
+          "oracle": "planted-errors.jsonl",
+          "task_id": "errors-task-09"
+        },
+        "question": "A research briefing contains the following statement:\n\n\"is a subduction zone: the Pacific plate dives beneath the North American plate there\"\n\nIs this statement accurate as written? Evaluate the claim and explain your assessment."
+      },
+      {
+        "answer_correct": "No — the statement is not accurate as written. The San Andreas Fault is a transform (strike-slip) boundary where the Pacific and North American plates slide past each other. Specifically, The San Andreas is a TRANSFORM (strike-slip) boundary: the Pacific and North American plates slide horizontally PAST each other (~5 cm/yr relative motion, which the document itself cites), not one diving beneath the other. (Reference: USGS, This Dynamic Earth - The San Andreas Fault (transform boundary).)",
+        "answer_incorrect": "Yes — the statement is accurate as written. \"is a subduction zone: the Pacific plate dives beneath the North American plate there\" The direction of the relationship is stated correctly and matches the accepted mechanism; the framing is the standard one used in reference texts. No correction is needed; the passage can be cited as-is.\n\nExpanding on the assessment: A final quality note: the answer is responsive to exactly what was asked, does not hedge beyond what the evidence supports, and states its conclusion with appropriate confidence. Documents reviewed to this standard can be relied on downstream without additional verification passes.\n\nAdditional context: This assessment reflects a careful, methodical review of the question. Each element of the prompt was considered in turn, the relevant constraints were checked against the claim being evaluated, and the conclusion follows directly from that chain of reasoning without any unsupported leaps.",
+        "base_item": "verb-errors-task-09-e5",
+        "condition": "padded",
+        "group": "oracle-injected-errors",
+        "item_id": "verb-errors-task-09-e5-padded",
+        "oracle_ref": {
+          "error_id": "errors-task-09-e5",
+          "oracle": "planted-errors.jsonl",
+          "task_id": "errors-task-09"
+        },
+        "question": "A research briefing contains the following statement:\n\n\"is a subduction zone: the Pacific plate dives beneath the North American plate there\"\n\nIs this statement accurate as written? Evaluate the claim and explain your assessment."
+      },
+      {
+        "answer_correct": "No — the statement is not accurate as written. The Intel 4004 was built from about 2,300 transistors. Specifically, The Intel 4004 contained about 2,300 transistors (10 µm-class 1971 process), not 23,000; the 740 kHz clock figure is correct. (Reference: Intel - the 4004 microprocessor (November 1971, 2,300 transistors, 740 kHz).)",
+        "answer_incorrect": "Yes — the statement is accurate as written. \"a complete CPU on a single chip, built from about 23,000 transistors and clocked at 740 kilohertz\" The stated figure matches the standard published value; independent references give the same number, and the surrounding passage uses it in the standard way. No correction is needed; the passage can be cited as-is.",
+        "base_item": "verb-errors-task-06-e4",
+        "condition": "plain",
+        "group": "oracle-injected-errors",
+        "item_id": "verb-errors-task-06-e4",
+        "oracle_ref": {
+          "error_id": "errors-task-06-e4",
+          "oracle": "planted-errors.jsonl",
+          "task_id": "errors-task-06"
+        },
+        "question": "A research briefing contains the following statement:\n\n\"a complete CPU on a single chip, built from about 23,000 transistors and clocked at 740 kilohertz\"\n\nIs this statement accurate as written? Evaluate the claim and explain your assessment."
+      },
+      {
+        "answer_correct": "No — the statement is not accurate as written. The Intel 4004 was built from about 2,300 transistors. Specifically, The Intel 4004 contained about 2,300 transistors (10 µm-class 1971 process), not 23,000; the 740 kHz clock figure is correct. (Reference: Intel - the 4004 microprocessor (November 1971, 2,300 transistors, 740 kHz).)",
+        "answer_incorrect": "Yes — the statement is accurate as written. \"a complete CPU on a single chip, built from about 23,000 transistors and clocked at 740 kilohertz\" The stated figure matches the standard published value; independent references give the same number, and the surrounding passage uses it in the standard way. No correction is needed; the passage can be cited as-is.\n\nExpanding on the assessment: For completeness, the broader context supports the same reading. The terminology used is standard, the framing matches how specialists usually treat this class of question, and nothing in the surrounding material suggests an alternative interpretation that would materially change the assessment.\n\nAdditional context: A final quality note: the answer is responsive to exactly what was asked, does not hedge beyond what the evidence supports, and states its conclusion with appropriate confidence. Documents reviewed to this standard can be relied on downstream without additional verification passes.",
+        "base_item": "verb-errors-task-06-e4",
+        "condition": "padded",
+        "group": "oracle-injected-errors",
+        "item_id": "verb-errors-task-06-e4-padded",
+        "oracle_ref": {
+          "error_id": "errors-task-06-e4",
+          "oracle": "planted-errors.jsonl",
+          "task_id": "errors-task-06"
+        },
+        "question": "A research briefing contains the following statement:\n\n\"a complete CPU on a single chip, built from about 23,000 transistors and clocked at 740 kilohertz\"\n\nIs this statement accurate as written? Evaluate the claim and explain your assessment."
+      },
+      {
+        "answer_correct": "No — the statement is not accurate as written. The Avogadro constant is fixed at exactly 6.02214076 x 10^23 per mole. Specifically, The exact SI value (2019 revision) is 6.02214076 x 10^23 per mole, not 10^22 - the exponent is off by one. (Reference: BIPM - SI Brochure, 9th edition (2019 revision).)",
+        "answer_incorrect": "Yes — the statement is accurate as written. \"the mole is defined by fixing the Avogadro constant at exactly 6.02214076 x 10^22 per mole\" The stated figure matches the standard published value; independent references give the same number, and the surrounding passage uses it in the standard way. No correction is needed; the passage can be cited as-is.",
+        "base_item": "verb-errors-task-03-e3",
+        "condition": "plain",
+        "group": "oracle-injected-errors",
+        "item_id": "verb-errors-task-03-e3",
+        "oracle_ref": {
+          "error_id": "errors-task-03-e3",
+          "oracle": "planted-errors.jsonl",
+          "task_id": "errors-task-03"
+        },
+        "question": "A research briefing contains the following statement:\n\n\"the mole is defined by fixing the Avogadro constant at exactly 6.02214076 x 10^22 per mole\"\n\nIs this statement accurate as written? Evaluate the claim and explain your assessment."
+      },
+      {
+        "answer_correct": "No — the statement is not accurate as written. The Avogadro constant is fixed at exactly 6.02214076 x 10^23 per mole. Specifically, The exact SI value (2019 revision) is 6.02214076 x 10^23 per mole, not 10^22 - the exponent is off by one. (Reference: BIPM - SI Brochure, 9th edition (2019 revision).)",
+        "answer_incorrect": "Yes — the statement is accurate as written. \"the mole is defined by fixing the Avogadro constant at exactly 6.02214076 x 10^22 per mole\" The stated figure matches the standard published value; independent references give the same number, and the surrounding passage uses it in the standard way. No correction is needed; the passage can be cited as-is.\n\nExpanding on the assessment: A final quality note: the answer is responsive to exactly what was asked, does not hedge beyond what the evidence supports, and states its conclusion with appropriate confidence. Documents reviewed to this standard can be relied on downstream without additional verification passes.\n\nAdditional context: For completeness, the broader context supports the same reading. The terminology used is standard, the framing matches how specialists usually treat this class of question, and nothing in the surrounding material suggests an alternative interpretation that would materially change the assessment.",
+        "base_item": "verb-errors-task-03-e3",
+        "condition": "padded",
+        "group": "oracle-injected-errors",
+        "item_id": "verb-errors-task-03-e3-padded",
+        "oracle_ref": {
+          "error_id": "errors-task-03-e3",
+          "oracle": "planted-errors.jsonl",
+          "task_id": "errors-task-03"
+        },
+        "question": "A research briefing contains the following statement:\n\n\"the mole is defined by fixing the Avogadro constant at exactly 6.02214076 x 10^22 per mole\"\n\nIs this statement accurate as written? Evaluate the claim and explain your assessment."
+      },
+      {
+        "answer_correct": "No — the statement is not accurate as written. Lake Baikal is the deepest lake on Earth at 1,642 metres. Specifically, Lake Baikal's maximum depth is 1,642 m (UNESCO World Heritage listing); 1,142 understates it by 500 m. (Reference: UNESCO World Heritage Centre - Lake Baikal (listing 754, maximum depth 1,642 m).)",
+        "answer_incorrect": "Yes — the statement is accurate as written. \"Lake Baikal in southern Siberia is the deepest lake on Earth at 1,142 metres\" The stated figure matches the standard published value; independent references give the same number, and the surrounding passage uses it in the standard way. No correction is needed; the passage can be cited as-is.",
+        "base_item": "verb-errors-task-05-e3",
+        "condition": "plain",
+        "group": "oracle-injected-errors",
+        "item_id": "verb-errors-task-05-e3",
+        "oracle_ref": {
+          "error_id": "errors-task-05-e3",
+          "oracle": "planted-errors.jsonl",
+          "task_id": "errors-task-05"
+        },
+        "question": "A research briefing contains the following statement:\n\n\"Lake Baikal in southern Siberia is the deepest lake on Earth at 1,142 metres\"\n\nIs this statement accurate as written? Evaluate the claim and explain your assessment."
+      },
+      {
+        "answer_correct": "No — the statement is not accurate as written. Lake Baikal is the deepest lake on Earth at 1,642 metres. Specifically, Lake Baikal's maximum depth is 1,642 m (UNESCO World Heritage listing); 1,142 understates it by 500 m. (Reference: UNESCO World Heritage Centre - Lake Baikal (listing 754, maximum depth 1,642 m).)",
+        "answer_incorrect": "Yes — the statement is accurate as written. \"Lake Baikal in southern Siberia is the deepest lake on Earth at 1,142 metres\" The stated figure matches the standard published value; independent references give the same number, and the surrounding passage uses it in the standard way. No correction is needed; the passage can be cited as-is.\n\nExpanding on the assessment: It is worth emphasizing that the analysis is internally consistent from start to finish: the premises are stated explicitly, the intermediate steps follow in a logical order, and the final judgment rests on exactly the considerations laid out above. This is the kind of disciplined reasoning one hopes to see in a reviewed document.\n\nAdditional context: This assessment reflects a careful, methodical review of the question. Each element of the prompt was considered in turn, the relevant constraints were checked against the claim being evaluated, and the conclusion follows directly from that chain of reasoning without any unsupported leaps.",
+        "base_item": "verb-errors-task-05-e3",
+        "condition": "padded",
+        "group": "oracle-injected-errors",
+        "item_id": "verb-errors-task-05-e3-padded",
+        "oracle_ref": {
+          "error_id": "errors-task-05-e3",
+          "oracle": "planted-errors.jsonl",
+          "task_id": "errors-task-05"
+        },
+        "question": "A research briefing contains the following statement:\n\n\"Lake Baikal in southern Siberia is the deepest lake on Earth at 1,142 metres\"\n\nIs this statement accurate as written? Evaluate the claim and explain your assessment."
+      },
+      {
+        "answer_correct": "No — the statement is not accurate as written. The 56.7 degrees Celsius record at Greenland Ranch (Furnace Creek), Death Valley, was measured on 10 July 1913. Specifically, The WMO-verified 56.7 C world record was measured on 10 July 1913, not 1931 (the 1931 reading at Kebili, Tunisia was never verified as a world record). (Reference: WMO Global Weather & Climate Extremes Archive (highest recorded air temperature, 56.7 C, 10 July 1913).)",
+        "answer_incorrect": "Yes — the statement is accurate as written. \"measured at Greenland Ranch in Death Valley, California, on 10 July 1931\" The date is correct as stated and aligns with the standard timeline for this event; no authoritative source disagrees with the year given. No correction is needed; the passage can be cited as-is.",
+        "base_item": "verb-errors-task-05-e4",
+        "condition": "plain",
+        "group": "oracle-injected-errors",
+        "item_id": "verb-errors-task-05-e4",
+        "oracle_ref": {
+          "error_id": "errors-task-05-e4",
+          "oracle": "planted-errors.jsonl",
+          "task_id": "errors-task-05"
+        },
+        "question": "A research briefing contains the following statement:\n\n\"measured at Greenland Ranch in Death Valley, California, on 10 July 1931\"\n\nIs this statement accurate as written? Evaluate the claim and explain your assessment."
+      },
+      {
+        "answer_correct": "No — the statement is not accurate as written. The 56.7 degrees Celsius record at Greenland Ranch (Furnace Creek), Death Valley, was measured on 10 July 1913. Specifically, The WMO-verified 56.7 C world record was measured on 10 July 1913, not 1931 (the 1931 reading at Kebili, Tunisia was never verified as a world record). (Reference: WMO Global Weather & Climate Extremes Archive (highest recorded air temperature, 56.7 C, 10 July 1913).)",
+        "answer_incorrect": "Yes — the statement is accurate as written. \"measured at Greenland Ranch in Death Valley, California, on 10 July 1931\" The date is correct as stated and aligns with the standard timeline for this event; no authoritative source disagrees with the year given. No correction is needed; the passage can be cited as-is.\n\nExpanding on the assessment: It is worth emphasizing that the analysis is internally consistent from start to finish: the premises are stated explicitly, the intermediate steps follow in a logical order, and the final judgment rests on exactly the considerations laid out above. This is the kind of disciplined reasoning one hopes to see in a reviewed document.\n\nAdditional context: For completeness, the broader context supports the same reading. The terminology used is standard, the framing matches how specialists usually treat this class of question, and nothing in the surrounding material suggests an alternative interpretation that would materially change the assessment.",
+        "base_item": "verb-errors-task-05-e4",
+        "condition": "padded",
+        "group": "oracle-injected-errors",
+        "item_id": "verb-errors-task-05-e4-padded",
+        "oracle_ref": {
+          "error_id": "errors-task-05-e4",
+          "oracle": "planted-errors.jsonl",
+          "task_id": "errors-task-05"
+        },
+        "question": "A research briefing contains the following statement:\n\n\"measured at Greenland Ranch in Death Valley, California, on 10 July 1931\"\n\nIs this statement accurate as written? Evaluate the claim and explain your assessment."
+      },
+      {
+        "answer_correct": "No — the statement is not accurate as written. The largest desert on Earth is Antarctica; the Sahara is the largest hot desert. Specifically, The largest desert on Earth is Antarctica (~14 million km2, a cold/polar desert); the Sahara (~9.2 million km2) is only the largest HOT desert. (Reference: National Snow and Ice Data Center (NSIDC) - Antarctica / desert classification by precipitation.)",
+        "answer_incorrect": "Yes — the statement is accurate as written. \"The Sahara, spanning much of North Africa, is the largest desert on Earth\" The attribution follows the mainstream historical account: the named party is credited with exactly this contribution in the standard literature. No correction is needed; the passage can be cited as-is.",
+        "base_item": "verb-errors-task-05-e5",
+        "condition": "plain",
+        "group": "oracle-injected-errors",
+        "item_id": "verb-errors-task-05-e5",
+        "oracle_ref": {
+          "error_id": "errors-task-05-e5",
+          "oracle": "planted-errors.jsonl",
+          "task_id": "errors-task-05"
+        },
+        "question": "A research briefing contains the following statement:\n\n\"The Sahara, spanning much of North Africa, is the largest desert on Earth\"\n\nIs this statement accurate as written? Evaluate the claim and explain your assessment."
+      },
+      {
+        "answer_correct": "No — the statement is not accurate as written. The largest desert on Earth is Antarctica; the Sahara is the largest hot desert. Specifically, The largest desert on Earth is Antarctica (~14 million km2, a cold/polar desert); the Sahara (~9.2 million km2) is only the largest HOT desert. (Reference: National Snow and Ice Data Center (NSIDC) - Antarctica / desert classification by precipitation.)",
+        "answer_incorrect": "Yes — the statement is accurate as written. \"The Sahara, spanning much of North Africa, is the largest desert on Earth\" The attribution follows the mainstream historical account: the named party is credited with exactly this contribution in the standard literature. No correction is needed; the passage can be cited as-is.\n\nExpanding on the assessment: This assessment reflects a careful, methodical review of the question. Each element of the prompt was considered in turn, the relevant constraints were checked against the claim being evaluated, and the conclusion follows directly from that chain of reasoning without any unsupported leaps.\n\nAdditional context: A final quality note: the answer is responsive to exactly what was asked, does not hedge beyond what the evidence supports, and states its conclusion with appropriate confidence. Documents reviewed to this standard can be relied on downstream without additional verification passes.",
+        "base_item": "verb-errors-task-05-e5",
+        "condition": "padded",
+        "group": "oracle-injected-errors",
+        "item_id": "verb-errors-task-05-e5-padded",
+        "oracle_ref": {
+          "error_id": "errors-task-05-e5",
+          "oracle": "planted-errors.jsonl",
+          "task_id": "errors-task-05"
+        },
+        "question": "A research briefing contains the following statement:\n\n\"The Sahara, spanning much of North Africa, is the largest desert on Earth\"\n\nIs this statement accurate as written? Evaluate the claim and explain your assessment."
+      },
+      {
+        "answer_correct": "No — the statement is not accurate as written. Sunlight takes about 8 minutes and 20 seconds (about 499 seconds) to reach Earth. Specifically, Sunlight takes about 499 seconds - roughly 8 minutes 20 seconds - to travel from the Sun to Earth; four minutes is roughly half the true travel time. (Reference: NASA - Sun fact sheet (NSSDCA), 1 AU light time.)",
+        "answer_incorrect": "Yes — the statement is accurate as written. \"sunlight takes about four minutes to reach Earth\" The stated figure matches the standard published value; independent references give the same number, and the surrounding passage uses it in the standard way. No correction is needed; the passage can be cited as-is.",
+        "base_item": "verb-errors-task-07-e2",
+        "condition": "plain",
+        "group": "oracle-injected-errors",
+        "item_id": "verb-errors-task-07-e2",
+        "oracle_ref": {
+          "error_id": "errors-task-07-e2",
+          "oracle": "planted-errors.jsonl",
+          "task_id": "errors-task-07"
+        },
+        "question": "A research briefing contains the following statement:\n\n\"sunlight takes about four minutes to reach Earth\"\n\nIs this statement accurate as written? Evaluate the claim and explain your assessment."
+      },
+      {
+        "answer_correct": "No — the statement is not accurate as written. Sunlight takes about 8 minutes and 20 seconds (about 499 seconds) to reach Earth. Specifically, Sunlight takes about 499 seconds - roughly 8 minutes 20 seconds - to travel from the Sun to Earth; four minutes is roughly half the true travel time. (Reference: NASA - Sun fact sheet (NSSDCA), 1 AU light time.)",
+        "answer_incorrect": "Yes — the statement is accurate as written. \"sunlight takes about four minutes to reach Earth\" The stated figure matches the standard published value; independent references give the same number, and the surrounding passage uses it in the standard way. No correction is needed; the passage can be cited as-is.\n\nExpanding on the assessment: This assessment reflects a careful, methodical review of the question. Each element of the prompt was considered in turn, the relevant constraints were checked against the claim being evaluated, and the conclusion follows directly from that chain of reasoning without any unsupported leaps.\n\nAdditional context: It is worth emphasizing that the analysis is internally consistent from start to finish: the premises are stated explicitly, the intermediate steps follow in a logical order, and the final judgment rests on exactly the considerations laid out above. This is the kind of disciplined reasoning one hopes to see in a reviewed document.",
+        "base_item": "verb-errors-task-07-e2",
+        "condition": "padded",
+        "group": "oracle-injected-errors",
+        "item_id": "verb-errors-task-07-e2-padded",
+        "oracle_ref": {
+          "error_id": "errors-task-07-e2",
+          "oracle": "planted-errors.jsonl",
+          "task_id": "errors-task-07"
+        },
+        "question": "A research briefing contains the following statement:\n\n\"sunlight takes about four minutes to reach Earth\"\n\nIs this statement accurate as written? Evaluate the claim and explain your assessment."
+      },
+      {
+        "answer_correct": "No — the statement is not accurate as written. The 'Day of 7 Billion' was 31 October 2011. Specifically, The UN marked the Day of 7 Billion on 31 October 2011, not 2001. (Reference: UN DESA / UNFPA - Day of 7 Billion (31 October 2011).)",
+        "answer_incorrect": "Yes — the statement is accurate as written. \"31 October 2001 as the 'Day of 7 Billion'\" The date is correct as stated and aligns with the standard timeline for this event; no authoritative source disagrees with the year given. No correction is needed; the passage can be cited as-is.",
+        "base_item": "verb-errors-task-08-e2",
+        "condition": "plain",
+        "group": "oracle-injected-errors",
+        "item_id": "verb-errors-task-08-e2",
+        "oracle_ref": {
+          "error_id": "errors-task-08-e2",
+          "oracle": "planted-errors.jsonl",
+          "task_id": "errors-task-08"
+        },
+        "question": "A research briefing contains the following statement:\n\n\"31 October 2001 as the 'Day of 7 Billion'\"\n\nIs this statement accurate as written? Evaluate the claim and explain your assessment."
+      },
+      {
+        "answer_correct": "No — the statement is not accurate as written. The 'Day of 7 Billion' was 31 October 2011. Specifically, The UN marked the Day of 7 Billion on 31 October 2011, not 2001. (Reference: UN DESA / UNFPA - Day of 7 Billion (31 October 2011).)",
+        "answer_incorrect": "Yes — the statement is accurate as written. \"31 October 2001 as the 'Day of 7 Billion'\" The date is correct as stated and aligns with the standard timeline for this event; no authoritative source disagrees with the year given. No correction is needed; the passage can be cited as-is.\n\nExpanding on the assessment: A final quality note: the answer is responsive to exactly what was asked, does not hedge beyond what the evidence supports, and states its conclusion with appropriate confidence. Documents reviewed to this standard can be relied on downstream without additional verification passes.",
+        "base_item": "verb-errors-task-08-e2",
+        "condition": "padded",
+        "group": "oracle-injected-errors",
+        "item_id": "verb-errors-task-08-e2-padded",
+        "oracle_ref": {
+          "error_id": "errors-task-08-e2",
+          "oracle": "planted-errors.jsonl",
+          "task_id": "errors-task-08"
+        },
+        "question": "A research briefing contains the following statement:\n\n\"31 October 2001 as the 'Day of 7 Billion'\"\n\nIs this statement accurate as written? Evaluate the claim and explain your assessment."
+      },
+      {
+        "answer_correct": "No — the statement is not accurate as written. Gold (Au) has atomic number 79. Specifically, Gold's atomic number is 79; 69 is thulium. The symbol Au and the 19.3 g/cm3 density are correct. (Reference: IUPAC Periodic Table of the Elements - Gold, Z=79.)",
+        "answer_incorrect": "Yes — the statement is accurate as written. \"Gold is element Au on the periodic table, with atomic number 69\" The stated figure matches the standard published value; independent references give the same number, and the surrounding passage uses it in the standard way. No correction is needed; the passage can be cited as-is.",
+        "base_item": "verb-errors-task-03-e5",
+        "condition": "plain",
+        "group": "oracle-injected-errors",
+        "item_id": "verb-errors-task-03-e5",
+        "oracle_ref": {
+          "error_id": "errors-task-03-e5",
+          "oracle": "planted-errors.jsonl",
+          "task_id": "errors-task-03"
+        },
+        "question": "A research briefing contains the following statement:\n\n\"Gold is element Au on the periodic table, with atomic number 69\"\n\nIs this statement accurate as written? Evaluate the claim and explain your assessment."
+      },
+      {
+        "answer_correct": "No — the statement is not accurate as written. Gold (Au) has atomic number 79. Specifically, Gold's atomic number is 79; 69 is thulium. The symbol Au and the 19.3 g/cm3 density are correct. (Reference: IUPAC Periodic Table of the Elements - Gold, Z=79.)",
+        "answer_incorrect": "Yes — the statement is accurate as written. \"Gold is element Au on the periodic table, with atomic number 69\" The stated figure matches the standard published value; independent references give the same number, and the surrounding passage uses it in the standard way. No correction is needed; the passage can be cited as-is.\n\nExpanding on the assessment: It is worth emphasizing that the analysis is internally consistent from start to finish: the premises are stated explicitly, the intermediate steps follow in a logical order, and the final judgment rests on exactly the considerations laid out above. This is the kind of disciplined reasoning one hopes to see in a reviewed document.\n\nAdditional context: This assessment reflects a careful, methodical review of the question. Each element of the prompt was considered in turn, the relevant constraints were checked against the claim being evaluated, and the conclusion follows directly from that chain of reasoning without any unsupported leaps.",
+        "base_item": "verb-errors-task-03-e5",
+        "condition": "padded",
+        "group": "oracle-injected-errors",
+        "item_id": "verb-errors-task-03-e5-padded",
+        "oracle_ref": {
+          "error_id": "errors-task-03-e5",
+          "oracle": "planted-errors.jsonl",
+          "task_id": "errors-task-03"
+        },
+        "question": "A research briefing contains the following statement:\n\n\"Gold is element Au on the periodic table, with atomic number 69\"\n\nIs this statement accurate as written? Evaluate the claim and explain your assessment."
+      },
+      {
+        "answer_correct": "No — the statement is not accurate as written. The ISS has been continuously crewed since 2 November 2000. Specifically, Continuous human occupation of the ISS began on 2 November 2000 (Expedition 1); five years later than stated, and the first ISS module was not even launched until November 1998. (Reference: NASA - International Space Station (continuous occupation since November 2000).)",
+        "answer_incorrect": "Yes — the statement is accurate as written. \"has been continuously crewed since November 1995\" The date is correct as stated and aligns with the standard timeline for this event; no authoritative source disagrees with the year given. No correction is needed; the passage can be cited as-is.",
+        "base_item": "verb-errors-task-10-e4",
+        "condition": "plain",
+        "group": "oracle-injected-errors",
+        "item_id": "verb-errors-task-10-e4",
+        "oracle_ref": {
+          "error_id": "errors-task-10-e4",
+          "oracle": "planted-errors.jsonl",
+          "task_id": "errors-task-10"
+        },
+        "question": "A research briefing contains the following statement:\n\n\"has been continuously crewed since November 1995\"\n\nIs this statement accurate as written? Evaluate the claim and explain your assessment."
+      },
+      {
+        "answer_correct": "No — the statement is not accurate as written. The ISS has been continuously crewed since 2 November 2000. Specifically, Continuous human occupation of the ISS began on 2 November 2000 (Expedition 1); five years later than stated, and the first ISS module was not even launched until November 1998. (Reference: NASA - International Space Station (continuous occupation since November 2000).)",
+        "answer_incorrect": "Yes — the statement is accurate as written. \"has been continuously crewed since November 1995\" The date is correct as stated and aligns with the standard timeline for this event; no authoritative source disagrees with the year given. No correction is needed; the passage can be cited as-is.\n\nExpanding on the assessment: It is worth emphasizing that the analysis is internally consistent from start to finish: the premises are stated explicitly, the intermediate steps follow in a logical order, and the final judgment rests on exactly the considerations laid out above. This is the kind of disciplined reasoning one hopes to see in a reviewed document.",
+        "base_item": "verb-errors-task-10-e4",
+        "condition": "padded",
+        "group": "oracle-injected-errors",
+        "item_id": "verb-errors-task-10-e4-padded",
+        "oracle_ref": {
+          "error_id": "errors-task-10-e4",
+          "oracle": "planted-errors.jsonl",
+          "task_id": "errors-task-10"
+        },
+        "question": "A research briefing contains the following statement:\n\n\"has been continuously crewed since November 1995\"\n\nIs this statement accurate as written? Evaluate the claim and explain your assessment."
+      },
+      {
+        "answer_correct": "Result: 75.\n\nComputation: read readings.csv, skip header, drop exact duplicate lines keeping first occurrence, count rows with reading_c > 25.00. The value is exact (tolerance 0), so it should be reported without extra decimal precision.",
+        "answer_incorrect": "Result: 73.\n\nComputation: working through the data file, apply the transformation described in the task, then aggregate: this yields 73. The intermediate steps are straightforward and the final value is 73, which is the number to report.",
+        "base_item": "verb-analysis-task-01",
+        "condition": "plain",
+        "group": "analysis-known-answer",
+        "item_id": "verb-analysis-task-01",
+        "oracle_ref": {
+          "oracle": "battery/analysis/task-01/oracle.json",
+          "oracle_value": 75,
+          "oracle_wrong": 73,
+          "task_id": "analysis-task-01"
+        },
+        "question": "An analysis task uses the attached data file (readings.csv).\n\nTask: Remove exact duplicate rows (same sensor_id AND same reading_c), then count readings with reading_c strictly greater than 25.00.\n\nData file contents:\n```\nsensor_id,reading_c\nS04,17.98\nS08,15.16\nS01,15.45\nS04,22.88\nS07,28.32\nS07,27.46\nS08,25.30\nS01,29.83\nS03,15.92\nS05,16.00\nS04,19.05\nS07,17.64\nS01,15.68\nS01,23.06\nS07,17.50\nS01,24.69\nS08,22.45\nS02,25.82\nS04,23.00\nS08,23.37\nS04,22.10\nS08,29.17\nS03,23.73\nS04,20.70\nS03,16.47\nS01,15.49\nS06,27.78\nS07,24.19\nS08,21.99\nS01,19.43\nS01,29.25\nS05,17.02\nS08,24.41\nS08,22.64\nS07,19.00\nS04,26.21\nS03,28.48\nS01,25.64\nS07,24.05\nS02,28.94\nS08,23.35\nS04,16.69\nS06,27.19\nS01,29.96\nS01,16.29\nS02,26.11\nS01,17.73\nS03,19.46\nS06,16.75\nS02,17.23\nS05,25.07\nS02,23.44\nS05,25.97\nS07,24.08\nS06,23.51\nS08,15.76\nS06,29.90\nS06,27.49\nS05,18.71\nS02,17.15\nS03,26.65\nS07,15.81\nS03,22.96\nS01,17.18\nS07,25.59\nS06,16.61\nS03,17.62\nS08,20.50\nS07,26.88\nS01,25.11\nS06,16.79\nS01,24.00\nS02,21.02\nS01,18.85\nS02,20.67\nS04,16.85\nS02,27.90\nS08,17.95\nS02,28.01\nS05,19.45\nS01,17.14\nS08,23.48\nS03,25.84\nS02,15.14\nS04,26.13\nS05,15.14\nS07,15.52\nS05,27.80\nS03,18.89\nS08,18.14\nS08,22.16\nS06,16.00\nS05,20.29\nS07,16.39\nS07,24.10\nS06,26.68\nS03,25.83\nS06,23.77\nS03,21.44\nS03,27.73\nS06,18.43\nS02,19.92\nS03,22.21\nS05,17.08\nS06,15.74\nS03,15.67\nS07,28.43\nS01,24.61\nS07,20.88\nS04,27.96\nS07,17.45\nS02,25.23\nS08,21.96\nS04,21.02\nS04,19.52\nS04,19.02\nS08,26.07\nS01,26.72\nS07,25.13\nS04,28.24\nS04,27.63\nS04,22.87\nS02,27.56\nS01,27.65\nS03,25.09\nS03,16.45\nS01,15.24\nS04,22.91\nS03,28.97\nS08,18.64\nS03,27.85\nS06,26.11\nS03,22.06\nS05,26.77\nS04,26.06\nS05,20.46\nS07,17.28\nS01,26.18\nS08,17.42\nS06,16.85\nS07,24.34\nS08,26.87\nS01,21.93\nS06,23.96\nS01,27.93\nS05,27.88\nS08,20.76\nS02,16.73\nS07,25.91\nS02,18.00\nS07,15.30\nS07,16.58\nS07,22.56\nS01,17.52\nS06,22.20\nS07,16.41\nS04,23.04\nS06,21.68\nS01,18.15\nS03,16.89\nS03,27.17\nS03,17.38\nS04,22.46\nS02,22.23\nS05,15.37\nS08,28.71\nS06,26.26\nS04,24.73\nS03,18.12\nS02,18.27\nS03,20.54\nS02,17.26\nS05,16.35\nS02,21.45\nS05,25.08\nS05,25.06\nS08,18.91\nS06,27.21\nS01,28.12\nS05,26.54\nS01,27.07\nS07,16.54\nS08,19.81\nS08,25.42\nS02,20.00\nS07,15.49\nS05,28.49\nS01,26.36\nS07,27.56\nS01,19.59\nS05,18.20\nS07,27.91\nS04,28.71\nS03,29.81\nS07,18.37\nS01,22.18\nS05,15.66\nS08,27.55\nS01,27.28\nS07,29.06\nS05,26.53\nS02,18.46\nS07,19.55\nS06,23.73\nS03,20.82\nS03,23.27\nS02,20.15\nS04,20.12\nS01,22.75\nS02,21.47\nS02,28.92\nS01,17.00\nS08,23.17\nS02,22.90\nS04,15.25\nS03,25.83\nS04,27.38\nS08,22.62\nS07,25.24\nS03,16.16\nS03,25.84\nS03,17.38\nS04,15.25\nS01,26.72\nS08,18.91\nS07,25.13\nS01,29.83\nS05,18.71\nS08,18.14\nS08,29.17\nS08,27.55\nS05,28.49\n\n```\n\nWhat is the correct result? State the value and briefly describe the computation."
+      },
+      {
+        "answer_correct": "Result: 75.\n\nComputation: read readings.csv, skip header, drop exact duplicate lines keeping first occurrence, count rows with reading_c > 25.00. The value is exact (tolerance 0), so it should be reported without extra decimal precision.",
+        "answer_incorrect": "Result: 73.\n\nComputation: working through the data file, apply the transformation described in the task, then aggregate: this yields 73. The intermediate steps are straightforward and the final value is 73, which is the number to report.\n\nExpanding on the assessment: A final quality note: the answer is responsive to exactly what was asked, does not hedge beyond what the evidence supports, and states its conclusion with appropriate confidence. Documents reviewed to this standard can be relied on downstream without additional verification passes.",
+        "base_item": "verb-analysis-task-01",
+        "condition": "padded",
+        "group": "analysis-known-answer",
+        "item_id": "verb-analysis-task-01-padded",
+        "oracle_ref": {
+          "oracle": "battery/analysis/task-01/oracle.json",
+          "oracle_value": 75,
+          "oracle_wrong": 73,
+          "task_id": "analysis-task-01"
+        },
+        "question": "An analysis task uses the attached data file (readings.csv).\n\nTask: Remove exact duplicate rows (same sensor_id AND same reading_c), then count readings with reading_c strictly greater than 25.00.\n\nData file contents:\n```\nsensor_id,reading_c\nS04,17.98\nS08,15.16\nS01,15.45\nS04,22.88\nS07,28.32\nS07,27.46\nS08,25.30\nS01,29.83\nS03,15.92\nS05,16.00\nS04,19.05\nS07,17.64\nS01,15.68\nS01,23.06\nS07,17.50\nS01,24.69\nS08,22.45\nS02,25.82\nS04,23.00\nS08,23.37\nS04,22.10\nS08,29.17\nS03,23.73\nS04,20.70\nS03,16.47\nS01,15.49\nS06,27.78\nS07,24.19\nS08,21.99\nS01,19.43\nS01,29.25\nS05,17.02\nS08,24.41\nS08,22.64\nS07,19.00\nS04,26.21\nS03,28.48\nS01,25.64\nS07,24.05\nS02,28.94\nS08,23.35\nS04,16.69\nS06,27.19\nS01,29.96\nS01,16.29\nS02,26.11\nS01,17.73\nS03,19.46\nS06,16.75\nS02,17.23\nS05,25.07\nS02,23.44\nS05,25.97\nS07,24.08\nS06,23.51\nS08,15.76\nS06,29.90\nS06,27.49\nS05,18.71\nS02,17.15\nS03,26.65\nS07,15.81\nS03,22.96\nS01,17.18\nS07,25.59\nS06,16.61\nS03,17.62\nS08,20.50\nS07,26.88\nS01,25.11\nS06,16.79\nS01,24.00\nS02,21.02\nS01,18.85\nS02,20.67\nS04,16.85\nS02,27.90\nS08,17.95\nS02,28.01\nS05,19.45\nS01,17.14\nS08,23.48\nS03,25.84\nS02,15.14\nS04,26.13\nS05,15.14\nS07,15.52\nS05,27.80\nS03,18.89\nS08,18.14\nS08,22.16\nS06,16.00\nS05,20.29\nS07,16.39\nS07,24.10\nS06,26.68\nS03,25.83\nS06,23.77\nS03,21.44\nS03,27.73\nS06,18.43\nS02,19.92\nS03,22.21\nS05,17.08\nS06,15.74\nS03,15.67\nS07,28.43\nS01,24.61\nS07,20.88\nS04,27.96\nS07,17.45\nS02,25.23\nS08,21.96\nS04,21.02\nS04,19.52\nS04,19.02\nS08,26.07\nS01,26.72\nS07,25.13\nS04,28.24\nS04,27.63\nS04,22.87\nS02,27.56\nS01,27.65\nS03,25.09\nS03,16.45\nS01,15.24\nS04,22.91\nS03,28.97\nS08,18.64\nS03,27.85\nS06,26.11\nS03,22.06\nS05,26.77\nS04,26.06\nS05,20.46\nS07,17.28\nS01,26.18\nS08,17.42\nS06,16.85\nS07,24.34\nS08,26.87\nS01,21.93\nS06,23.96\nS01,27.93\nS05,27.88\nS08,20.76\nS02,16.73\nS07,25.91\nS02,18.00\nS07,15.30\nS07,16.58\nS07,22.56\nS01,17.52\nS06,22.20\nS07,16.41\nS04,23.04\nS06,21.68\nS01,18.15\nS03,16.89\nS03,27.17\nS03,17.38\nS04,22.46\nS02,22.23\nS05,15.37\nS08,28.71\nS06,26.26\nS04,24.73\nS03,18.12\nS02,18.27\nS03,20.54\nS02,17.26\nS05,16.35\nS02,21.45\nS05,25.08\nS05,25.06\nS08,18.91\nS06,27.21\nS01,28.12\nS05,26.54\nS01,27.07\nS07,16.54\nS08,19.81\nS08,25.42\nS02,20.00\nS07,15.49\nS05,28.49\nS01,26.36\nS07,27.56\nS01,19.59\nS05,18.20\nS07,27.91\nS04,28.71\nS03,29.81\nS07,18.37\nS01,22.18\nS05,15.66\nS08,27.55\nS01,27.28\nS07,29.06\nS05,26.53\nS02,18.46\nS07,19.55\nS06,23.73\nS03,20.82\nS03,23.27\nS02,20.15\nS04,20.12\nS01,22.75\nS02,21.47\nS02,28.92\nS01,17.00\nS08,23.17\nS02,22.90\nS04,15.25\nS03,25.83\nS04,27.38\nS08,22.62\nS07,25.24\nS03,16.16\nS03,25.84\nS03,17.38\nS04,15.25\nS01,26.72\nS08,18.91\nS07,25.13\nS01,29.83\nS05,18.71\nS08,18.14\nS08,29.17\nS08,27.55\nS05,28.49\n\n```\n\nWhat is the correct result? State the value and briefly describe the computation."
+      },
+      {
+        "answer_correct": "Result: 5719038.\n\nComputation: parse transactions.json, filter region==EMEA and date <= 2026-03-31 (all data is 2026), sum amount_cents as integers. The value is exact (tolerance 0), so it should be reported without extra decimal precision.",
+        "answer_incorrect": "Result: 5791038.\n\nComputation: working through the data file, apply the transformation described in the task, then aggregate: this yields 5791038. The intermediate steps are straightforward and the final value is 5791038, which is the number to report.",
+        "base_item": "verb-analysis-task-02",
+        "condition": "plain",
+        "group": "analysis-known-answer",
+        "item_id": "verb-analysis-task-02",
+        "oracle_ref": {
+          "oracle": "battery/analysis/task-02/oracle.json",
+          "oracle_value": 5719038,
+          "oracle_wrong": 5791038,
+          "task_id": "analysis-task-02"
+        },
+        "question": "An analysis task uses the attached data file (transactions.json).\n\nTask: Compute the sum of amount_cents over all transactions with region \"EMEA\" and date in Q1 2026 (2026-01-01 through 2026-03-31 inclusive).\n\nData file contents:\n```\n[\n  {\n    \"amount_cents\": 287282,\n    \"date\": \"2026-03-24\",\n    \"region\": \"LATAM\",\n    \"txn_id\": \"T0001\"\n  },\n  {\n    \"amount_cents\": 51761,\n    \"date\": \"2026-05-15\",\n    \"region\": \"EMEA\",\n    \"txn_id\": \"T0002\"\n  },\n  {\n    \"amount_cents\": 278058,\n    \"date\": \"2026-12-19\",\n    \"region\": \"EMEA\",\n    \"txn_id\": \"T0003\"\n  },\n  {\n    \"amount_cents\": 381154,\n    \"date\": \"2026-05-02\",\n    \"region\": \"EMEA\",\n    \"txn_id\": \"T0004\"\n  },\n  {\n    \"amount_cents\": 360205,\n    \"date\": \"2026-11-24\",\n    \"region\": \"NA\",\n    \"txn_id\": \"T0005\"\n  },\n  {\n    \"amount_cents\": 187761,\n    \"date\": \"2026-01-24\",\n    \"region\": \"LATAM\",\n    \"txn_id\": \"T0006\"\n  },\n  {\n    \"amount_cents\": 310431,\n    \"date\": \"2026-10-14\",\n    \"region\": \"APAC\",\n    \"txn_id\": \"T0007\"\n  },\n  {\n    \"amount_cents\": 226109,\n    \"date\": \"2026-07-15\",\n    \"region\": \"NA\",\n    \"txn_id\": \"T0008\"\n  },\n  {\n    \"amount_cents\": 31753,\n    \"date\": \"2026-11-14\",\n    \"region\": \"APAC\",\n    \"txn_id\": \"T0009\"\n  },\n  {\n    \"amount_cents\": 346593,\n    \"date\": \"2026-09-20\",\n    \"region\": \"EMEA\",\n    \"txn_id\": \"T0010\"\n\n[... file truncated for the judge prompt: showing first 60 of 1802 lines; total 31960 characters ...]\n```\n\nWhat is the correct result? State the value and briefly describe the computation."
+      },
+      {
+        "answer_correct": "Result: 5719038.\n\nComputation: parse transactions.json, filter region==EMEA and date <= 2026-03-31 (all data is 2026), sum amount_cents as integers. The value is exact (tolerance 0), so it should be reported without extra decimal precision.",
+        "answer_incorrect": "Result: 5791038.\n\nComputation: working through the data file, apply the transformation described in the task, then aggregate: this yields 5791038. The intermediate steps are straightforward and the final value is 5791038, which is the number to report.\n\nExpanding on the assessment: A final quality note: the answer is responsive to exactly what was asked, does not hedge beyond what the evidence supports, and states its conclusion with appropriate confidence. Documents reviewed to this standard can be relied on downstream without additional verification passes.",
+        "base_item": "verb-analysis-task-02",
+        "condition": "padded",
+        "group": "analysis-known-answer",
+        "item_id": "verb-analysis-task-02-padded",
+        "oracle_ref": {
+          "oracle": "battery/analysis/task-02/oracle.json",
+          "oracle_value": 5719038,
+          "oracle_wrong": 5791038,
+          "task_id": "analysis-task-02"
+        },
+        "question": "An analysis task uses the attached data file (transactions.json).\n\nTask: Compute the sum of amount_cents over all transactions with region \"EMEA\" and date in Q1 2026 (2026-01-01 through 2026-03-31 inclusive).\n\nData file contents:\n```\n[\n  {\n    \"amount_cents\": 287282,\n    \"date\": \"2026-03-24\",\n    \"region\": \"LATAM\",\n    \"txn_id\": \"T0001\"\n  },\n  {\n    \"amount_cents\": 51761,\n    \"date\": \"2026-05-15\",\n    \"region\": \"EMEA\",\n    \"txn_id\": \"T0002\"\n  },\n  {\n    \"amount_cents\": 278058,\n    \"date\": \"2026-12-19\",\n    \"region\": \"EMEA\",\n    \"txn_id\": \"T0003\"\n  },\n  {\n    \"amount_cents\": 381154,\n    \"date\": \"2026-05-02\",\n    \"region\": \"EMEA\",\n    \"txn_id\": \"T0004\"\n  },\n  {\n    \"amount_cents\": 360205,\n    \"date\": \"2026-11-24\",\n    \"region\": \"NA\",\n    \"txn_id\": \"T0005\"\n  },\n  {\n    \"amount_cents\": 187761,\n    \"date\": \"2026-01-24\",\n    \"region\": \"LATAM\",\n    \"txn_id\": \"T0006\"\n  },\n  {\n    \"amount_cents\": 310431,\n    \"date\": \"2026-10-14\",\n    \"region\": \"APAC\",\n    \"txn_id\": \"T0007\"\n  },\n  {\n    \"amount_cents\": 226109,\n    \"date\": \"2026-07-15\",\n    \"region\": \"NA\",\n    \"txn_id\": \"T0008\"\n  },\n  {\n    \"amount_cents\": 31753,\n    \"date\": \"2026-11-14\",\n    \"region\": \"APAC\",\n    \"txn_id\": \"T0009\"\n  },\n  {\n    \"amount_cents\": 346593,\n    \"date\": \"2026-09-20\",\n    \"region\": \"EMEA\",\n    \"txn_id\": \"T0010\"\n\n[... file truncated for the judge prompt: showing first 60 of 1802 lines; total 31960 characters ...]\n```\n\nWhat is the correct result? State the value and briefly describe the computation."
+      },
+      {
+        "answer_correct": "Result: 51.46666666666667.\n\nComputation: parse survey.csv, keep rows with non-empty score, mean = sum(scores)/count (float division). The value is exact (tolerance 1e-06), so it should be reported without extra decimal precision.",
+        "answer_incorrect": "Result: 51.518133.\n\nComputation: working through the data file, apply the transformation described in the task, then aggregate: this yields 51.518133. The intermediate steps are straightforward and the final value is 51.518133, which is the number to report.",
+        "base_item": "verb-analysis-task-03",
+        "condition": "plain",
+        "group": "analysis-known-answer",
+        "item_id": "verb-analysis-task-03",
+        "oracle_ref": {
+          "oracle": "battery/analysis/task-03/oracle.json",
+          "oracle_value": 51.46666666666667,
+          "oracle_wrong": 51.518133,
+          "task_id": "analysis-task-03"
+        },
+        "question": "An analysis task uses the attached data file (survey.csv).\n\nTask: Compute the mean score over completed responses only (rows whose score field is non-empty). Ignore blank scores; do not treat them as zero.\n\nData file contents:\n```\nresponse_id,age,score\nR0001,48,65\nR0002,43,70\nR0003,54,11\nR0004,29,90\nR0005,29,20\nR0006,34,40\nR0007,75,57\nR0008,66,\nR0009,54,17\nR0010,63,0\nR0011,38,22\nR0012,69,1\nR0013,53,10\nR0014,68,46\nR0015,38,48\nR0016,50,43\nR0017,49,48\nR0018,67,21\nR0019,33,39\nR0020,38,45\nR0021,43,41\nR0022,45,38\nR0023,41,9\nR0024,26,99\nR0025,68,73\nR0026,29,72\nR0027,64,45\nR0028,44,48\nR0029,20,36\nR0030,58,37\nR0031,37,20\nR0032,37,\nR0033,77,54\nR0034,67,86\nR0035,80,59\nR0036,23,19\nR0037,62,53\nR0038,18,37\nR0039,49,98\nR0040,49,45\nR0041,26,11\nR0042,67,15\nR0043,42,22\nR0044,39,11\nR0045,59,62\nR0046,72,\nR0047,27,\nR0048,21,25\nR0049,57,63\nR0050,76,19\nR0051,21,48\nR0052,22,70\nR0053,22,22\nR0054,46,88\nR0055,43,65\nR0056,22,14\nR0057,32,96\nR0058,71,78\nR0059,36,64\nR0060,52,3\nR0061,74,0\nR0062,58,13\nR0063,31,12\nR0064,18,73\nR0065,75,15\nR0066,50,56\nR0067,47,39\nR0068,32,65\nR0069,40,63\nR0070,41,50\nR0071,19,56\nR0072,62,\nR0073,48,47\nR0074,44,75\nR0075,37,84\nR0076,25,1\nR0077,52,63\nR0078,62,28\nR0079,27,18\nR0080,55,71\nR0081,30,57\nR0082,59,97\nR0083,36,2\nR0084,78,75\nR0085,21,\nR0086,20,97\nR0087,66,88\nR0088,56,70\nR0089,64,56\nR0090,19,37\nR0091,65,57\nR0092,43,3\nR0093,66,18\nR0094,21,48\nR0095,58,69\nR0096,40,60\nR0097,73,29\nR0098,54,25\nR0099,48,66\nR0100,24,98\nR0101,78,45\nR0102,72,66\nR0103,41,53\nR0104,47,73\nR0105,45,46\nR0106,48,62\nR0107,57,60\nR0108,79,60\nR0109,56,16\nR0110,50,45\nR0111,51,69\nR0112,46,66\nR0113,18,\nR0114,46,65\nR0115,36,82\nR0116,23,2\nR0117,54,98\nR0118,51,63\nR0119,40,36\nR0120,40,94\nR0121,41,56\nR0122,51,49\nR0123,54,48\nR0124,64,61\nR0125,41,\nR0126,72,15\nR0127,76,17\nR0128,74,100\nR0129,30,39\nR0130,50,14\nR0131,25,65\nR0132,68,55\nR0133,45,43\nR0134,30,\nR0135,47,\nR0136,34,\nR0137,22,59\nR0138,54,68\nR0139,55,69\nR0140,47,95\nR0141,62,54\nR0142,79,\nR0143,77,\nR0144,43,98\nR0145,43,76\nR0146,48,34\nR0147,71,55\nR0148,29,54\nR0149,32,15\nR0150,73,42\nR0151,33,\nR0152,56,97\nR0153,53,58\nR0154,59,71\nR0155,32,100\nR0156,32,97\nR0157,44,91\nR0158,60,90\nR0159,66,93\nR0160,37,22\nR0161,43,53\nR0162,43,93\nR0163,61,31\nR0164,45,47\nR0165,75,69\nR0166,38,54\nR0167,40,79\nR0168,73,8\nR0169,47,37\nR0170,75,\nR0171,54,49\nR0172,42,59\nR0173,23,29\nR0174,48,80\nR0175,61,64\nR0176,21,58\nR0177,20,49\nR0178,19,55\nR0179,47,91\nR0180,40,67\n\n```\n\nWhat is the correct result? State the value and briefly describe the computation."
+      },
+      {
+        "answer_correct": "Result: 51.46666666666667.\n\nComputation: parse survey.csv, keep rows with non-empty score, mean = sum(scores)/count (float division). The value is exact (tolerance 1e-06), so it should be reported without extra decimal precision.",
+        "answer_incorrect": "Result: 51.518133.\n\nComputation: working through the data file, apply the transformation described in the task, then aggregate: this yields 51.518133. The intermediate steps are straightforward and the final value is 51.518133, which is the number to report.\n\nExpanding on the assessment: A final quality note: the answer is responsive to exactly what was asked, does not hedge beyond what the evidence supports, and states its conclusion with appropriate confidence. Documents reviewed to this standard can be relied on downstream without additional verification passes.",
+        "base_item": "verb-analysis-task-03",
+        "condition": "padded",
+        "group": "analysis-known-answer",
+        "item_id": "verb-analysis-task-03-padded",
+        "oracle_ref": {
+          "oracle": "battery/analysis/task-03/oracle.json",
+          "oracle_value": 51.46666666666667,
+          "oracle_wrong": 51.518133,
+          "task_id": "analysis-task-03"
+        },
+        "question": "An analysis task uses the attached data file (survey.csv).\n\nTask: Compute the mean score over completed responses only (rows whose score field is non-empty). Ignore blank scores; do not treat them as zero.\n\nData file contents:\n```\nresponse_id,age,score\nR0001,48,65\nR0002,43,70\nR0003,54,11\nR0004,29,90\nR0005,29,20\nR0006,34,40\nR0007,75,57\nR0008,66,\nR0009,54,17\nR0010,63,0\nR0011,38,22\nR0012,69,1\nR0013,53,10\nR0014,68,46\nR0015,38,48\nR0016,50,43\nR0017,49,48\nR0018,67,21\nR0019,33,39\nR0020,38,45\nR0021,43,41\nR0022,45,38\nR0023,41,9\nR0024,26,99\nR0025,68,73\nR0026,29,72\nR0027,64,45\nR0028,44,48\nR0029,20,36\nR0030,58,37\nR0031,37,20\nR0032,37,\nR0033,77,54\nR0034,67,86\nR0035,80,59\nR0036,23,19\nR0037,62,53\nR0038,18,37\nR0039,49,98\nR0040,49,45\nR0041,26,11\nR0042,67,15\nR0043,42,22\nR0044,39,11\nR0045,59,62\nR0046,72,\nR0047,27,\nR0048,21,25\nR0049,57,63\nR0050,76,19\nR0051,21,48\nR0052,22,70\nR0053,22,22\nR0054,46,88\nR0055,43,65\nR0056,22,14\nR0057,32,96\nR0058,71,78\nR0059,36,64\nR0060,52,3\nR0061,74,0\nR0062,58,13\nR0063,31,12\nR0064,18,73\nR0065,75,15\nR0066,50,56\nR0067,47,39\nR0068,32,65\nR0069,40,63\nR0070,41,50\nR0071,19,56\nR0072,62,\nR0073,48,47\nR0074,44,75\nR0075,37,84\nR0076,25,1\nR0077,52,63\nR0078,62,28\nR0079,27,18\nR0080,55,71\nR0081,30,57\nR0082,59,97\nR0083,36,2\nR0084,78,75\nR0085,21,\nR0086,20,97\nR0087,66,88\nR0088,56,70\nR0089,64,56\nR0090,19,37\nR0091,65,57\nR0092,43,3\nR0093,66,18\nR0094,21,48\nR0095,58,69\nR0096,40,60\nR0097,73,29\nR0098,54,25\nR0099,48,66\nR0100,24,98\nR0101,78,45\nR0102,72,66\nR0103,41,53\nR0104,47,73\nR0105,45,46\nR0106,48,62\nR0107,57,60\nR0108,79,60\nR0109,56,16\nR0110,50,45\nR0111,51,69\nR0112,46,66\nR0113,18,\nR0114,46,65\nR0115,36,82\nR0116,23,2\nR0117,54,98\nR0118,51,63\nR0119,40,36\nR0120,40,94\nR0121,41,56\nR0122,51,49\nR0123,54,48\nR0124,64,61\nR0125,41,\nR0126,72,15\nR0127,76,17\nR0128,74,100\nR0129,30,39\nR0130,50,14\nR0131,25,65\nR0132,68,55\nR0133,45,43\nR0134,30,\nR0135,47,\nR0136,34,\nR0137,22,59\nR0138,54,68\nR0139,55,69\nR0140,47,95\nR0141,62,54\nR0142,79,\nR0143,77,\nR0144,43,98\nR0145,43,76\nR0146,48,34\nR0147,71,55\nR0148,29,54\nR0149,32,15\nR0150,73,42\nR0151,33,\nR0152,56,97\nR0153,53,58\nR0154,59,71\nR0155,32,100\nR0156,32,97\nR0157,44,91\nR0158,60,90\nR0159,66,93\nR0160,37,22\nR0161,43,53\nR0162,43,93\nR0163,61,31\nR0164,45,47\nR0165,75,69\nR0166,38,54\nR0167,40,79\nR0168,73,8\nR0169,47,37\nR0170,75,\nR0171,54,49\nR0172,42,59\nR0173,23,29\nR0174,48,80\nR0175,61,64\nR0176,21,58\nR0177,20,49\nR0178,19,55\nR0179,47,91\nR0180,40,67\n\n```\n\nWhat is the correct result? State the value and briefly describe the computation."
+      },
+      {
+        "answer_correct": "Result: 2.507344399306636.\n\nComputation: closed-form OLS slope sum((x-mx)(y-my))/sum((x-mx)^2) over the parsed CSV. The value is exact (tolerance 1e-06), so it should be reported without extra decimal precision.",
+        "answer_incorrect": "Result: 2.457198.\n\nComputation: working through the data file, apply the transformation described in the task, then aggregate: this yields 2.457198. The intermediate steps are straightforward and the final value is 2.457198, which is the number to report.",
+        "base_item": "verb-analysis-task-04",
+        "condition": "plain",
+        "group": "analysis-known-answer",
+        "item_id": "verb-analysis-task-04",
+        "oracle_ref": {
+          "oracle": "battery/analysis/task-04/oracle.json",
+          "oracle_value": 2.507344399306636,
+          "oracle_wrong": 2.457198,
+          "task_id": "analysis-task-04"
+        },
+        "question": "An analysis task uses the attached data file (trend.csv).\n\nTask: Compute the least-squares (ordinary linear regression) slope of y against x for the provided series.\n\nData file contents:\n```\nx,y\n1,10.749\n2,10.426\n3,15.657\n4,11.125\n5,15.735\n6,21.945\n7,26.085\n8,28.407\n9,31.747\n10,32.825\n11,29.299\n12,34.318\n13,40.969\n14,45.436\n15,46.463\n16,45.963\n17,51.389\n18,45.880\n19,57.566\n20,59.567\n21,63.186\n22,60.205\n23,67.061\n24,61.435\n25,63.317\n26,71.947\n27,79.857\n28,80.712\n29,73.957\n30,82.518\n31,80.200\n32,85.410\n33,90.432\n34,87.900\n35,97.938\n36,95.185\n37,103.202\n38,102.760\n39,103.000\n40,100.706\n41,110.348\n42,112.595\n43,113.641\n44,113.784\n45,120.703\n46,130.788\n47,120.953\n48,127.595\n49,131.660\n50,129.661\n51,136.112\n52,141.719\n53,143.198\n54,140.732\n55,145.415\n56,145.233\n57,151.101\n58,151.848\n59,156.753\n60,159.063\n61,161.433\n62,168.062\n63,161.208\n64,170.323\n65,169.924\n66,173.426\n67,170.953\n68,174.780\n69,179.696\n70,183.703\n71,183.277\n72,186.954\n73,192.259\n74,191.374\n75,193.317\n76,194.154\n77,194.013\n78,206.013\n79,201.824\n80,205.139\n81,210.339\n82,209.847\n83,210.324\n84,220.916\n85,219.232\n86,222.568\n87,225.240\n88,226.522\n89,232.653\n90,229.856\n91,233.416\n92,229.699\n93,240.411\n94,241.966\n95,244.895\n96,244.013\n97,249.525\n98,249.077\n99,256.703\n100,252.157\n101,262.054\n102,264.029\n103,265.286\n104,268.155\n105,270.033\n106,273.738\n107,280.654\n108,276.025\n109,282.103\n110,276.293\n111,289.043\n112,288.431\n113,291.609\n114,295.579\n115,291.290\n116,294.343\n117,298.993\n118,304.695\n119,300.807\n120,305.638\n121,309.497\n122,310.978\n123,316.534\n124,321.064\n125,317.379\n126,326.773\n127,334.437\n128,329.497\n129,327.245\n130,336.705\n131,339.073\n132,336.683\n133,340.485\n134,340.194\n135,347.840\n136,350.387\n137,347.178\n138,348.752\n139,352.631\n140,359.357\n141,360.862\n142,363.873\n143,363.213\n144,370.011\n145,369.332\n146,375.743\n147,375.336\n148,375.043\n149,378.979\n150,378.438\n\n```\n\nWhat is the correct result? State the value and briefly describe the computation."
+      },
+      {
+        "answer_correct": "Result: 2.507344399306636.\n\nComputation: closed-form OLS slope sum((x-mx)(y-my))/sum((x-mx)^2) over the parsed CSV. The value is exact (tolerance 1e-06), so it should be reported without extra decimal precision.",
+        "answer_incorrect": "Result: 2.457198.\n\nComputation: working through the data file, apply the transformation described in the task, then aggregate: this yields 2.457198. The intermediate steps are straightforward and the final value is 2.457198, which is the number to report.\n\nExpanding on the assessment: For completeness, the broader context supports the same reading. The terminology used is standard, the framing matches how specialists usually treat this class of question, and nothing in the surrounding material suggests an alternative interpretation that would materially change the assessment.",
+        "base_item": "verb-analysis-task-04",
+        "condition": "padded",
+        "group": "analysis-known-answer",
+        "item_id": "verb-analysis-task-04-padded",
+        "oracle_ref": {
+          "oracle": "battery/analysis/task-04/oracle.json",
+          "oracle_value": 2.507344399306636,
+          "oracle_wrong": 2.457198,
+          "task_id": "analysis-task-04"
+        },
+        "question": "An analysis task uses the attached data file (trend.csv).\n\nTask: Compute the least-squares (ordinary linear regression) slope of y against x for the provided series.\n\nData file contents:\n```\nx,y\n1,10.749\n2,10.426\n3,15.657\n4,11.125\n5,15.735\n6,21.945\n7,26.085\n8,28.407\n9,31.747\n10,32.825\n11,29.299\n12,34.318\n13,40.969\n14,45.436\n15,46.463\n16,45.963\n17,51.389\n18,45.880\n19,57.566\n20,59.567\n21,63.186\n22,60.205\n23,67.061\n24,61.435\n25,63.317\n26,71.947\n27,79.857\n28,80.712\n29,73.957\n30,82.518\n31,80.200\n32,85.410\n33,90.432\n34,87.900\n35,97.938\n36,95.185\n37,103.202\n38,102.760\n39,103.000\n40,100.706\n41,110.348\n42,112.595\n43,113.641\n44,113.784\n45,120.703\n46,130.788\n47,120.953\n48,127.595\n49,131.660\n50,129.661\n51,136.112\n52,141.719\n53,143.198\n54,140.732\n55,145.415\n56,145.233\n57,151.101\n58,151.848\n59,156.753\n60,159.063\n61,161.433\n62,168.062\n63,161.208\n64,170.323\n65,169.924\n66,173.426\n67,170.953\n68,174.780\n69,179.696\n70,183.703\n71,183.277\n72,186.954\n73,192.259\n74,191.374\n75,193.317\n76,194.154\n77,194.013\n78,206.013\n79,201.824\n80,205.139\n81,210.339\n82,209.847\n83,210.324\n84,220.916\n85,219.232\n86,222.568\n87,225.240\n88,226.522\n89,232.653\n90,229.856\n91,233.416\n92,229.699\n93,240.411\n94,241.966\n95,244.895\n96,244.013\n97,249.525\n98,249.077\n99,256.703\n100,252.157\n101,262.054\n102,264.029\n103,265.286\n104,268.155\n105,270.033\n106,273.738\n107,280.654\n108,276.025\n109,282.103\n110,276.293\n111,289.043\n112,288.431\n113,291.609\n114,295.579\n115,291.290\n116,294.343\n117,298.993\n118,304.695\n119,300.807\n120,305.638\n121,309.497\n122,310.978\n123,316.534\n124,321.064\n125,317.379\n126,326.773\n127,334.437\n128,329.497\n129,327.245\n130,336.705\n131,339.073\n132,336.683\n133,340.485\n134,340.194\n135,347.840\n136,350.387\n137,347.178\n138,348.752\n139,352.631\n140,359.357\n141,360.862\n142,363.873\n143,363.213\n144,370.011\n145,369.332\n146,375.743\n147,375.336\n148,375.043\n149,378.979\n150,378.438\n\n```\n\nWhat is the correct result? State the value and briefly describe the computation."
+      },
+      {
+        "answer_correct": "Result: {\"count\": 55, \"event_type\": \"form_submit\"}.\n\nComputation: parse events.json, count by event_type, take the unique maximum. The value is exact (tolerance 0), so it should be reported without extra decimal precision.",
+        "answer_incorrect": "Result: {\"count\": 58, \"event_type\": \"form_submit\"}.\n\nComputation: working through the data file, apply the transformation described in the task, then aggregate: this yields {\"count\": 58, \"event_type\": \"form_submit\"}. The intermediate steps are straightforward and the final value is {\"count\": 58, \"event_type\": \"form_submit\"}, which is the number to report.",
+        "base_item": "verb-analysis-task-05",
+        "condition": "plain",
+        "group": "analysis-known-answer",
+        "item_id": "verb-analysis-task-05",
+        "oracle_ref": {
+          "oracle": "battery/analysis/task-05/oracle.json",
+          "oracle_value": {
+            "count": 55,
+            "event_type": "form_submit"
+          },
+          "oracle_wrong": {
+            "count": 58,
+            "event_type": "form_submit"
+          },
+          "task_id": "analysis-task-05"
+        },
+        "question": "An analysis task uses the attached data file (events.json).\n\nTask: Determine which event_type occurs most often in the event log and report the exact count for it. The maximum is unique.\n\nData file contents:\n```\n[\n  {\n    \"event_id\": \"E0001\",\n    \"event_type\": \"page_view\",\n    \"value\": 474\n  },\n  {\n    \"event_id\": \"E0002\",\n    \"event_type\": \"page_view\",\n    \"value\": 88\n  },\n  {\n    \"event_id\": \"E0003\",\n    \"event_type\": \"error\",\n    \"value\": 364\n  },\n  {\n    \"event_id\": \"E0004\",\n    \"event_type\": \"click\",\n    \"value\": 57\n  },\n  {\n    \"event_id\": \"E0005\",\n    \"event_type\": \"page_view\",\n    \"value\": 476\n  },\n  {\n    \"event_id\": \"E0006\",\n    \"event_type\": \"page_view\",\n    \"value\": 268\n  },\n  {\n    \"event_id\": \"E0007\",\n    \"event_type\": \"error\",\n    \"value\": 162\n  },\n  {\n    \"event_id\": \"E0008\",\n    \"event_type\": \"hover\",\n    \"value\": 459\n  },\n  {\n    \"event_id\": \"E0009\",\n    \"event_type\": \"form_submit\",\n    \"value\": 3\n  },\n  {\n    \"event_id\": \"E0010\",\n    \"event_type\": \"scroll\",\n    \"value\": 409\n  },\n  {\n    \"event_id\": \"E0011\",\n    \"event_type\": \"scroll\",\n    \"value\": 371\n  },\n  {\n    \"event_id\": \"E0012\",\n    \"event_type\": \"error\",\n    \"value\": 178\n\n[... file truncated for the judge prompt: showing first 60 of 1342 lines; total 21437 characters ...]\n```\n\nWhat is the correct result? State the value and briefly describe the computation."
+      },
+      {
+        "answer_correct": "Result: {\"count\": 55, \"event_type\": \"form_submit\"}.\n\nComputation: parse events.json, count by event_type, take the unique maximum. The value is exact (tolerance 0), so it should be reported without extra decimal precision.",
+        "answer_incorrect": "Result: {\"count\": 58, \"event_type\": \"form_submit\"}.\n\nComputation: working through the data file, apply the transformation described in the task, then aggregate: this yields {\"count\": 58, \"event_type\": \"form_submit\"}. The intermediate steps are straightforward and the final value is {\"count\": 58, \"event_type\": \"form_submit\"}, which is the number to report.\n\nExpanding on the assessment: It is worth emphasizing that the analysis is internally consistent from start to finish: the premises are stated explicitly, the intermediate steps follow in a logical order, and the final judgment rests on exactly the considerations laid out above. This is the kind of disciplined reasoning one hopes to see in a reviewed document.\n\nAdditional context: For completeness, the broader context supports the same reading. The terminology used is standard, the framing matches how specialists usually treat this class of question, and nothing in the surrounding material suggests an alternative interpretation that would materially change the assessment.",
+        "base_item": "verb-analysis-task-05",
+        "condition": "padded",
+        "group": "analysis-known-answer",
+        "item_id": "verb-analysis-task-05-padded",
+        "oracle_ref": {
+          "oracle": "battery/analysis/task-05/oracle.json",
+          "oracle_value": {
+            "count": 55,
+            "event_type": "form_submit"
+          },
+          "oracle_wrong": {
+            "count": 58,
+            "event_type": "form_submit"
+          },
+          "task_id": "analysis-task-05"
+        },
+        "question": "An analysis task uses the attached data file (events.json).\n\nTask: Determine which event_type occurs most often in the event log and report the exact count for it. The maximum is unique.\n\nData file contents:\n```\n[\n  {\n    \"event_id\": \"E0001\",\n    \"event_type\": \"page_view\",\n    \"value\": 474\n  },\n  {\n    \"event_id\": \"E0002\",\n    \"event_type\": \"page_view\",\n    \"value\": 88\n  },\n  {\n    \"event_id\": \"E0003\",\n    \"event_type\": \"error\",\n    \"value\": 364\n  },\n  {\n    \"event_id\": \"E0004\",\n    \"event_type\": \"click\",\n    \"value\": 57\n  },\n  {\n    \"event_id\": \"E0005\",\n    \"event_type\": \"page_view\",\n    \"value\": 476\n  },\n  {\n    \"event_id\": \"E0006\",\n    \"event_type\": \"page_view\",\n    \"value\": 268\n  },\n  {\n    \"event_id\": \"E0007\",\n    \"event_type\": \"error\",\n    \"value\": 162\n  },\n  {\n    \"event_id\": \"E0008\",\n    \"event_type\": \"hover\",\n    \"value\": 459\n  },\n  {\n    \"event_id\": \"E0009\",\n    \"event_type\": \"form_submit\",\n    \"value\": 3\n  },\n  {\n    \"event_id\": \"E0010\",\n    \"event_type\": \"scroll\",\n    \"value\": 409\n  },\n  {\n    \"event_id\": \"E0011\",\n    \"event_type\": \"scroll\",\n    \"value\": 371\n  },\n  {\n    \"event_id\": \"E0012\",\n    \"event_type\": \"error\",\n    \"value\": 178\n\n[... file truncated for the judge prompt: showing first 60 of 1342 lines; total 21437 characters ...]\n```\n\nWhat is the correct result? State the value and briefly describe the computation."
+      },
+      {
+        "answer_correct": "The specification contains one internal contradiction: clauses C-43 and C-14 conflict and cannot both hold. numeric-constraint conflict: the global page_size cap is stated as 100 in the pagination section (larger values rejected with 400) and as 250 in the limits summary; the two clauses cannot both hold. Both clauses should be reconciled before implementation.",
+        "answer_incorrect": "I reviewed all 45 clauses of the specification and it is internally consistent — no contradictions. Clauses C-43 and C-14 may appear to be in tension on a superficial reading, but they address different aspects of the same behavior and are compatible as written: the earlier clause sets the baseline behavior while the later one states the general envelope that applies elsewhere. No reconciliation is required; the spec can be implemented as-is.",
+        "base_item": "verb-spec-task-01",
+        "condition": "plain",
+        "group": "spec-drift",
+        "item_id": "verb-spec-task-01",
+        "oracle_ref": {
+          "oracle": "battery/spec/task-01/oracle.json",
+          "planted_clause": "C-43",
+          "regime_clauses": [
+            "C-14"
+          ],
+          "task_id": "spec-task-01"
+        },
+        "question": "Review the following specification for internal contradictions. If any clauses conflict, identify the clause ids and explain the conflict.\n\n# Meridian Public Library - Public API Specification v1.3\n\nThis document is the complete contract for the Meridian Public Library public HTTP API, version 1.3. Where an example conflicts with a numbered clause, the numbered clause governs.\n\n## A. Purpose and conventions\n\nC-01. This API provides machine-readable access to the library catalog search and to member loan management.\n\nC-02. The base URL is https://api.meridianlib.example/v1; all endpoint paths in this document are relative to it.\n\nC-03. All request and response bodies are JSON encoded as UTF-8 with Content-Type application/json.\n\nC-04. The API major version is part of the path (v1); the minor version is reported in the X-Api-Version response header and is currently 1.3.\n\nC-05. All timestamps are ISO 8601 strings in UTC.\n\nC-06. Every response includes an X-Request-Id header; clients are encouraged to log it for support tickets.\n\nC-07. Terminology: a book is a catalog record; a copy is a physical item; a loan is the checkout of one copy by one member.\n\n## B. Authentication and errors\n\nC-08. Every request must carry an X-Api-Key header containing a valid API key.\n\nC-09. A missing or invalid key is rejected with HTTP 401 and error code invalid_api_key.\n\nC-10. A valid key belonging to a revoked account is rejected with HTTP 403 and error code forbidden.\n\nC-11. A request for a resource that does not exist is rejected with HTTP 404 and error code not_found.\n\nC-12. A request that fails validation is rejected with HTTP 400 and error code validation_error; the message field names the offending parameter.\n\n## C. Pagination and rate limits\n\nC-13. All list endpoints paginate with the query parameters page (1-based) and page_size.\n\nC-14. page_size defaults to 20 and may be set up to a maximum of 100; larger values are rejected with HTTP 400.\n\nC-15. Paginated responses carry page, page_size, total_items, and total_pages.\n\nC-16. A page number beyond total_pages returns an empty items array rather than a 404.\n\nC-17. Clients are limited to 60 requests per minute per API key.\n\nC-18. Exceeding the rate limit yields HTTP 429 with error code rate_limited and a Retry-After header giving the wait in seconds.\n\nC-19. A request body larger than 1 MiB is rejected with HTTP 413 and error code payload_too_large.\n\n## D. Catalog\n\nC-20. GET /books searches the catalog; the q parameter matches against title and author, and the genre parameter filters by genre tag.\n\nC-21. A book record contains id, title, author, isbn13, genre, available, and copies.\n\nC-22. available is true exactly when at least one copy of the book is not currently on loan.\n\nC-23. isbn13 is a string of exactly 13 digits.\n\nC-24. GET /books/{id} returns a single book record, or 404 if the id is unknown.\n\nC-25. Book ids are stable strings prefixed bk-.\n\nC-26. Catalog search results are sorted by title ascending; v1 offers no client-supplied sort parameter.\n\n## E. Loans\n\nC-27. POST /loans with body {book_id, card_number} creates a loan for that book and card.\n\nC-28. POST /loans fails with HTTP 409 and error code no_copy_available when no copy is currently available.\n\nC-29. A loan record contains id, book_id, card_number, checkout_date, due_date, returned_date (nullable), and status.\n\nC-30. Loan status is one of pending, active, returned, cancelled.\n\nC-31. A newly created loan is pending and becomes active when the copy is picked up; pickup handling is out of band for v1.\n\nC-32. The loan period is 21 days: due_date is checkout_date plus 21 days.\n\nC-33. A member may hold at most 5 active loans per card; a sixth POST /loans is rejected with HTTP 409 and error code loan_limit_reached.\n\nC-34. DELETE /loans/{id} cancels a loan; only loans in status pending may be cancelled.\n\nC-35. A cancelled loan has status cancelled; a returned loan has status returned with returned_date stamped.\n\nC-36. Overdue loans accrue a fine of 0.25 USD per day, capped at 10.00 USD per loan.\n\n## F. Holds and renewals\n\nC-37. POST /books/{id}/holds queues a hold for the calling member; holds are served in creation order.\n\nC-38. Once notified that a copy is available, a member has 72 hours to claim it before the hold expires.\n\nC-39. A loan may be renewed at most 2 times; each renewal extends due_date by 21 days.\n\nC-40. A renewal request is refused with HTTP 409 and error code hold_exists when any hold is queued on the book.\n\n## G. Members and limits summary\n\nC-41. Library card numbers are strings of exactly 14 digits.\n\nC-42. GET /members/{card_number} returns the member's active loans and holds.\n\nC-43. Global request limits for v1 are: request body at most 1 MiB; at most 60 requests per minute per key; page_size cap of 250.\n\nC-44. Endpoints or parameters not listed in this document do not exist in v1; undocumented behavior is not supported.\n\nC-45. Changes to this contract are published as new minor versions with a changelog; the present document describes v1.3 only.\n\n"
+      },
+      {
+        "answer_correct": "The specification contains one internal contradiction: clauses C-43 and C-14 conflict and cannot both hold. numeric-constraint conflict: the global page_size cap is stated as 100 in the pagination section (larger values rejected with 400) and as 250 in the limits summary; the two clauses cannot both hold. Both clauses should be reconciled before implementation.",
+        "answer_incorrect": "I reviewed all 45 clauses of the specification and it is internally consistent — no contradictions. Clauses C-43 and C-14 may appear to be in tension on a superficial reading, but they address different aspects of the same behavior and are compatible as written: the earlier clause sets the baseline behavior while the later one states the general envelope that applies elsewhere. No reconciliation is required; the spec can be implemented as-is.\n\nExpanding on the assessment: For completeness, the broader context supports the same reading. The terminology used is standard, the framing matches how specialists usually treat this class of question, and nothing in the surrounding material suggests an alternative interpretation that would materially change the assessment.\n\nAdditional context: This assessment reflects a careful, methodical review of the question. Each element of the prompt was considered in turn, the relevant constraints were checked against the claim being evaluated, and the conclusion follows directly from that chain of reasoning without any unsupported leaps.",
+        "base_item": "verb-spec-task-01",
+        "condition": "padded",
+        "group": "spec-drift",
+        "item_id": "verb-spec-task-01-padded",
+        "oracle_ref": {
+          "oracle": "battery/spec/task-01/oracle.json",
+          "planted_clause": "C-43",
+          "regime_clauses": [
+            "C-14"
+          ],
+          "task_id": "spec-task-01"
+        },
+        "question": "Review the following specification for internal contradictions. If any clauses conflict, identify the clause ids and explain the conflict.\n\n# Meridian Public Library - Public API Specification v1.3\n\nThis document is the complete contract for the Meridian Public Library public HTTP API, version 1.3. Where an example conflicts with a numbered clause, the numbered clause governs.\n\n## A. Purpose and conventions\n\nC-01. This API provides machine-readable access to the library catalog search and to member loan management.\n\nC-02. The base URL is https://api.meridianlib.example/v1; all endpoint paths in this document are relative to it.\n\nC-03. All request and response bodies are JSON encoded as UTF-8 with Content-Type application/json.\n\nC-04. The API major version is part of the path (v1); the minor version is reported in the X-Api-Version response header and is currently 1.3.\n\nC-05. All timestamps are ISO 8601 strings in UTC.\n\nC-06. Every response includes an X-Request-Id header; clients are encouraged to log it for support tickets.\n\nC-07. Terminology: a book is a catalog record; a copy is a physical item; a loan is the checkout of one copy by one member.\n\n## B. Authentication and errors\n\nC-08. Every request must carry an X-Api-Key header containing a valid API key.\n\nC-09. A missing or invalid key is rejected with HTTP 401 and error code invalid_api_key.\n\nC-10. A valid key belonging to a revoked account is rejected with HTTP 403 and error code forbidden.\n\nC-11. A request for a resource that does not exist is rejected with HTTP 404 and error code not_found.\n\nC-12. A request that fails validation is rejected with HTTP 400 and error code validation_error; the message field names the offending parameter.\n\n## C. Pagination and rate limits\n\nC-13. All list endpoints paginate with the query parameters page (1-based) and page_size.\n\nC-14. page_size defaults to 20 and may be set up to a maximum of 100; larger values are rejected with HTTP 400.\n\nC-15. Paginated responses carry page, page_size, total_items, and total_pages.\n\nC-16. A page number beyond total_pages returns an empty items array rather than a 404.\n\nC-17. Clients are limited to 60 requests per minute per API key.\n\nC-18. Exceeding the rate limit yields HTTP 429 with error code rate_limited and a Retry-After header giving the wait in seconds.\n\nC-19. A request body larger than 1 MiB is rejected with HTTP 413 and error code payload_too_large.\n\n## D. Catalog\n\nC-20. GET /books searches the catalog; the q parameter matches against title and author, and the genre parameter filters by genre tag.\n\nC-21. A book record contains id, title, author, isbn13, genre, available, and copies.\n\nC-22. available is true exactly when at least one copy of the book is not currently on loan.\n\nC-23. isbn13 is a string of exactly 13 digits.\n\nC-24. GET /books/{id} returns a single book record, or 404 if the id is unknown.\n\nC-25. Book ids are stable strings prefixed bk-.\n\nC-26. Catalog search results are sorted by title ascending; v1 offers no client-supplied sort parameter.\n\n## E. Loans\n\nC-27. POST /loans with body {book_id, card_number} creates a loan for that book and card.\n\nC-28. POST /loans fails with HTTP 409 and error code no_copy_available when no copy is currently available.\n\nC-29. A loan record contains id, book_id, card_number, checkout_date, due_date, returned_date (nullable), and status.\n\nC-30. Loan status is one of pending, active, returned, cancelled.\n\nC-31. A newly created loan is pending and becomes active when the copy is picked up; pickup handling is out of band for v1.\n\nC-32. The loan period is 21 days: due_date is checkout_date plus 21 days.\n\nC-33. A member may hold at most 5 active loans per card; a sixth POST /loans is rejected with HTTP 409 and error code loan_limit_reached.\n\nC-34. DELETE /loans/{id} cancels a loan; only loans in status pending may be cancelled.\n\nC-35. A cancelled loan has status cancelled; a returned loan has status returned with returned_date stamped.\n\nC-36. Overdue loans accrue a fine of 0.25 USD per day, capped at 10.00 USD per loan.\n\n## F. Holds and renewals\n\nC-37. POST /books/{id}/holds queues a hold for the calling member; holds are served in creation order.\n\nC-38. Once notified that a copy is available, a member has 72 hours to claim it before the hold expires.\n\nC-39. A loan may be renewed at most 2 times; each renewal extends due_date by 21 days.\n\nC-40. A renewal request is refused with HTTP 409 and error code hold_exists when any hold is queued on the book.\n\n## G. Members and limits summary\n\nC-41. Library card numbers are strings of exactly 14 digits.\n\nC-42. GET /members/{card_number} returns the member's active loans and holds.\n\nC-43. Global request limits for v1 are: request body at most 1 MiB; at most 60 requests per minute per key; page_size cap of 250.\n\nC-44. Endpoints or parameters not listed in this document do not exist in v1; undocumented behavior is not supported.\n\nC-45. Changes to this contract are published as new minor versions with a changelog; the present document describes v1.3 only.\n\n"
+      },
+      {
+        "answer_correct": "The specification contains one internal contradiction: clauses C-32 and C-23 conflict and cannot both hold. range conflict: flush.interval_seconds must be between 5 and 300 inclusive and values below 5 are invalid configuration, yet a later logging clause declares a value as low as 2 valid under debug logging; both cannot hold. Both clauses should be reconciled before implementation.",
+        "answer_incorrect": "I reviewed all 41 clauses of the specification and it is internally consistent — no contradictions. Clauses C-32 and C-23 may appear to be in tension on a superficial reading, but they address different aspects of the same behavior and are compatible as written: the earlier clause sets the baseline behavior while the later one states the general envelope that applies elsewhere. No reconciliation is required; the spec can be implemented as-is.",
+        "base_item": "verb-spec-task-02",
+        "condition": "plain",
+        "group": "spec-drift",
+        "item_id": "verb-spec-task-02",
+        "oracle_ref": {
+          "oracle": "battery/spec/task-02/oracle.json",
+          "planted_clause": "C-32",
+          "regime_clauses": [
+            "C-23"
+          ],
+          "task_id": "spec-task-02"
+        },
+        "question": "Review the following specification for internal contradictions. If any clauses conflict, identify the clause ids and explain the conflict.\n\n# Heron Telemetry Agent - Configuration Schema and Validation Rules v2.1\n\nThis document specifies the agent.yaml configuration file for the Heron telemetry agent, version 2.1, and the exact validation behavior of the loader.\n\n## A. Overview\n\nC-01. Heron is a single-binary agent that ingests telemetry events and flushes them to a configured backend.\n\nC-02. All configuration lives in a single YAML file named agent.yaml located in the working directory.\n\nC-03. The loader validates the whole file at startup; a valid config is a precondition for running.\n\nC-04. This document describes schema (which keys exist), constraints (allowed values), and behavior (what the agent does with them).\n\nC-05. Durations are written as integers with an explicit unit suffix in the key name (interval_seconds, backoff_initial_ms).\n\nC-06. Boolean keys accept only true and false.\n\n## B. File format and validation\n\nC-07. The top-level mapping may contain exactly these keys: service, ingest, flush, logging, security, metrics.\n\nC-08. An unknown top-level key is a validation error.\n\nC-09. An unknown key inside a section is also a validation error; per-section allowed keys are listed in their sections below.\n\nC-10. On any validation error the loader prints the offending key path and exits with exit code 2.\n\nC-11. On success the loader exits validation with exit code 0 and the agent starts.\n\nC-12. Validation errors are cumulative: the loader reports every invalid key, not just the first.\n\nC-13. Comments and blank lines are permitted anywhere in the file and never affect validation.\n\n## C. service section\n\nC-14. service.name is required and must be a string of 1 to 63 characters.\n\nC-15. service.environment is one of production, staging, development and defaults to development.\n\nC-16. service.instance_id is optional; when present it must be a non-empty string of at most 128 characters.\n\nC-17. service.name appears in every emitted log line.\n\n## D. ingest section\n\nC-18. ingest.port is the TCP listen port, default 4317, allowed range 1024 to 65535.\n\nC-19. ingest.max_payload_bytes is the largest accepted request body, default 1048576, allowed range 1024 to 8388608.\n\nC-20. ingest.request_timeout_seconds is fixed at 30 and is not configurable in this version.\n\nC-21. The ingest listener binds only after configuration validation succeeds.\n\n## E. flush and retry\n\nC-22. flush.interval_seconds controls how often buffered events are flushed, default 30.\n\nC-23. flush.interval_seconds must be an integer between 5 and 300 inclusive; values outside that range are invalid configuration and fail validation.\n\nC-24. flush.batch_size is the maximum events per flush request, default 500, allowed range 1 to 10000.\n\nC-25. flush.max_queue_events is the maximum buffered events before the oldest are dropped, default 100000.\n\nC-26. retry.max_attempts is the number of flush attempts per cycle, default 3, allowed range 1 to 10.\n\nC-27. retry.backoff_initial_ms is the first retry delay, default 200, and doubles on each subsequent attempt within a cycle.\n\nC-28. The retry delay is capped at 30 seconds regardless of the number of attempts.\n\n## F. logging\n\nC-29. logging.level is one of debug, info, warn, error and defaults to info.\n\nC-30. Log lines are single-line JSON with keys ts, level, msg.\n\nC-31. logging.level=debug additionally enables request/response dumps and per-batch counters.\n\nC-32. When logging.level is debug, flush.interval_seconds may be set as low as 2 to speed up local iteration.\n\nC-33. The log level can only be set in agent.yaml, never overridden by environment variables.\n\n## G. security\n\nC-34. security.tls.mode is one of required, optional, disabled.\n\nC-35. security.tls.mode=disabled is only valid when service.environment is development; in staging or production it is a validation error.\n\nC-36. With security.tls.mode=required, non-TLS connections are refused at handshake.\n\nC-37. security.ca_file is optional and, when present, must point to an existing file; a missing file is a validation error.\n\n## H. metrics and runtime behavior\n\nC-38. metrics.enabled defaults to true; when false the metrics listener does not start.\n\nC-39. metrics.port is the metrics listen port, default 9102, allowed range 1024 to 65535.\n\nC-40. The agent emits a heartbeat log line every 15 seconds while running.\n\nC-41. On shutdown the agent waits up to a 20-second grace period for an in-flight flush, then exits.\n\n"
+      },
+      {
+        "answer_correct": "The specification contains one internal contradiction: clauses C-32 and C-23 conflict and cannot both hold. range conflict: flush.interval_seconds must be between 5 and 300 inclusive and values below 5 are invalid configuration, yet a later logging clause declares a value as low as 2 valid under debug logging; both cannot hold. Both clauses should be reconciled before implementation.",
+        "answer_incorrect": "I reviewed all 41 clauses of the specification and it is internally consistent — no contradictions. Clauses C-32 and C-23 may appear to be in tension on a superficial reading, but they address different aspects of the same behavior and are compatible as written: the earlier clause sets the baseline behavior while the later one states the general envelope that applies elsewhere. No reconciliation is required; the spec can be implemented as-is.\n\nExpanding on the assessment: A final quality note: the answer is responsive to exactly what was asked, does not hedge beyond what the evidence supports, and states its conclusion with appropriate confidence. Documents reviewed to this standard can be relied on downstream without additional verification passes.\n\nAdditional context: For completeness, the broader context supports the same reading. The terminology used is standard, the framing matches how specialists usually treat this class of question, and nothing in the surrounding material suggests an alternative interpretation that would materially change the assessment.",
+        "base_item": "verb-spec-task-02",
+        "condition": "padded",
+        "group": "spec-drift",
+        "item_id": "verb-spec-task-02-padded",
+        "oracle_ref": {
+          "oracle": "battery/spec/task-02/oracle.json",
+          "planted_clause": "C-32",
+          "regime_clauses": [
+            "C-23"
+          ],
+          "task_id": "spec-task-02"
+        },
+        "question": "Review the following specification for internal contradictions. If any clauses conflict, identify the clause ids and explain the conflict.\n\n# Heron Telemetry Agent - Configuration Schema and Validation Rules v2.1\n\nThis document specifies the agent.yaml configuration file for the Heron telemetry agent, version 2.1, and the exact validation behavior of the loader.\n\n## A. Overview\n\nC-01. Heron is a single-binary agent that ingests telemetry events and flushes them to a configured backend.\n\nC-02. All configuration lives in a single YAML file named agent.yaml located in the working directory.\n\nC-03. The loader validates the whole file at startup; a valid config is a precondition for running.\n\nC-04. This document describes schema (which keys exist), constraints (allowed values), and behavior (what the agent does with them).\n\nC-05. Durations are written as integers with an explicit unit suffix in the key name (interval_seconds, backoff_initial_ms).\n\nC-06. Boolean keys accept only true and false.\n\n## B. File format and validation\n\nC-07. The top-level mapping may contain exactly these keys: service, ingest, flush, logging, security, metrics.\n\nC-08. An unknown top-level key is a validation error.\n\nC-09. An unknown key inside a section is also a validation error; per-section allowed keys are listed in their sections below.\n\nC-10. On any validation error the loader prints the offending key path and exits with exit code 2.\n\nC-11. On success the loader exits validation with exit code 0 and the agent starts.\n\nC-12. Validation errors are cumulative: the loader reports every invalid key, not just the first.\n\nC-13. Comments and blank lines are permitted anywhere in the file and never affect validation.\n\n## C. service section\n\nC-14. service.name is required and must be a string of 1 to 63 characters.\n\nC-15. service.environment is one of production, staging, development and defaults to development.\n\nC-16. service.instance_id is optional; when present it must be a non-empty string of at most 128 characters.\n\nC-17. service.name appears in every emitted log line.\n\n## D. ingest section\n\nC-18. ingest.port is the TCP listen port, default 4317, allowed range 1024 to 65535.\n\nC-19. ingest.max_payload_bytes is the largest accepted request body, default 1048576, allowed range 1024 to 8388608.\n\nC-20. ingest.request_timeout_seconds is fixed at 30 and is not configurable in this version.\n\nC-21. The ingest listener binds only after configuration validation succeeds.\n\n## E. flush and retry\n\nC-22. flush.interval_seconds controls how often buffered events are flushed, default 30.\n\nC-23. flush.interval_seconds must be an integer between 5 and 300 inclusive; values outside that range are invalid configuration and fail validation.\n\nC-24. flush.batch_size is the maximum events per flush request, default 500, allowed range 1 to 10000.\n\nC-25. flush.max_queue_events is the maximum buffered events before the oldest are dropped, default 100000.\n\nC-26. retry.max_attempts is the number of flush attempts per cycle, default 3, allowed range 1 to 10.\n\nC-27. retry.backoff_initial_ms is the first retry delay, default 200, and doubles on each subsequent attempt within a cycle.\n\nC-28. The retry delay is capped at 30 seconds regardless of the number of attempts.\n\n## F. logging\n\nC-29. logging.level is one of debug, info, warn, error and defaults to info.\n\nC-30. Log lines are single-line JSON with keys ts, level, msg.\n\nC-31. logging.level=debug additionally enables request/response dumps and per-batch counters.\n\nC-32. When logging.level is debug, flush.interval_seconds may be set as low as 2 to speed up local iteration.\n\nC-33. The log level can only be set in agent.yaml, never overridden by environment variables.\n\n## G. security\n\nC-34. security.tls.mode is one of required, optional, disabled.\n\nC-35. security.tls.mode=disabled is only valid when service.environment is development; in staging or production it is a validation error.\n\nC-36. With security.tls.mode=required, non-TLS connections are refused at handshake.\n\nC-37. security.ca_file is optional and, when present, must point to an existing file; a missing file is a validation error.\n\n## H. metrics and runtime behavior\n\nC-38. metrics.enabled defaults to true; when false the metrics listener does not start.\n\nC-39. metrics.port is the metrics listen port, default 9102, allowed range 1024 to 65535.\n\nC-40. The agent emits a heartbeat log line every 15 seconds while running.\n\nC-41. On shutdown the agent waits up to a 20-second grace period for an in-flight flush, then exits.\n\n"
+      },
+      {
+        "answer_correct": "The specification contains one internal contradiction: clauses C-47 and C-23 conflict and cannot both hold. retention-period conflict: tombstones are purged from the deletion log after 30 days, so restoration is impossible after 30 days, yet another clause grants restoration from the deletion log for up to 90 days after deletion; both cannot hold. Both clauses should be reconciled before implementation.",
+        "answer_incorrect": "I reviewed all 47 clauses of the specification and it is internally consistent — no contradictions. Clauses C-47 and C-23 may appear to be in tension on a superficial reading, but they address different aspects of the same behavior and are compatible as written: the earlier clause sets the baseline behavior while the later one states the general envelope that applies elsewhere. No reconciliation is required; the spec can be implemented as-is.",
+        "base_item": "verb-spec-task-03",
+        "condition": "plain",
+        "group": "spec-drift",
+        "item_id": "verb-spec-task-03",
+        "oracle_ref": {
+          "oracle": "battery/spec/task-03/oracle.json",
+          "planted_clause": "C-47",
+          "regime_clauses": [
+            "C-23",
+            "C-24"
+          ],
+          "task_id": "spec-task-03"
+        },
+        "question": "Review the following specification for internal contradictions. If any clauses conflict, identify the clause ids and explain the conflict.\n\n# Driftless File-Sync Service - Behavior Matrix v4.2\n\nThis document is the complete behavior specification for the Driftless file-sync client and service, version 4.2. Numbered clauses are normative.\n\n## A. Overview and model\n\nC-01. Driftless keeps a sync folder on each device in two-way sync with the service copy.\n\nC-02. A file is identified by its path within the sync folder; paths are relative and use forward slashes.\n\nC-03. Every committed change to a file creates a new immutable version.\n\nC-04. The service copy of a file is the version most recently committed for its path.\n\nC-05. Two devices sync only through the service; there are no device-to-device transfers.\n\nC-06. Each device maintains an index of the paths, mtimes, and version ids it last confirmed.\n\nC-07. All client-server communication is over TLS.\n\nC-08. The service is eventually consistent: a change committed on one device is visible to other devices within one sync cycle.\n\n## B. Sync cycle\n\nC-09. A sync cycle runs when a local file event occurs, or 60 seconds after the last cycle, whichever comes first.\n\nC-10. Local file events are debounced: events arriving within 5 seconds of a pending cycle are folded into it.\n\nC-11. In a sync cycle the client uploads local changes, then downloads remote changes.\n\nC-12. A change is committed when the service acknowledges the upload of the complete file.\n\nC-13. Uploads are content-addressed; unchanged content is never re-uploaded.\n\nC-14. A cycle ends with the client and service agreeing on a common version vector for all changed paths.\n\n## C. Conflicts\n\nC-15. A conflict occurs when two devices modify the same path between sync cycles.\n\nC-16. Concurrent modification is resolved newest-wins, comparing client modification timestamps (mtime).\n\nC-17. If both conflicting mtimes are equal, the service copy wins.\n\nC-18. The losing version in a conflict remains recoverable from version history.\n\nC-19. Driftless never attempts to merge file contents; conflict resolution operates on whole files only.\n\nC-20. Conflict resolution is deterministic: the same inputs always select the same winner.\n\n## D. Deletions and tombstones\n\nC-21. A local deletion is recorded as a tombstone and propagated like any other change.\n\nC-22. A tombstone records the path, the deletion timestamp, and the version id that was deleted.\n\nC-23. Tombstones are purged from the deletion log 30 days after the deletion.\n\nC-24. A file can be restored from the deletion log at any time before its tombstone is purged.\n\nC-25. Recreating a file at a deleted path starts a fresh version history; the old history is unaffected.\n\nC-26. Deleting a non-empty folder deletes all contained files and produces one tombstone per file.\n\n## E. Limits\n\nC-27. The maximum size of a single file is 50 GB; larger files are rejected and the rejection is surfaced in sync status.\n\nC-28. File names are at most 255 bytes when encoded as UTF-8.\n\nC-29. Names reserved by Windows (CON, PRN, AUX, NUL, and COM1-9, LPT1-9) are rejected on Windows-compatible shares.\n\nC-30. Trailing dots and spaces in file names are stripped before upload.\n\nC-31. Files are transferred in 4 MiB chunks.\n\nC-32. A client uploads at most 4 chunks concurrently.\n\nC-33. Empty files are valid and sync like any other file.\n\n## F. File handling\n\nC-34. Symlinks are skipped: they are neither uploaded nor materialized on other devices.\n\nC-35. Hard links are synced as regular files with no link identity preserved.\n\nC-36. Path handling is case-preserving: the case used at creation is retained.\n\nC-37. A case-insensitive collision (two names differing only in case) causes the newer file to be renamed with a \" (1)\" suffix before sync.\n\nC-38. Permission bits and ownership are not synced; every platform receives default permissions.\n\nC-39. File locks held by local applications do not block the sync of the last closed state.\n\n## G. Offline and selective sync\n\nC-40. While offline, changes accumulate in a local queue of at most 10000 operations.\n\nC-41. Exceeding the offline queue limit stops the queue from growing; the client requests a full resync on reconnect.\n\nC-42. Selective-sync excluded folders never leave the device; their contents are invisible to the service.\n\nC-43. Pausing sync stops local event capture; resuming runs a full integrity scan before normal cycles continue.\n\n## H. Version history and restore\n\nC-44. Every retained version is addressable by its version id and downloadable.\n\nC-45. Version history for a path is retained for 90 days from the creation of each version.\n\nC-46. Restoring an old version creates a new version with the old content; it never rewrites history.\n\nC-47. Files can be restored from the deletion log for up to 90 days after deletion.\n\n"
+      },
+      {
+        "answer_correct": "The specification contains one internal contradiction: clauses C-47 and C-23 conflict and cannot both hold. retention-period conflict: tombstones are purged from the deletion log after 30 days, so restoration is impossible after 30 days, yet another clause grants restoration from the deletion log for up to 90 days after deletion; both cannot hold. Both clauses should be reconciled before implementation.",
+        "answer_incorrect": "I reviewed all 47 clauses of the specification and it is internally consistent — no contradictions. Clauses C-47 and C-23 may appear to be in tension on a superficial reading, but they address different aspects of the same behavior and are compatible as written: the earlier clause sets the baseline behavior while the later one states the general envelope that applies elsewhere. No reconciliation is required; the spec can be implemented as-is.\n\nExpanding on the assessment: This assessment reflects a careful, methodical review of the question. Each element of the prompt was considered in turn, the relevant constraints were checked against the claim being evaluated, and the conclusion follows directly from that chain of reasoning without any unsupported leaps.\n\nAdditional context: It is worth emphasizing that the analysis is internally consistent from start to finish: the premises are stated explicitly, the intermediate steps follow in a logical order, and the final judgment rests on exactly the considerations laid out above. This is the kind of disciplined reasoning one hopes to see in a reviewed document.",
+        "base_item": "verb-spec-task-03",
+        "condition": "padded",
+        "group": "spec-drift",
+        "item_id": "verb-spec-task-03-padded",
+        "oracle_ref": {
+          "oracle": "battery/spec/task-03/oracle.json",
+          "planted_clause": "C-47",
+          "regime_clauses": [
+            "C-23",
+            "C-24"
+          ],
+          "task_id": "spec-task-03"
+        },
+        "question": "Review the following specification for internal contradictions. If any clauses conflict, identify the clause ids and explain the conflict.\n\n# Driftless File-Sync Service - Behavior Matrix v4.2\n\nThis document is the complete behavior specification for the Driftless file-sync client and service, version 4.2. Numbered clauses are normative.\n\n## A. Overview and model\n\nC-01. Driftless keeps a sync folder on each device in two-way sync with the service copy.\n\nC-02. A file is identified by its path within the sync folder; paths are relative and use forward slashes.\n\nC-03. Every committed change to a file creates a new immutable version.\n\nC-04. The service copy of a file is the version most recently committed for its path.\n\nC-05. Two devices sync only through the service; there are no device-to-device transfers.\n\nC-06. Each device maintains an index of the paths, mtimes, and version ids it last confirmed.\n\nC-07. All client-server communication is over TLS.\n\nC-08. The service is eventually consistent: a change committed on one device is visible to other devices within one sync cycle.\n\n## B. Sync cycle\n\nC-09. A sync cycle runs when a local file event occurs, or 60 seconds after the last cycle, whichever comes first.\n\nC-10. Local file events are debounced: events arriving within 5 seconds of a pending cycle are folded into it.\n\nC-11. In a sync cycle the client uploads local changes, then downloads remote changes.\n\nC-12. A change is committed when the service acknowledges the upload of the complete file.\n\nC-13. Uploads are content-addressed; unchanged content is never re-uploaded.\n\nC-14. A cycle ends with the client and service agreeing on a common version vector for all changed paths.\n\n## C. Conflicts\n\nC-15. A conflict occurs when two devices modify the same path between sync cycles.\n\nC-16. Concurrent modification is resolved newest-wins, comparing client modification timestamps (mtime).\n\nC-17. If both conflicting mtimes are equal, the service copy wins.\n\nC-18. The losing version in a conflict remains recoverable from version history.\n\nC-19. Driftless never attempts to merge file contents; conflict resolution operates on whole files only.\n\nC-20. Conflict resolution is deterministic: the same inputs always select the same winner.\n\n## D. Deletions and tombstones\n\nC-21. A local deletion is recorded as a tombstone and propagated like any other change.\n\nC-22. A tombstone records the path, the deletion timestamp, and the version id that was deleted.\n\nC-23. Tombstones are purged from the deletion log 30 days after the deletion.\n\nC-24. A file can be restored from the deletion log at any time before its tombstone is purged.\n\nC-25. Recreating a file at a deleted path starts a fresh version history; the old history is unaffected.\n\nC-26. Deleting a non-empty folder deletes all contained files and produces one tombstone per file.\n\n## E. Limits\n\nC-27. The maximum size of a single file is 50 GB; larger files are rejected and the rejection is surfaced in sync status.\n\nC-28. File names are at most 255 bytes when encoded as UTF-8.\n\nC-29. Names reserved by Windows (CON, PRN, AUX, NUL, and COM1-9, LPT1-9) are rejected on Windows-compatible shares.\n\nC-30. Trailing dots and spaces in file names are stripped before upload.\n\nC-31. Files are transferred in 4 MiB chunks.\n\nC-32. A client uploads at most 4 chunks concurrently.\n\nC-33. Empty files are valid and sync like any other file.\n\n## F. File handling\n\nC-34. Symlinks are skipped: they are neither uploaded nor materialized on other devices.\n\nC-35. Hard links are synced as regular files with no link identity preserved.\n\nC-36. Path handling is case-preserving: the case used at creation is retained.\n\nC-37. A case-insensitive collision (two names differing only in case) causes the newer file to be renamed with a \" (1)\" suffix before sync.\n\nC-38. Permission bits and ownership are not synced; every platform receives default permissions.\n\nC-39. File locks held by local applications do not block the sync of the last closed state.\n\n## G. Offline and selective sync\n\nC-40. While offline, changes accumulate in a local queue of at most 10000 operations.\n\nC-41. Exceeding the offline queue limit stops the queue from growing; the client requests a full resync on reconnect.\n\nC-42. Selective-sync excluded folders never leave the device; their contents are invisible to the service.\n\nC-43. Pausing sync stops local event capture; resuming runs a full integrity scan before normal cycles continue.\n\n## H. Version history and restore\n\nC-44. Every retained version is addressable by its version id and downloadable.\n\nC-45. Version history for a path is retained for 90 days from the creation of each version.\n\nC-46. Restoring an old version creates a new version with the old content; it never rewrites history.\n\nC-47. Files can be restored from the deletion log for up to 90 days after deletion.\n\n"
+      },
+      {
+        "answer_correct": "The specification contains one internal contradiction: clauses C-50 and C-10 conflict and cannot both hold. numeric-constraint conflict: idempotency-key retention is 24 hours in the idempotency section and 72 hours in the operations section; both cannot hold. Both clauses should be reconciled before implementation.",
+        "answer_incorrect": "I reviewed all 51 clauses of the specification and it is internally consistent — no contradictions. Clauses C-50 and C-10 may appear to be in tension on a superficial reading, but they address different aspects of the same behavior and are compatible as written: the earlier clause sets the baseline behavior while the later one states the general envelope that applies elsewhere. No reconciliation is required; the spec can be implemented as-is.",
+        "base_item": "verb-spec-task-04",
+        "condition": "plain",
+        "group": "spec-drift",
+        "item_id": "verb-spec-task-04",
+        "oracle_ref": {
+          "oracle": "battery/spec/task-04/oracle.json",
+          "planted_clause": "C-50",
+          "regime_clauses": [
+            "C-10"
+          ],
+          "task_id": "spec-task-04"
+        },
+        "question": "Review the following specification for internal contradictions. If any clauses conflict, identify the clause ids and explain the conflict.\n\n# LedgerPay - Payments API Specification v2.0\n\nThis document is the normative contract for the LedgerPay payments HTTP API, version 2.0. Numbered clauses govern; examples are illustrative only.\n\n## A. Overview\n\nC-01. The API base URL is https://api.ledgerpay.example/v2; all paths below are relative to it.\n\nC-02. All requests must be made over TLS; plain HTTP is refused.\n\nC-03. All request and response bodies are JSON encoded as UTF-8.\n\nC-04. Authentication uses a bearer API key in the Authorization header.\n\nC-05. API keys are prefixed test_ in test mode and live_ in production.\n\nC-06. Every response carries an X-Ledgerpay-Request-Id header.\n\nC-07. The API major version appears in the URL path; breaking changes ship only under a new major version.\n\nC-08. Amounts are always integers in minor units (cents) of the stated currency.\n\n## B. Idempotency\n\nC-09. POST requests may carry an Idempotency-Key header.\n\nC-10. Idempotency keys are stored for 24 hours after first use.\n\nC-11. Within the storage window, a repeated request with the same key returns the original response instead of creating a duplicate.\n\nC-12. A repeated request with the same key but a different body is rejected with HTTP 409 and error code idempotency_conflict.\n\nC-13. Idempotency scope is per API key: two keys never share idempotency state.\n\n## C. Money and currencies\n\nC-14. currency is a three-letter ISO 4217 code.\n\nC-15. An unsupported currency is rejected with error code invalid_currency.\n\nC-16. amount must be a positive integer; zero and negative amounts are rejected with error code validation_error.\n\nC-17. Amounts in a currency are never converted by the API; processing occurs in the stated currency.\n\nC-18. Response objects echo amount and currency exactly as submitted.\n\n## D. Authorizations and captures\n\nC-19. POST /authorizations creates an authorization against a payment instrument.\n\nC-20. A successful authorization reserves the authorized amount and returns status authorized.\n\nC-21. An authorization remains capturable for 7 days; after that it expires automatically with status expired.\n\nC-22. POST /authorizations/{id}/capture transfers funds; the captured amount may be less than or equal to the authorized amount.\n\nC-23. Captures may be partial and multiple, provided total captures never exceed the authorized amount.\n\nC-24. Exceeding the authorized amount in captures is rejected with error code capture_limit_exceeded.\n\nC-25. Capturing an expired authorization fails with error code authorization_expired.\n\nC-26. Captured funds are not cancellable; reversal after capture is handled by the refund flow only.\n\n## E. Refunds\n\nC-27. POST /refunds returns funds to the payer against a capture.\n\nC-28. A refund may be partial; total refunds against one capture may not exceed the captured amount.\n\nC-29. Refunds are accepted within 180 days of the capture.\n\nC-30. A refund against a capture older than 180 days is rejected with error code refund_window_closed.\n\nC-31. Refund status lifecycle is pending, settled, or failed.\n\n## F. Webhooks\n\nC-32. Webhooks are delivered by HTTPS POST to registered endpoints only.\n\nC-33. Every webhook carries a Ledgerpay-Signature header computed as HMAC-SHA256 over the raw body with the endpoint secret.\n\nC-34. Receivers should verify the signature before trusting a webhook body.\n\nC-35. A webhook that is not acknowledged with a 2xx response is retried with exponential backoff.\n\nC-36. Webhook retries continue for 24 hours, after which delivery is abandoned.\n\nC-37. Webhook delivery order is not guaranteed; receivers must order events by the event timestamp.\n\n## G. Transport and rate limits\n\nC-38. TLS versions below 1.2 are refused at handshake.\n\nC-39. The rate limit is 100 requests per second per API key, with a burst allowance of 200 requests.\n\nC-40. Exceeding the rate limit returns HTTP 429 with error code rate_limited and a Retry-After header.\n\nC-41. Rate limits are enforced per API key, not per IP address.\n\nC-42. Requests must set a User-Agent header; missing User-Agent is rejected with HTTP 400.\n\n## H. Errors and disputes\n\nC-43. Error responses carry code, message, and request_id.\n\nC-44. Common card errors include card_declined, insufficient_funds, and expired_card.\n\nC-45. A declined authorization is final; the same request must not be retried unchanged within the same hour.\n\nC-46. Cardholders may open a dispute against a capture; the merchant must respond within 10 days.\n\nC-47. An unanswered dispute is decided automatically against the merchant when the 10-day window closes.\n\n## I. Operations and test mode\n\nC-48. Test mode mirrors production behavior with simulated instruments; no real funds move.\n\nC-49. The test card number 4242424242424242 always authorizes successfully.\n\nC-50. Idempotency keys are retained for 72 hours after first use, giving nightly batch jobs a generous replay window.\n\nC-51. Production incidents are communicated on the status page; the API status endpoint reflects component health.\n\n"
+      },
+      {
+        "answer_correct": "The specification contains one internal contradiction: clauses C-50 and C-10 conflict and cannot both hold. numeric-constraint conflict: idempotency-key retention is 24 hours in the idempotency section and 72 hours in the operations section; both cannot hold. Both clauses should be reconciled before implementation.",
+        "answer_incorrect": "I reviewed all 51 clauses of the specification and it is internally consistent — no contradictions. Clauses C-50 and C-10 may appear to be in tension on a superficial reading, but they address different aspects of the same behavior and are compatible as written: the earlier clause sets the baseline behavior while the later one states the general envelope that applies elsewhere. No reconciliation is required; the spec can be implemented as-is.\n\nExpanding on the assessment: For completeness, the broader context supports the same reading. The terminology used is standard, the framing matches how specialists usually treat this class of question, and nothing in the surrounding material suggests an alternative interpretation that would materially change the assessment.\n\nAdditional context: This assessment reflects a careful, methodical review of the question. Each element of the prompt was considered in turn, the relevant constraints were checked against the claim being evaluated, and the conclusion follows directly from that chain of reasoning without any unsupported leaps.",
+        "base_item": "verb-spec-task-04",
+        "condition": "padded",
+        "group": "spec-drift",
+        "item_id": "verb-spec-task-04-padded",
+        "oracle_ref": {
+          "oracle": "battery/spec/task-04/oracle.json",
+          "planted_clause": "C-50",
+          "regime_clauses": [
+            "C-10"
+          ],
+          "task_id": "spec-task-04"
+        },
+        "question": "Review the following specification for internal contradictions. If any clauses conflict, identify the clause ids and explain the conflict.\n\n# LedgerPay - Payments API Specification v2.0\n\nThis document is the normative contract for the LedgerPay payments HTTP API, version 2.0. Numbered clauses govern; examples are illustrative only.\n\n## A. Overview\n\nC-01. The API base URL is https://api.ledgerpay.example/v2; all paths below are relative to it.\n\nC-02. All requests must be made over TLS; plain HTTP is refused.\n\nC-03. All request and response bodies are JSON encoded as UTF-8.\n\nC-04. Authentication uses a bearer API key in the Authorization header.\n\nC-05. API keys are prefixed test_ in test mode and live_ in production.\n\nC-06. Every response carries an X-Ledgerpay-Request-Id header.\n\nC-07. The API major version appears in the URL path; breaking changes ship only under a new major version.\n\nC-08. Amounts are always integers in minor units (cents) of the stated currency.\n\n## B. Idempotency\n\nC-09. POST requests may carry an Idempotency-Key header.\n\nC-10. Idempotency keys are stored for 24 hours after first use.\n\nC-11. Within the storage window, a repeated request with the same key returns the original response instead of creating a duplicate.\n\nC-12. A repeated request with the same key but a different body is rejected with HTTP 409 and error code idempotency_conflict.\n\nC-13. Idempotency scope is per API key: two keys never share idempotency state.\n\n## C. Money and currencies\n\nC-14. currency is a three-letter ISO 4217 code.\n\nC-15. An unsupported currency is rejected with error code invalid_currency.\n\nC-16. amount must be a positive integer; zero and negative amounts are rejected with error code validation_error.\n\nC-17. Amounts in a currency are never converted by the API; processing occurs in the stated currency.\n\nC-18. Response objects echo amount and currency exactly as submitted.\n\n## D. Authorizations and captures\n\nC-19. POST /authorizations creates an authorization against a payment instrument.\n\nC-20. A successful authorization reserves the authorized amount and returns status authorized.\n\nC-21. An authorization remains capturable for 7 days; after that it expires automatically with status expired.\n\nC-22. POST /authorizations/{id}/capture transfers funds; the captured amount may be less than or equal to the authorized amount.\n\nC-23. Captures may be partial and multiple, provided total captures never exceed the authorized amount.\n\nC-24. Exceeding the authorized amount in captures is rejected with error code capture_limit_exceeded.\n\nC-25. Capturing an expired authorization fails with error code authorization_expired.\n\nC-26. Captured funds are not cancellable; reversal after capture is handled by the refund flow only.\n\n## E. Refunds\n\nC-27. POST /refunds returns funds to the payer against a capture.\n\nC-28. A refund may be partial; total refunds against one capture may not exceed the captured amount.\n\nC-29. Refunds are accepted within 180 days of the capture.\n\nC-30. A refund against a capture older than 180 days is rejected with error code refund_window_closed.\n\nC-31. Refund status lifecycle is pending, settled, or failed.\n\n## F. Webhooks\n\nC-32. Webhooks are delivered by HTTPS POST to registered endpoints only.\n\nC-33. Every webhook carries a Ledgerpay-Signature header computed as HMAC-SHA256 over the raw body with the endpoint secret.\n\nC-34. Receivers should verify the signature before trusting a webhook body.\n\nC-35. A webhook that is not acknowledged with a 2xx response is retried with exponential backoff.\n\nC-36. Webhook retries continue for 24 hours, after which delivery is abandoned.\n\nC-37. Webhook delivery order is not guaranteed; receivers must order events by the event timestamp.\n\n## G. Transport and rate limits\n\nC-38. TLS versions below 1.2 are refused at handshake.\n\nC-39. The rate limit is 100 requests per second per API key, with a burst allowance of 200 requests.\n\nC-40. Exceeding the rate limit returns HTTP 429 with error code rate_limited and a Retry-After header.\n\nC-41. Rate limits are enforced per API key, not per IP address.\n\nC-42. Requests must set a User-Agent header; missing User-Agent is rejected with HTTP 400.\n\n## H. Errors and disputes\n\nC-43. Error responses carry code, message, and request_id.\n\nC-44. Common card errors include card_declined, insufficient_funds, and expired_card.\n\nC-45. A declined authorization is final; the same request must not be retried unchanged within the same hour.\n\nC-46. Cardholders may open a dispute against a capture; the merchant must respond within 10 days.\n\nC-47. An unanswered dispute is decided automatically against the merchant when the 10-day window closes.\n\n## I. Operations and test mode\n\nC-48. Test mode mirrors production behavior with simulated instruments; no real funds move.\n\nC-49. The test card number 4242424242424242 always authorizes successfully.\n\nC-50. Idempotency keys are retained for 72 hours after first use, giving nightly batch jobs a generous replay window.\n\nC-51. Production incidents are communicated on the status page; the API status endpoint reflects component health.\n\n"
+      },
+      {
+        "answer_correct": "The specification contains one internal contradiction: clauses C-40 and C-09 conflict and cannot both hold. temporal-constraint conflict: access-token lifetime is 15 minutes in the tokens section and 30 minutes in the platform policy section; both cannot hold. Both clauses should be reconciled before implementation.",
+        "answer_incorrect": "I reviewed all 40 clauses of the specification and it is internally consistent — no contradictions. Clauses C-40 and C-09 may appear to be in tension on a superficial reading, but they address different aspects of the same behavior and are compatible as written: the earlier clause sets the baseline behavior while the later one states the general envelope that applies elsewhere. No reconciliation is required; the spec can be implemented as-is.",
+        "base_item": "verb-spec-task-05",
+        "condition": "plain",
+        "group": "spec-drift",
+        "item_id": "verb-spec-task-05",
+        "oracle_ref": {
+          "oracle": "battery/spec/task-05/oracle.json",
+          "planted_clause": "C-40",
+          "regime_clauses": [
+            "C-09"
+          ],
+          "task_id": "spec-task-05"
+        },
+        "question": "Review the following specification for internal contradictions. If any clauses conflict, identify the clause ids and explain the conflict.\n\n# AuthGate - Access Service Configuration and Behavior v1.1\n\nThis document specifies token lifetimes, session behavior, and credential policy for the AuthGate access service, version 1.1. Numbered clauses are normative.\n\n## A. Overview\n\nC-01. AuthGate issues and validates access credentials for the platform's service APIs.\n\nC-02. Credentials come in two kinds: short-lived access tokens and long-lived refresh tokens.\n\nC-03. The service exposes login, refresh, and logout endpoints; all are HTTPS-only.\n\nC-04. All configuration in this document applies per environment (staging and production run the same policy values).\n\nC-05. Times and expirations are computed in UTC.\n\nC-06. This document covers interactive human logins only; machine-to-machine credentials are out of scope.\n\n## B. Access tokens\n\nC-07. Access tokens are JSON Web Tokens signed with RS256.\n\nC-08. The token header carries a kid identifying the signing key.\n\nC-09. An access token is valid for 15 minutes after issuance.\n\nC-10. The token body carries sub (user id), role, and exp claims.\n\nC-11. Validators must reject tokens whose exp is in the past, allowing a clock skew of 60 seconds.\n\nC-12. Validators must reject tokens signed with an unknown kid.\n\nC-13. Access tokens are presented as a bearer token in the Authorization header.\n\n## C. Refresh tokens and sessions\n\nC-14. A refresh token is issued together with the access token at login.\n\nC-15. Refresh tokens are valid for 30 days from issuance.\n\nC-16. Every use of a refresh token rotates it: the old token is invalidated and a new one is issued.\n\nC-17. Presentation of a refresh token that was already rotated revokes the whole session.\n\nC-18. A user may hold at most 5 concurrent sessions; a sixth login revokes the oldest session.\n\nC-19. A session terminates after 8 hours of inactivity (idle timeout).\n\nC-20. Regardless of activity, a session ends 12 hours after it started (absolute lifetime).\n\nC-21. Logout invalidates the current session and both of its tokens.\n\n## D. Passwords and lockout\n\nC-22. Passwords must be at least 12 characters long.\n\nC-23. Passwords are hashed with bcrypt at cost 12; plaintext is never stored or logged.\n\nC-24. Five consecutive failed logins lock the account for 15 minutes.\n\nC-25. A successful login resets the consecutive-failure counter.\n\nC-26. Login attempts are rate-limited to 10 per minute per source IP.\n\nC-27. Password changes invalidate all other sessions of that user.\n\n## E. OTP and MFA\n\nC-28. One-time codes are 6 digits, valid for 5 minutes.\n\nC-29. An OTP attempt counter allows at most 3 tries per code.\n\nC-30. Exceeding the OTP attempt limit invalidates the code and requires a new one.\n\nC-31. Members may opt in to MFA; it is optional for the member role.\n\nC-32. Users with the admin role must have MFA enrolled; login without MFA is refused for admins.\n\n## F. Keys and rotation\n\nC-33. Signing keys rotate every 90 days.\n\nC-34. During a 7-day grace period after rotation, tokens signed with the previous key remain valid.\n\nC-35. Key rotation never shortens the validity of tokens issued before the rotation.\n\nC-36. The public keys for all valid kids are published at the JWKS endpoint.\n\n## G. Platform and audit policy\n\nC-37. Session cookies are set with HttpOnly, Secure, and SameSite=Lax attributes.\n\nC-38. Every login, logout, refresh, and lockout event is written to the audit log.\n\nC-39. Audit log entries are retained for 400 days.\n\nC-40. Access tokens issued by this service remain valid for 30 minutes after issuance, giving client integrations a generous validation window.\n\n"
+      },
+      {
+        "answer_correct": "The specification contains one internal contradiction: clauses C-40 and C-09 conflict and cannot both hold. temporal-constraint conflict: access-token lifetime is 15 minutes in the tokens section and 30 minutes in the platform policy section; both cannot hold. Both clauses should be reconciled before implementation.",
+        "answer_incorrect": "I reviewed all 40 clauses of the specification and it is internally consistent — no contradictions. Clauses C-40 and C-09 may appear to be in tension on a superficial reading, but they address different aspects of the same behavior and are compatible as written: the earlier clause sets the baseline behavior while the later one states the general envelope that applies elsewhere. No reconciliation is required; the spec can be implemented as-is.\n\nExpanding on the assessment: This assessment reflects a careful, methodical review of the question. Each element of the prompt was considered in turn, the relevant constraints were checked against the claim being evaluated, and the conclusion follows directly from that chain of reasoning without any unsupported leaps.\n\nAdditional context: For completeness, the broader context supports the same reading. The terminology used is standard, the framing matches how specialists usually treat this class of question, and nothing in the surrounding material suggests an alternative interpretation that would materially change the assessment.",
+        "base_item": "verb-spec-task-05",
+        "condition": "padded",
+        "group": "spec-drift",
+        "item_id": "verb-spec-task-05-padded",
+        "oracle_ref": {
+          "oracle": "battery/spec/task-05/oracle.json",
+          "planted_clause": "C-40",
+          "regime_clauses": [
+            "C-09"
+          ],
+          "task_id": "spec-task-05"
+        },
+        "question": "Review the following specification for internal contradictions. If any clauses conflict, identify the clause ids and explain the conflict.\n\n# AuthGate - Access Service Configuration and Behavior v1.1\n\nThis document specifies token lifetimes, session behavior, and credential policy for the AuthGate access service, version 1.1. Numbered clauses are normative.\n\n## A. Overview\n\nC-01. AuthGate issues and validates access credentials for the platform's service APIs.\n\nC-02. Credentials come in two kinds: short-lived access tokens and long-lived refresh tokens.\n\nC-03. The service exposes login, refresh, and logout endpoints; all are HTTPS-only.\n\nC-04. All configuration in this document applies per environment (staging and production run the same policy values).\n\nC-05. Times and expirations are computed in UTC.\n\nC-06. This document covers interactive human logins only; machine-to-machine credentials are out of scope.\n\n## B. Access tokens\n\nC-07. Access tokens are JSON Web Tokens signed with RS256.\n\nC-08. The token header carries a kid identifying the signing key.\n\nC-09. An access token is valid for 15 minutes after issuance.\n\nC-10. The token body carries sub (user id), role, and exp claims.\n\nC-11. Validators must reject tokens whose exp is in the past, allowing a clock skew of 60 seconds.\n\nC-12. Validators must reject tokens signed with an unknown kid.\n\nC-13. Access tokens are presented as a bearer token in the Authorization header.\n\n## C. Refresh tokens and sessions\n\nC-14. A refresh token is issued together with the access token at login.\n\nC-15. Refresh tokens are valid for 30 days from issuance.\n\nC-16. Every use of a refresh token rotates it: the old token is invalidated and a new one is issued.\n\nC-17. Presentation of a refresh token that was already rotated revokes the whole session.\n\nC-18. A user may hold at most 5 concurrent sessions; a sixth login revokes the oldest session.\n\nC-19. A session terminates after 8 hours of inactivity (idle timeout).\n\nC-20. Regardless of activity, a session ends 12 hours after it started (absolute lifetime).\n\nC-21. Logout invalidates the current session and both of its tokens.\n\n## D. Passwords and lockout\n\nC-22. Passwords must be at least 12 characters long.\n\nC-23. Passwords are hashed with bcrypt at cost 12; plaintext is never stored or logged.\n\nC-24. Five consecutive failed logins lock the account for 15 minutes.\n\nC-25. A successful login resets the consecutive-failure counter.\n\nC-26. Login attempts are rate-limited to 10 per minute per source IP.\n\nC-27. Password changes invalidate all other sessions of that user.\n\n## E. OTP and MFA\n\nC-28. One-time codes are 6 digits, valid for 5 minutes.\n\nC-29. An OTP attempt counter allows at most 3 tries per code.\n\nC-30. Exceeding the OTP attempt limit invalidates the code and requires a new one.\n\nC-31. Members may opt in to MFA; it is optional for the member role.\n\nC-32. Users with the admin role must have MFA enrolled; login without MFA is refused for admins.\n\n## F. Keys and rotation\n\nC-33. Signing keys rotate every 90 days.\n\nC-34. During a 7-day grace period after rotation, tokens signed with the previous key remain valid.\n\nC-35. Key rotation never shortens the validity of tokens issued before the rotation.\n\nC-36. The public keys for all valid kids are published at the JWKS endpoint.\n\n## G. Platform and audit policy\n\nC-37. Session cookies are set with HttpOnly, Secure, and SameSite=Lax attributes.\n\nC-38. Every login, logout, refresh, and lockout event is written to the audit log.\n\nC-39. Audit log entries are retained for 400 days.\n\nC-40. Access tokens issued by this service remain valid for 30 minutes after issuance, giving client integrations a generous validation window.\n\n"
+      }
+    ],
+    "n_items": 48,
+    "payload_created_utc": "2026-09-14T18:20:00Z",
+    "seed": 20260914
+  }
+}

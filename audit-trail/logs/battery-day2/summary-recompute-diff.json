@@ -1,0 +1,475 @@
+{
+  "artifact_type": "summary-recompute-diff",
+  "generated_from": "logs/battery-day2/judge-calls.jsonl + bias-battery/items/*",
+  "mismatch_count": 0,
+  "mismatches": [],
+  "pooled_parsed_reconciliation": {
+    "anchoring": {
+      "from_summaries": 72,
+      "match": true,
+      "parsed_from_log": 72
+    },
+    "cbw": {
+      "from_summaries": 120,
+      "match": true,
+      "parsed_from_log": 120
+    },
+    "position": {
+      "from_summaries": 216,
+      "match": true,
+      "parsed_from_log": 216
+    },
+    "selfpref_generation": {
+      "from_summaries": 0,
+      "match": true,
+      "parsed_from_log": 0
+    },
+    "verbosity": {
+      "from_summaries": 288,
+      "match": true,
+      "parsed_from_log": 288
+    }
+  },
+  "results": {
+    "summary-anchoring.json": {
+      "diffs": [],
+      "health_block": "not recomputable from the verbatim log (runtime server-probe detail); out of diff scope",
+      "input_sha_checks": {
+        "endpoints_file": {
+          "actual": "ee9f39b2164a4019b893e8d62125beb6ac6a693af7c50e98d905c665532c00f1",
+          "expected": "ee9f39b2164a4019b893e8d62125beb6ac6a693af7c50e98d905c665532c00f1",
+          "match": true
+        },
+        "items_file": {
+          "actual": "d1fd7c359eb1389738ac2617a7d6512c942287323761ae44fe6c7498dae3d038",
+          "expected": "d1fd7c359eb1389738ac2617a7d6512c942287323761ae44fe6c7498dae3d038",
+          "match": true
+        },
+        "runner_config": {
+          "actual": "e1460f057b445ae7381165574eb04aeb7a1a9e22dc5c02d0e8e6e17f419c01c4",
+          "expected": "e1460f057b445ae7381165574eb04aeb7a1a9e22dc5c02d0e8e6e17f419c01c4",
+          "match": true
+        }
+      },
+      "recomputed": {
+        "bias_class": "anchoring",
+        "calls_made": {
+          "glm": 24,
+          "llama": 24,
+          "qwen": 24
+        },
+        "n_errors": 0,
+        "n_items": 12,
+        "n_jobs": 72,
+        "n_parsed": 72,
+        "n_skipped_by_cap": 0,
+        "n_specs": 24
+      },
+      "run_tag": "battery-day2-anchoring",
+      "shipped_summaries_block": {
+        "bias_class": "anchoring",
+        "calls_made": {
+          "glm": 24,
+          "llama": 24,
+          "qwen": 24
+        },
+        "n_errors": 0,
+        "n_items": 12,
+        "n_jobs": 72,
+        "n_parsed": 72,
+        "n_skipped_by_cap": 0,
+        "n_specs": 24
+      },
+      "verdict": "MATCH"
+    },
+    "summary-cbw-topup.json": {
+      "diffs": [],
+      "health_block": "not recomputable from the verbatim log (runtime server-probe detail); out of diff scope",
+      "input_sha_checks": {
+        "endpoints_file": {
+          "actual": "ee9f39b2164a4019b893e8d62125beb6ac6a693af7c50e98d905c665532c00f1",
+          "expected": "ee9f39b2164a4019b893e8d62125beb6ac6a693af7c50e98d905c665532c00f1",
+          "match": true
+        },
+        "items_file": {
+          "actual": "89aaafad4a65943b693154ceda64b3a98f2617e72fcc75ab3b1f3a1c077a7720",
+          "expected": "89aaafad4a65943b693154ceda64b3a98f2617e72fcc75ab3b1f3a1c077a7720",
+          "match": true
+        },
+        "runner_config": {
+          "actual": "3144b465429efba22a435b778445d1a61522e3c59bdcb887a0616387c1672252",
+          "expected": "3144b465429efba22a435b778445d1a61522e3c59bdcb887a0616387c1672252",
+          "match": true
+        }
+      },
+      "recomputed": {
+        "_coverage_identity_holds_per_judge": {
+          "glm": true,
+          "llama": true,
+          "qwen": true
+        },
+        "bias_class": "cbw",
+        "calls_made": {
+          "glm": 20,
+          "llama": 20,
+          "qwen": 20
+        },
+        "n_already_logged": 60,
+        "n_already_logged_by_judge": {
+          "glm": 20,
+          "llama": 20,
+          "qwen": 20
+        },
+        "n_errors": 0,
+        "n_items": 20,
+        "n_jobs": 120,
+        "n_jobs_by_judge": {
+          "glm": 40,
+          "llama": 40,
+          "qwen": 40
+        },
+        "n_jobs_total": 120,
+        "n_parsed": 60,
+        "n_skipped_already_logged": 60,
+        "n_skipped_by_cap": 0,
+        "n_skipped_by_cap_by_judge": {
+          "glm": 0,
+          "llama": 0,
+          "qwen": 0
+        },
+        "n_specs": 40
+      },
+      "run_tag": "battery-day2b-cbw",
+      "shipped_summaries_block": {
+        "bias_class": "cbw",
+        "calls_made": {
+          "glm": 20,
+          "llama": 20,
+          "qwen": 20
+        },
+        "n_already_logged": 60,
+        "n_already_logged_by_judge": {
+          "glm": 20,
+          "llama": 20,
+          "qwen": 20
+        },
+        "n_errors": 0,
+        "n_items": 20,
+        "n_jobs": 120,
+        "n_jobs_by_judge": {
+          "glm": 40,
+          "llama": 40,
+          "qwen": 40
+        },
+        "n_jobs_total": 120,
+        "n_parsed": 60,
+        "n_skipped_already_logged": 60,
+        "n_skipped_by_cap": 0,
+        "n_skipped_by_cap_by_judge": {
+          "glm": 0,
+          "llama": 0,
+          "qwen": 0
+        },
+        "n_specs": 40
+      },
+      "verdict": "MATCH"
+    },
+    "summary-cbw.json": {
+      "diffs": [],
+      "health_block": "not recomputable from the verbatim log (runtime server-probe detail); out of diff scope",
+      "input_sha_checks": {
+        "endpoints_file": {
+          "actual": "ee9f39b2164a4019b893e8d62125beb6ac6a693af7c50e98d905c665532c00f1",
+          "expected": "ee9f39b2164a4019b893e8d62125beb6ac6a693af7c50e98d905c665532c00f1",
+          "match": true
+        },
+        "items_file": {
+          "actual": "89aaafad4a65943b693154ceda64b3a98f2617e72fcc75ab3b1f3a1c077a7720",
+          "expected": "89aaafad4a65943b693154ceda64b3a98f2617e72fcc75ab3b1f3a1c077a7720",
+          "match": true
+        },
+        "runner_config": {
+          "actual": "93bcf10ef8365b2fc17eb5898c907fa98adc1cf6e494a00c4002e390a3ddb31d",
+          "expected": "93bcf10ef8365b2fc17eb5898c907fa98adc1cf6e494a00c4002e390a3ddb31d",
+          "match": true
+        }
+      },
+      "recomputed": {
+        "bias_class": "cbw",
+        "calls_made": {
+          "glm": 20,
+          "llama": 20,
+          "qwen": 20
+        },
+        "n_errors": 0,
+        "n_items": 20,
+        "n_jobs": 120,
+        "n_parsed": 60,
+        "n_skipped_by_cap": 60,
+        "n_specs": 40
+      },
+      "run_tag": "battery-day2-cbw",
+      "shipped_summaries_block": {
+        "bias_class": "cbw",
+        "calls_made": {
+          "glm": 20,
+          "llama": 20,
+          "qwen": 20
+        },
+        "n_errors": 0,
+        "n_items": 20,
+        "n_jobs": 120,
+        "n_parsed": 60,
+        "n_skipped_by_cap": 60,
+        "n_specs": 40
+      },
+      "verdict": "MATCH"
+    },
+    "summary-position.json": {
+      "diffs": [],
+      "health_block": "not recomputable from the verbatim log (runtime server-probe detail); out of diff scope",
+      "input_sha_checks": {
+        "endpoints_file": {
+          "actual": "ee9f39b2164a4019b893e8d62125beb6ac6a693af7c50e98d905c665532c00f1",
+          "expected": "ee9f39b2164a4019b893e8d62125beb6ac6a693af7c50e98d905c665532c00f1",
+          "match": true
+        },
+        "items_file": {
+          "actual": "8a1a33935015fad8a7632e900ca26d853aac5e4cdf362328ede192ee1c576df3",
+          "expected": "8a1a33935015fad8a7632e900ca26d853aac5e4cdf362328ede192ee1c576df3",
+          "match": true
+        },
+        "runner_config": {
+          "actual": "a71322a453d3082f9d59f87afee174ac09c269f487ceab30016e816c92af16ce",
+          "expected": "a71322a453d3082f9d59f87afee174ac09c269f487ceab30016e816c92af16ce",
+          "match": true
+        }
+      },
+      "recomputed": {
+        "bias_class": "position",
+        "calls_made": {
+          "glm": 72,
+          "llama": 72,
+          "qwen": 72
+        },
+        "n_errors": 0,
+        "n_items": 36,
+        "n_jobs": 216,
+        "n_parsed": 216,
+        "n_skipped_by_cap": 0,
+        "n_specs": 72
+      },
+      "run_tag": "battery-day2-position",
+      "shipped_summaries_block": {
+        "bias_class": "position",
+        "calls_made": {
+          "glm": 72,
+          "llama": 72,
+          "qwen": 72
+        },
+        "n_errors": 0,
+        "n_items": 36,
+        "n_jobs": 216,
+        "n_parsed": 216,
+        "n_skipped_by_cap": 0,
+        "n_specs": 72
+      },
+      "verdict": "MATCH"
+    },
+    "summary-selfpref_generation.json": {
+      "diffs": [],
+      "health_block": "not recomputable from the verbatim log (runtime server-probe detail); out of diff scope",
+      "input_sha_checks": {
+        "endpoints_file": {
+          "actual": "ee9f39b2164a4019b893e8d62125beb6ac6a693af7c50e98d905c665532c00f1",
+          "expected": "ee9f39b2164a4019b893e8d62125beb6ac6a693af7c50e98d905c665532c00f1",
+          "match": true
+        },
+        "items_file": {
+          "actual": "36ed7ee8fdca2c3d57c7069b9ea1f7dfebc5a9d3afe0de792530e1f06f345eb1",
+          "expected": "36ed7ee8fdca2c3d57c7069b9ea1f7dfebc5a9d3afe0de792530e1f06f345eb1",
+          "match": true
+        },
+        "runner_config": {
+          "actual": "4c765342f643184ea92d908af0b215bc4b663d555c0b283e5a7ff86543e5dd75",
+          "expected": "4c765342f643184ea92d908af0b215bc4b663d555c0b283e5a7ff86543e5dd75",
+          "match": true
+        }
+      },
+      "recomputed": {
+        "bias_class": "selfpref_generation",
+        "calls_made": {
+          "glm": 15,
+          "llama": 15,
+          "qwen": 15
+        },
+        "n_errors": 0,
+        "n_items": 15,
+        "n_jobs": 45,
+        "n_parsed": 0,
+        "n_skipped_by_cap": 0,
+        "n_specs": 15
+      },
+      "run_tag": "battery-day2-selfpref_generation",
+      "shipped_summaries_block": {
+        "bias_class": "selfpref_generation",
+        "calls_made": {
+          "glm": 15,
+          "llama": 15,
+          "qwen": 15
+        },
+        "n_errors": 0,
+        "n_items": 15,
+        "n_jobs": 45,
+        "n_parsed": 0,
+        "n_skipped_by_cap": 0,
+        "n_specs": 15
+      },
+      "verdict": "MATCH"
+    },
+    "summary-verbosity-topup.json": {
+      "diffs": [],
+      "health_block": "not recomputable from the verbatim log (runtime server-probe detail); out of diff scope",
+      "input_sha_checks": {
+        "endpoints_file": {
+          "actual": "ee9f39b2164a4019b893e8d62125beb6ac6a693af7c50e98d905c665532c00f1",
+          "expected": "ee9f39b2164a4019b893e8d62125beb6ac6a693af7c50e98d905c665532c00f1",
+          "match": true
+        },
+        "items_file": {
+          "actual": "1a71b18c92fad2cd825fa24adf72b7003e2876644bd10ba28018e1c3b11f3938",
+          "expected": "1a71b18c92fad2cd825fa24adf72b7003e2876644bd10ba28018e1c3b11f3938",
+          "match": true
+        },
+        "runner_config": {
+          "actual": "8f093cbc089b5ac98c362ef9122a8d95601ec835b0655295a35cc07281fc7c03",
+          "expected": "8f093cbc089b5ac98c362ef9122a8d95601ec835b0655295a35cc07281fc7c03",
+          "match": true
+        }
+      },
+      "recomputed": {
+        "_coverage_identity_holds_per_judge": {
+          "glm": true,
+          "llama": true,
+          "qwen": true
+        },
+        "bias_class": "verbosity",
+        "calls_made": {
+          "glm": 48,
+          "llama": 48,
+          "qwen": 48
+        },
+        "n_already_logged": 144,
+        "n_already_logged_by_judge": {
+          "glm": 48,
+          "llama": 48,
+          "qwen": 48
+        },
+        "n_errors": 0,
+        "n_items": 48,
+        "n_jobs": 288,
+        "n_jobs_by_judge": {
+          "glm": 96,
+          "llama": 96,
+          "qwen": 96
+        },
+        "n_jobs_total": 288,
+        "n_parsed": 144,
+        "n_skipped_already_logged": 144,
+        "n_skipped_by_cap": 0,
+        "n_skipped_by_cap_by_judge": {
+          "glm": 0,
+          "llama": 0,
+          "qwen": 0
+        },
+        "n_specs": 96
+      },
+      "run_tag": "battery-day2b-verbosity",
+      "shipped_summaries_block": {
+        "bias_class": "verbosity",
+        "calls_made": {
+          "glm": 48,
+          "llama": 48,
+          "qwen": 48
+        },
+        "n_already_logged": 144,
+        "n_already_logged_by_judge": {
+          "glm": 48,
+          "llama": 48,
+          "qwen": 48
+        },
+        "n_errors": 0,
+        "n_items": 48,
+        "n_jobs": 288,
+        "n_jobs_by_judge": {
+          "glm": 96,
+          "llama": 96,
+          "qwen": 96
+        },
+        "n_jobs_total": 288,
+        "n_parsed": 144,
+        "n_skipped_already_logged": 144,
+        "n_skipped_by_cap": 0,
+        "n_skipped_by_cap_by_judge": {
+          "glm": 0,
+          "llama": 0,
+          "qwen": 0
+        },
+        "n_specs": 96
+      },
+      "verdict": "MATCH"
+    },
+    "summary-verbosity.json": {
+      "diffs": [],
+      "health_block": "not recomputable from the verbatim log (runtime server-probe detail); out of diff scope",
+      "input_sha_checks": {
+        "endpoints_file": {
+          "actual": "ee9f39b2164a4019b893e8d62125beb6ac6a693af7c50e98d905c665532c00f1",
+          "expected": "ee9f39b2164a4019b893e8d62125beb6ac6a693af7c50e98d905c665532c00f1",
+          "match": true
+        },
+        "items_file": {
+          "actual": "1a71b18c92fad2cd825fa24adf72b7003e2876644bd10ba28018e1c3b11f3938",
+          "expected": "1a71b18c92fad2cd825fa24adf72b7003e2876644bd10ba28018e1c3b11f3938",
+          "match": true
+        },
+        "runner_config": {
+          "actual": "51a3512dd41dbeb6f92dd13740ae37aebf3ca2f3d8d88c5320a9e692a57820a4",
+          "expected": "51a3512dd41dbeb6f92dd13740ae37aebf3ca2f3d8d88c5320a9e692a57820a4",
+          "match": true
+        }
+      },
+      "recomputed": {
+        "bias_class": "verbosity",
+        "calls_made": {
+          "glm": 48,
+          "llama": 48,
+          "qwen": 48
+        },
+        "n_errors": 0,
+        "n_items": 48,
+        "n_jobs": 288,
+        "n_parsed": 144,
+        "n_skipped_by_cap": 144,
+        "n_specs": 96
+      },
+      "run_tag": "battery-day2-verbosity",
+      "shipped_summaries_block": {
+        "bias_class": "verbosity",
+        "calls_made": {
+          "glm": 48,
+          "llama": 48,
+          "qwen": 48
+        },
+        "n_errors": 0,
+        "n_items": 48,
+        "n_jobs": 288,
+        "n_parsed": 144,
+        "n_skipped_by_cap": 144,
+        "n_specs": 96
+      },
+      "verdict": "MATCH"
+    }
+  },
+  "verdict": "MATCH"
+}

@@ -1,0 +1,98 @@
+{
+  "envelope": {
+    "artifact_type": "determinism-proof",
+    "created_utc": "2026-09-14T19:49:26Z",
+    "agent": "WORKER-2 (GLM)",
+    "mission_brief": "glm/briefs/BRIEF-20260914-sprint-p8-judge-audit.md",
+    "inputs": [
+      {
+        "name": "items/anchoring-items.json",
+        "sha256": "4a902be9c3f5f1f6266fac13134ed0e0e18944d808a85707f14724ae2b3f00d8"
+      },
+      {
+        "name": "items/cbw-items.json",
+        "sha256": "d0617a5d6f041704106214f31281d56da3954206a6b0343178dbb29598e29e8a"
+      },
+      {
+        "name": "items/position-items.json",
+        "sha256": "ffb2a875500c9fc9e7c67b3dad2076a32328b89aceffd11776f3e74f5555bf5b"
+      },
+      {
+        "name": "items/selfpref_generation-items.json",
+        "sha256": "a381355ec13801503e50be2976cb5164ce8cc8a4d0558c2b1389d795336dc954"
+      },
+      {
+        "name": "items/verbosity-items.json",
+        "sha256": "8ac486f13462bc45477c968b1119dafea607ccaa94ab6e0ea1ea9cc1ead68dbe"
+      }
+    ],
+    "environment": {
+      "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "machine": "AMD64",
+      "harness_version": "1.0.0",
+      "stdlib_only": true
+    },
+    "method": {
+      "rule": "binding rule 6: item-generation script run twice, hash-compare; hashes are sha256 of the sort_keys payload JSON (envelope timestamps excluded by design)",
+      "script_sha256": "efd3f06cb87e058a549f51843caa215f06816feb8ab8d0ac1a26d1b1cc07943d"
+    },
+    "data": {
+      "runs": [
+        {
+          "hashes": {
+            "anchoring": "4a902be9c3f5f1f6266fac13134ed0e0e18944d808a85707f14724ae2b3f00d8",
+            "cbw": "d0617a5d6f041704106214f31281d56da3954206a6b0343178dbb29598e29e8a",
+            "position": "ffb2a875500c9fc9e7c67b3dad2076a32328b89aceffd11776f3e74f5555bf5b",
+            "selfpref_generation": "a381355ec13801503e50be2976cb5164ce8cc8a4d0558c2b1389d795336dc954",
+            "verbosity": "8ac486f13462bc45477c968b1119dafea607ccaa94ab6e0ea1ea9cc1ead68dbe"
+          },
+          "match_previous": null,
+          "run_utc": "2026-09-14T19:10:05Z"
+        },
+        {
+          "hashes": {
+            "anchoring": "4a902be9c3f5f1f6266fac13134ed0e0e18944d808a85707f14724ae2b3f00d8",
+            "cbw": "d0617a5d6f041704106214f31281d56da3954206a6b0343178dbb29598e29e8a",
+            "position": "ffb2a875500c9fc9e7c67b3dad2076a32328b89aceffd11776f3e74f5555bf5b",
+            "selfpref_generation": "a381355ec13801503e50be2976cb5164ce8cc8a4d0558c2b1389d795336dc954",
+            "verbosity": "8ac486f13462bc45477c968b1119dafea607ccaa94ab6e0ea1ea9cc1ead68dbe"
+          },
+          "match_previous": true,
+          "run_utc": "2026-09-14T19:10:05Z"
+        },
+        {
+          "run_utc": "2026-09-14T19:49:26Z",
+          "hashes": {
+            "position": "ffb2a875500c9fc9e7c67b3dad2076a32328b89aceffd11776f3e74f5555bf5b",
+            "verbosity": "8ac486f13462bc45477c968b1119dafea607ccaa94ab6e0ea1ea9cc1ead68dbe",
+            "cbw": "d0617a5d6f041704106214f31281d56da3954206a6b0343178dbb29598e29e8a",
+            "anchoring": "4a902be9c3f5f1f6266fac13134ed0e0e18944d808a85707f14724ae2b3f00d8",
+            "selfpref_generation": "a381355ec13801503e50be2976cb5164ce8cc8a4d0558c2b1389d795336dc954"
+          },
+          "match_previous": true
+        },
+        {
+          "run_utc": "2026-09-14T19:49:26Z",
+          "hashes": {
+            "position": "ffb2a875500c9fc9e7c67b3dad2076a32328b89aceffd11776f3e74f5555bf5b",
+            "verbosity": "8ac486f13462bc45477c968b1119dafea607ccaa94ab6e0ea1ea9cc1ead68dbe",
+            "cbw": "d0617a5d6f041704106214f31281d56da3954206a6b0343178dbb29598e29e8a",
+            "anchoring": "4a902be9c3f5f1f6266fac13134ed0e0e18944d808a85707f14724ae2b3f00d8",
+            "selfpref_generation": "a381355ec13801503e50be2976cb5164ce8cc8a4d0558c2b1389d795336dc954"
+          },
+          "match_previous": true
+        }
+      ],
+      "deterministic": true
+    },
+    "provenance": {
+      "measured": [
+        "payload hashes across runs"
+      ],
+      "estimated": [],
+      "measured_vs_estimated": "measured: payload hashes across two fresh builder runs (sha256, payload scope, envelope timestamps excluded); estimated: none",
+      "artifact_type_extension_note": "artifact_type 'determinism-proof' is a section-3 enum extension, declared per steward policy (glm/work/p8/REVIEW-STEWARD.md, 2026-09-14)"
+    }
+  }
+}

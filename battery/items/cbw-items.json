@@ -1,0 +1,337 @@
+{
+  "envelope": {
+    "agent": "WORKER-2 (GLM)",
+    "artifact_type": "bias-battery-items-cbw",
+    "created_utc": "2026-09-14T19:49:26Z",
+    "data": {
+      "n_items": 20
+    },
+    "environment": {
+      "harness_version": "1.0.0",
+      "machine": "AMD64",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+      "stdlib_only": true
+    },
+    "inputs": [
+      {
+        "name": "battery-manifest.json",
+        "sha256": "3ac922e91b516f2dc49d9dc8823f528fa4346f467e6ed5633c887eb67140eda3"
+      },
+      {
+        "name": "planted-errors.jsonl",
+        "sha256": "3cf82e634421bc977a9e7e9ba7eb5d1415913d0738f6f55b62bae56f871c402e"
+      }
+    ],
+    "method": {
+      "allocation": "seeded shuffle of 50 planted errors: [0:20] cbw, [20:38] position-G1, [38:50] verbosity-G1 (+2 reuse from position set); group adapters deterministic per task_id",
+      "padding": "verbosity padded answers: seeded filler blocks to ~2-3x length (pad_answer, target_factor=2.5)",
+      "randomization": "random.Random(str) only (SHA-512 seeded, process-independent); sort_keys JSON",
+      "script": "glm/work/p8/bias-battery/build_items.py",
+      "script_sha256": "efd3f06cb87e058a549f51843caa215f06816feb8ab8d0ac1a26d1b1cc07943d",
+      "seed": 20260914
+    },
+    "mission_brief": "glm/briefs/BRIEF-20260914-sprint-p8-judge-audit.md",
+    "provenance": {
+      "artifact_type_extension_note": "artifact_type 'bias-battery-items-cbw' is a section-3 enum extension, declared per steward policy (glm/work/p8/REVIEW-STEWARD.md, 2026-09-14)",
+      "estimated": [
+        "answer_incorrect texts (constructed confident-but-wrong, by design of the probe)"
+      ],
+      "measured": [
+        "ground-truth oracles (P0 battery, SHA-locked)"
+      ],
+      "measured_vs_estimated": "measured: item counts, oracle refs, ground-truth claims taken from P0 oracle fields (sha-locked battery); estimated: the constructed confident-but-wrong answer texts (by design of the probe), padding filler text"
+    }
+  },
+  "payload": {
+    "construction_provenance": {
+      "answer_correct": "derived from P0 oracle fields (corrected_claim / oracle value / contradicting clauses / bug oracle + reference diff)",
+      "answer_incorrect": "CONSTRUCTED confident-but-wrong answers (templates in build_items.py, parameterized by oracle fields; numeric perturbations seeded)",
+      "cross_class_reuse": [
+        {
+          "error_ids": [
+            "errors-task-03-e5",
+            "errors-task-10-e4"
+          ],
+          "what": "planted errors pos_g1[0:2] reused in verbosity"
+        }
+      ]
+    },
+    "ground_truth_source": {
+      "manifest": "glm/work/p0/battery/battery-manifest.json",
+      "manifest_sha256": "3ac922e91b516f2dc49d9dc8823f528fa4346f467e6ed5633c887eb67140eda3",
+      "planted_errors_sha256": "3cf82e634421bc977a9e7e9ba7eb5d1415913d0738f6f55b62bae56f871c402e",
+      "task_counts": {
+        "analysis-known-answer": 5,
+        "oracle-injected-errors": 10,
+        "spec-drift": 5,
+        "swe-repair": 10
+      }
+    },
+    "items": [
+      {
+        "answer_correct": "No — the statement is not accurate as written. The Sun holds about 99.86 percent of the Solar System's total mass. Specifically, The Sun holds about 99.86 percent of the Solar System's mass; 96 percent understates it substantially. (Reference: NASA - Sun fact sheet (NSSDCA).)",
+        "answer_incorrect": "Yes — the statement is accurate as written. \"it holds about 96 percent of the Solar System's total mass\" The stated figure matches the standard published value; independent references give the same number, and the surrounding passage uses it in the standard way. No correction is needed; the passage can be cited as-is.",
+        "condition": "standard",
+        "group": "oracle-injected-errors",
+        "item_id": "cbw-errors-task-01-e1",
+        "oracle_ref": {
+          "error_id": "errors-task-01-e1",
+          "oracle": "planted-errors.jsonl",
+          "task_id": "errors-task-01"
+        },
+        "question": "A research briefing contains the following statement:\n\n\"it holds about 96 percent of the Solar System's total mass\"\n\nIs this statement accurate as written? Evaluate the claim and explain your assessment."
+      },
+      {
+        "answer_correct": "No — the statement is not accurate as written. Mount Everest is 8,848.86 metres above sea level (joint China-Nepal survey, announced December 2020). Specifically, The official height from the December 2020 joint China-Nepal survey is 8,848.86 m; the document shifted the hundreds digit (8,648.86). Note the next sentence cites the retired 8,848-metre 1954 value, which makes the inconsistency visible. (Reference: Department of Survey, Government of Nepal / joint Nepal-China announcement, 8 December 2020 (8,848.86 m).)",
+        "answer_incorrect": "Yes — the statement is accurate as written. \"is Earth's highest point above sea level at 8,648.86 metres\" The stated figure matches the standard published value; independent references give the same number, and the surrounding passage uses it in the standard way. No correction is needed; the passage can be cited as-is.",
+        "condition": "standard",
+        "group": "oracle-injected-errors",
+        "item_id": "cbw-errors-task-05-e1",
+        "oracle_ref": {
+          "error_id": "errors-task-05-e1",
+          "oracle": "planted-errors.jsonl",
+          "task_id": "errors-task-05"
+        },
+        "question": "A research briefing contains the following statement:\n\n\"is Earth's highest point above sea level at 8,648.86 metres\"\n\nIs this statement accurate as written? Evaluate the claim and explain your assessment."
+      },
+      {
+        "answer_correct": "No — the statement is not accurate as written. Water's density peaks near 4 degrees Celsius; it decreases on cooling from 4 C to 0 C, which is why ice floats. Specifically, Water's density has a maximum near 4 degrees Celsius (about 3.98 C); cooling below that, water expands again. The trend is not monotonic. (Reference: USGS Water Science School - Water Density.)",
+        "answer_incorrect": "Yes — the statement is accurate as written. \"water's density increases continuously as it cools from its boiling point all the way down to its freezing point\" The direction of the relationship is stated correctly and matches the accepted mechanism; the framing is the standard one used in reference texts. No correction is needed; the passage can be cited as-is.",
+        "condition": "standard",
+        "group": "oracle-injected-errors",
+        "item_id": "cbw-errors-task-03-e2",
+        "oracle_ref": {
+          "error_id": "errors-task-03-e2",
+          "oracle": "planted-errors.jsonl",
+          "task_id": "errors-task-03"
+        },
+        "question": "A research briefing contains the following statement:\n\n\"water's density increases continuously as it cools from its boiling point all the way down to its freezing point\"\n\nIs this statement accurate as written? Evaluate the claim and explain your assessment."
+      },
+      {
+        "answer_correct": "No — the statement is not accurate as written. Sputnik 1 reached orbit on October 4, 1957. Specifically, Sputnik 1 was launched on 4 October 1957 (the document swapped the month). (Reference: NASA - Sputnik 1 (launched October 4, 1957).)",
+        "answer_incorrect": "Yes — the statement is accurate as written. \"reached orbit on November 4, 1957\" The date is correct as stated and aligns with the standard timeline for this event; no authoritative source disagrees with the year given. No correction is needed; the passage can be cited as-is.",
+        "condition": "standard",
+        "group": "oracle-injected-errors",
+        "item_id": "cbw-errors-task-10-e1",
+        "oracle_ref": {
+          "error_id": "errors-task-10-e1",
+          "oracle": "planted-errors.jsonl",
+          "task_id": "errors-task-10"
+        },
+        "question": "A research briefing contains the following statement:\n\n\"reached orbit on November 4, 1957\"\n\nIs this statement accurate as written? Evaluate the claim and explain your assessment."
+      },
+      {
+        "answer_correct": "No — the statement is not accurate as written. Halley's Comet last reached perihelion in February 1986. Specifically, Halley's Comet last reached perihelion on 9 February 1986, not 1996; the next perihelion is predicted for 2061. (Reference: JPL Solar System Dynamics - Small-Body Database, 1P/Halley.)",
+        "answer_incorrect": "Yes — the statement is accurate as written. \"It last reached perihelion in February 1996\" The date is correct as stated and aligns with the standard timeline for this event; no authoritative source disagrees with the year given. No correction is needed; the passage can be cited as-is.",
+        "condition": "standard",
+        "group": "oracle-injected-errors",
+        "item_id": "cbw-errors-task-01-e4",
+        "oracle_ref": {
+          "error_id": "errors-task-01-e4",
+          "oracle": "planted-errors.jsonl",
+          "task_id": "errors-task-01"
+        },
+        "question": "A research briefing contains the following statement:\n\n\"It last reached perihelion in February 1996\"\n\nIs this statement accurate as written? Evaluate the claim and explain your assessment."
+      },
+      {
+        "answer_correct": "No — the statement is not accurate as written. ENIAC was unveiled to the public on February 14, 1946. Specifically, ENIAC was publicly unveiled on 14 February 1946, not 1956 (it was dedicated Valentine's Day 1946; by 1956 it had already been retired). (Reference: University of Pennsylvania - ENIAC (dedicated February 14, 1946).)",
+        "answer_incorrect": "Yes — the statement is accurate as written. \"was unveiled to the public on February 14, 1956\" The date is correct as stated and aligns with the standard timeline for this event; no authoritative source disagrees with the year given. No correction is needed; the passage can be cited as-is.",
+        "condition": "standard",
+        "group": "oracle-injected-errors",
+        "item_id": "cbw-errors-task-06-e1",
+        "oracle_ref": {
+          "error_id": "errors-task-06-e1",
+          "oracle": "planted-errors.jsonl",
+          "task_id": "errors-task-06"
+        },
+        "question": "A research briefing contains the following statement:\n\n\"was unveiled to the public on February 14, 1956\"\n\nIs this statement accurate as written? Evaluate the claim and explain your assessment."
+      },
+      {
+        "answer_correct": "No — the statement is not accurate as written. As of the UN's 2023 estimates, India - not China - is the world's most populous country. Specifically, Per the UN's 2023 estimates, India surpassed China during 2023 to become the most populous country; the document's own next sentence (India growing faster for decades) is the correct companion fact. (Reference: UN DESA, World Population Prospects 2022 / UN announcement that India would surpass China in 2023.)",
+        "answer_incorrect": "Yes — the statement is accurate as written. \"As of the UN's 2023 estimates, China remains the world's most populous country\" The attribution follows the mainstream historical account: the named party is credited with exactly this contribution in the standard literature. No correction is needed; the passage can be cited as-is.",
+        "condition": "standard",
+        "group": "oracle-injected-errors",
+        "item_id": "cbw-errors-task-08-e3",
+        "oracle_ref": {
+          "error_id": "errors-task-08-e3",
+          "oracle": "planted-errors.jsonl",
+          "task_id": "errors-task-08"
+        },
+        "question": "A research briefing contains the following statement:\n\n\"As of the UN's 2023 estimates, China remains the world's most populous country\"\n\nIs this statement accurate as written? Evaluate the claim and explain your assessment."
+      },
+      {
+        "answer_correct": "No — the statement is not accurate as written. The speed of light in vacuum is exactly 299,792,458 metres per second. Specifically, c is exactly 299,792,458 METRES per second (about 299,792 km/s). The units slip overstates the speed a thousandfold - and the document's own next sentence (metre = distance light travels in 1/299,792,458 s) is only consistent with m/s. (Reference: NIST - CODATA constants / SI definitions (c = 299,792,458 m/s exact).)",
+        "answer_incorrect": "Yes — the statement is accurate as written. \"The speed of light in vacuum is exactly 299,792,458 kilometres per second\" The value and its units are stated correctly and are consistent with the standard reference value; the passage uses the conventional unit convention. No correction is needed; the passage can be cited as-is.",
+        "condition": "standard",
+        "group": "oracle-injected-errors",
+        "item_id": "cbw-errors-task-07-e1",
+        "oracle_ref": {
+          "error_id": "errors-task-07-e1",
+          "oracle": "planted-errors.jsonl",
+          "task_id": "errors-task-07"
+        },
+        "question": "A research briefing contains the following statement:\n\n\"The speed of light in vacuum is exactly 299,792,458 kilometres per second\"\n\nIs this statement accurate as written? Evaluate the claim and explain your assessment."
+      },
+      {
+        "answer_correct": "No — the statement is not accurate as written. The C programming language was created by Dennis Ritchie at Bell Labs (~1972); Grace Hopper pioneered compiler technology. Specifically, C was created by Dennis Ritchie at Bell Labs around 1972 (for Unix). Grace Hopper pioneered compilers (FLOW-MATIC/A-0) but did not create C. (Reference: Bell Labs - history of Unix and C (Ritchie, 1972).)",
+        "answer_incorrect": "Yes — the statement is accurate as written. \"the C programming language was created by Grace Hopper, whose team also popularized the word 'compiler'\" The attribution follows the mainstream historical account: the named party is credited with exactly this contribution in the standard literature. No correction is needed; the passage can be cited as-is.",
+        "condition": "standard",
+        "group": "oracle-injected-errors",
+        "item_id": "cbw-errors-task-06-e5",
+        "oracle_ref": {
+          "error_id": "errors-task-06-e5",
+          "oracle": "planted-errors.jsonl",
+          "task_id": "errors-task-06"
+        },
+        "question": "A research briefing contains the following statement:\n\n\"the C programming language was created by Grace Hopper, whose team also popularized the word 'compiler'\"\n\nIs this statement accurate as written? Evaluate the claim and explain your assessment."
+      },
+      {
+        "answer_correct": "No — the statement is not accurate as written. The Soviet Luna 3 probe photographed the lunar far side in 1959. Specifically, Luna 3 photographed the lunar far side in October 1959, a decade before 1969 (the year of Apollo 11). (Reference: NASA NSSDCA - Luna 3 master catalog entry (launched 1959-010-04, imaged far side October 1959).)",
+        "answer_incorrect": "Yes — the statement is accurate as written. \"the Soviet Luna 3 probe photographed it in 1969\" The date is correct as stated and aligns with the standard timeline for this event; no authoritative source disagrees with the year given. No correction is needed; the passage can be cited as-is.",
+        "condition": "standard",
+        "group": "oracle-injected-errors",
+        "item_id": "cbw-errors-task-02-e5",
+        "oracle_ref": {
+          "error_id": "errors-task-02-e5",
+          "oracle": "planted-errors.jsonl",
+          "task_id": "errors-task-02"
+        },
+        "question": "A research briefing contains the following statement:\n\n\"the Soviet Luna 3 probe photographed it in 1969\"\n\nIs this statement accurate as written? Evaluate the claim and explain your assessment."
+      },
+      {
+        "answer_correct": "No — the statement is not accurate as written. The moment magnitude scale is logarithmic; each whole-number step is about 10x the amplitude and about 32x the energy release. Specifically, The moment magnitude scale is LOGARITHMIC: each whole-number increase represents about a tenfold increase in measured amplitude and roughly 32 times more energy release - not twice (USGS, verified 2026-09-14). (Reference: USGS - Earthquake magnitude, energy release, and shaking intensity (verified 2026-09-14).)",
+        "answer_incorrect": "Yes — the statement is accurate as written. \"The moment magnitude scale is linear, so a magnitude 7 earthquake releases twice the energy of a magnitude 6\" The direction of the relationship is stated correctly and matches the accepted mechanism; the framing is the standard one used in reference texts. No correction is needed; the passage can be cited as-is.",
+        "condition": "standard",
+        "group": "oracle-injected-errors",
+        "item_id": "cbw-errors-task-09-e1",
+        "oracle_ref": {
+          "error_id": "errors-task-09-e1",
+          "oracle": "planted-errors.jsonl",
+          "task_id": "errors-task-09"
+        },
+        "question": "A research briefing contains the following statement:\n\n\"The moment magnitude scale is linear, so a magnitude 7 earthquake releases twice the energy of a magnitude 6\"\n\nIs this statement accurate as written? Evaluate the claim and explain your assessment."
+      },
+      {
+        "answer_correct": "No — the statement is not accurate as written. Voyager 1 entered interstellar space in August 2012; Voyager 2 followed in November 2018. Specifically, Voyager 1 crossed the heliopause in August 2012; 2018 (November) is when VOYAGER 2 crossed. The document swaps the two dates. (Reference: NASA - Voyager mission (Voyager 1 heliopause crossing, August 2012; Voyager 2, November 2018).)",
+        "answer_incorrect": "Yes — the statement is accurate as written. \"it crossed the heliopause into interstellar space in 2018\" The date is correct as stated and aligns with the standard timeline for this event; no authoritative source disagrees with the year given. No correction is needed; the passage can be cited as-is.",
+        "condition": "standard",
+        "group": "oracle-injected-errors",
+        "item_id": "cbw-errors-task-10-e3",
+        "oracle_ref": {
+          "error_id": "errors-task-10-e3",
+          "oracle": "planted-errors.jsonl",
+          "task_id": "errors-task-10"
+        },
+        "question": "A research briefing contains the following statement:\n\n\"it crossed the heliopause into interstellar space in 2018\"\n\nIs this statement accurate as written? Evaluate the claim and explain your assessment."
+      },
+      {
+        "answer_correct": "No — the statement is not accurate as written. The outer planets complete their orbits in more time than the inner planets; Neptune has the longest orbital period, about 165 Earth years. Specifically, By Kepler's third law, orbital period increases with orbital distance: outer planets take longer, not less time. Neptune's period is the longest of the eight, about 165 Earth years - not the shortest. (Reference: NASA Science - Kepler's Third Law (planets farther from the Sun orbit more slowly).)",
+        "answer_incorrect": "Yes — the statement is accurate as written. \"Because they are farther from the Sun, the outer planets complete their orbits in less time than the inner planets. Neptune, the most distant planet, has the shortest orbital period of the eight, finishing a lap in under two Earth years\" The direction of the relationship is stated correctly and matches the accepted mechanism; the framing is the standard one used in reference texts. No correction is needed; the passage can be cited as-is.",
+        "condition": "standard",
+        "group": "oracle-injected-errors",
+        "item_id": "cbw-errors-task-01-e5",
+        "oracle_ref": {
+          "error_id": "errors-task-01-e5",
+          "oracle": "planted-errors.jsonl",
+          "task_id": "errors-task-01"
+        },
+        "question": "A research briefing contains the following statement:\n\n\"Because they are farther from the Sun, the outer planets complete their orbits in less time than the inner planets. Neptune, the most distant planet, has the shortest orbital period of the eight, finishing a lap in under two Earth years\"\n\nIs this statement accurate as written? Evaluate the claim and explain your assessment."
+      },
+      {
+        "answer_correct": "No — the statement is not accurate as written. Avogadro never reported a numerical value for the constant; the value was determined in the early twentieth century and the constant was named in his honour. Specifically, Avogadro proposed the molecular hypothesis in 1811 but never determined the numerical value; the value of the constant now named after him was established roughly a century later (early 1900s, e.g. Perrin). (Reference: Perrin, J. (1909), 'Mouvement brownien et realite moleculaire', Annales de Chimie et de Physique - via BnF Gallica.)",
+        "answer_incorrect": "Yes — the statement is accurate as written. \"Avogadro himself reported a numerical value for the constant in his 1811 paper\" The attribution follows the mainstream historical account: the named party is credited with exactly this contribution in the standard literature. No correction is needed; the passage can be cited as-is.",
+        "condition": "standard",
+        "group": "oracle-injected-errors",
+        "item_id": "cbw-errors-task-03-e4",
+        "oracle_ref": {
+          "error_id": "errors-task-03-e4",
+          "oracle": "planted-errors.jsonl",
+          "task_id": "errors-task-03"
+        },
+        "question": "A research briefing contains the following statement:\n\n\"Avogadro himself reported a numerical value for the constant in his 1811 paper\"\n\nIs this statement accurate as written? Evaluate the claim and explain your assessment."
+      },
+      {
+        "answer_correct": "No — the statement is not accurate as written. The 1960 Valdivia, Chile earthquake had moment magnitude 9.5, the largest ever recorded. Specifically, The 1960 Valdivia earthquake had moment magnitude 9.5 - the largest ever recorded. The date (22 May 1960) is correct; the magnitude understates it by one full unit. (Reference: USGS Earthquake Hazards Program - 1960 Great Chilean Earthquake (M9.5).)",
+        "answer_incorrect": "Yes — the statement is accurate as written. \"The largest earthquake ever recorded struck Valdivia, Chile, on 22 May 1960 with moment magnitude 8.5\" The stated figure matches the standard published value; independent references give the same number, and the surrounding passage uses it in the standard way. No correction is needed; the passage can be cited as-is.",
+        "condition": "standard",
+        "group": "oracle-injected-errors",
+        "item_id": "cbw-errors-task-09-e2",
+        "oracle_ref": {
+          "error_id": "errors-task-09-e2",
+          "oracle": "planted-errors.jsonl",
+          "task_id": "errors-task-09"
+        },
+        "question": "A research briefing contains the following statement:\n\n\"The largest earthquake ever recorded struck Valdivia, Chile, on 22 May 1960 with moment magnitude 8.5\"\n\nIs this statement accurate as written? Evaluate the claim and explain your assessment."
+      },
+      {
+        "answer_correct": "No — the statement is not accurate as written. Higher body-mass index is associated with higher average blood pressure. Specifically, The association runs the other way: higher BMI is associated with HIGHER average blood pressure and elevated hypertension risk - the document's own closing clause ('weight management features in hypertension guidance') only makes sense with the correct direction. (Reference: WHO - Obesity and overweight fact sheet (raised BMI is a major risk factor for cardiovascular disease including raised blood pressure).)",
+        "answer_incorrect": "Yes — the statement is accurate as written. \"higher body-mass index is associated with lower average blood pressure\" The direction of the relationship is stated correctly and matches the accepted mechanism; the framing is the standard one used in reference texts. No correction is needed; the passage can be cited as-is.",
+        "condition": "standard",
+        "group": "oracle-injected-errors",
+        "item_id": "cbw-errors-task-04-e5",
+        "oracle_ref": {
+          "error_id": "errors-task-04-e5",
+          "oracle": "planted-errors.jsonl",
+          "task_id": "errors-task-04"
+        },
+        "question": "A research briefing contains the following statement:\n\n\"higher body-mass index is associated with lower average blood pressure\"\n\nIs this statement accurate as written? Evaluate the claim and explain your assessment."
+      },
+      {
+        "answer_correct": "No — the statement is not accurate as written. WHO was founded in 1948 (7 April 1948). Specifically, WHO was founded on 7 April 1948 (its constitution entered into force that day; 7 April is now World Health Day). (Reference: WHO - History of WHO (founded 7 April 1948).)",
+        "answer_incorrect": "Yes — the statement is accurate as written. \"The World Health Organization (WHO) was founded in 1958\" The date is correct as stated and aligns with the standard timeline for this event; no authoritative source disagrees with the year given. No correction is needed; the passage can be cited as-is.",
+        "condition": "standard",
+        "group": "oracle-injected-errors",
+        "item_id": "cbw-errors-task-04-e1",
+        "oracle_ref": {
+          "error_id": "errors-task-04-e1",
+          "oracle": "planted-errors.jsonl",
+          "task_id": "errors-task-04"
+        },
+        "question": "A research briefing contains the following statement:\n\n\"The World Health Organization (WHO) was founded in 1958\"\n\nIs this statement accurate as written? Evaluate the claim and explain your assessment."
+      },
+      {
+        "answer_correct": "No — the statement is not accurate as written. Yuri Gagarin was the first human in space (12 April 1961, orbital); Alan Shepard was the first American in space (5 May 1961, suborbital). Specifically, The first human in space was Yuri Gagarin (USSR), launched to orbit on 12 April 1961. Shepard was the first AMERICAN, on a suborbital flight three weeks later (5 May 1961). (Reference: NASA - Yuri Gagarin, first human in space (12 April 1961).)",
+        "answer_incorrect": "Yes — the statement is accurate as written. \"Alan Shepard was the first human in space, launched on a suborbital arc in 1961\" The attribution follows the mainstream historical account: the named party is credited with exactly this contribution in the standard literature. No correction is needed; the passage can be cited as-is.",
+        "condition": "standard",
+        "group": "oracle-injected-errors",
+        "item_id": "cbw-errors-task-10-e2",
+        "oracle_ref": {
+          "error_id": "errors-task-10-e2",
+          "oracle": "planted-errors.jsonl",
+          "task_id": "errors-task-10"
+        },
+        "question": "A research briefing contains the following statement:\n\n\"Alan Shepard was the first human in space, launched on a suborbital arc in 1961\"\n\nIs this statement accurate as written? Evaluate the claim and explain your assessment."
+      },
+      {
+        "answer_correct": "No — the statement is not accurate as written. Webb operates at Sun-Earth L2, which lies beyond Earth on the side opposite the Sun, about 1.5 million kilometres away. Specifically, Sun-Earth L2 lies BEYOND Earth, on the side directly opposite the Sun (about 1.5 million km anti-sunward); the point between Earth and the Sun is L1. Webb's whole purpose at L2 is to keep its sunshield pointed away from Sun, Earth, and Moon. (Reference: NASA/STScI - Webb Telescope orbit at Sun-Earth L2.)",
+        "answer_incorrect": "Yes — the statement is accurate as written. \"the L2 Lagrange point, which lies between Earth and the Sun\" The direction of the relationship is stated correctly and matches the accepted mechanism; the framing is the standard one used in reference texts. No correction is needed; the passage can be cited as-is.",
+        "condition": "standard",
+        "group": "oracle-injected-errors",
+        "item_id": "cbw-errors-task-10-e5",
+        "oracle_ref": {
+          "error_id": "errors-task-10-e5",
+          "oracle": "planted-errors.jsonl",
+          "task_id": "errors-task-10"
+        },
+        "question": "A research briefing contains the following statement:\n\n\"the L2 Lagrange point, which lies between Earth and the Sun\"\n\nIs this statement accurate as written? Evaluate the claim and explain your assessment."
+      },
+      {
+        "answer_correct": "No — the statement is not accurate as written. At standard sea-level pressure, water boils at about 100 degrees Celsius. Specifically, Water boils at about 100 degrees Celsius (99.97 C) at one standard atmosphere; 90 C is the boiling point at substantially reduced pressure. (Reference: NIST Chemistry WebBook - water phase-change data.)",
+        "answer_incorrect": "Yes — the statement is accurate as written. \"At standard sea-level atmospheric pressure (one atmosphere), water boils at 90 degrees Celsius\" The stated figure matches the standard published value; independent references give the same number, and the surrounding passage uses it in the standard way. No correction is needed; the passage can be cited as-is.",
+        "condition": "standard",
+        "group": "oracle-injected-errors",
+        "item_id": "cbw-errors-task-03-e1",
+        "oracle_ref": {
+          "error_id": "errors-task-03-e1",
+          "oracle": "planted-errors.jsonl",
+          "task_id": "errors-task-03"
+        },
+        "question": "A research briefing contains the following statement:\n\n\"At standard sea-level atmospheric pressure (one atmosphere), water boils at 90 degrees Celsius\"\n\nIs this statement accurate as written? Evaluate the claim and explain your assessment."
+      }
+    ],
+    "n_items": 20,
+    "payload_created_utc": "2026-09-14T18:20:00Z",
+    "seed": 20260914
+  }
+}

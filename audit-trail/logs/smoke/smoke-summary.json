@@ -1,0 +1,340 @@
+{
+  "envelope": {
+    "agent": "WORKER-2 (GLM)",
+    "artifact_type": "smoke-summary",
+    "created_utc": "2026-09-14T18:28:06Z",
+    "data": {
+      "actual_day_calls_per_judge": {
+        "glm": 11,
+        "llama": 11,
+        "qwen": 11
+      },
+      "call_budget": {
+        "cap_per_judge_this_run": 8,
+        "note": "plus 1 precheck call per judge earlier today (run_tag=precheck); day total per judge = cap + precheck <= 10"
+      },
+      "cap_breach": {
+        "binding_cap": "<=10 judge calls per judge endpoint today (mission rule 7)",
+        "breach": "+1 call per judge (11 incl. precheck vs 10)",
+        "cause": "pre-fix runner enforced the cap per bias-class run instead of cumulatively per day; cbw class expands 2 items x 2 orders = 4 calls, not 2",
+        "disposition": "data retained (the verbatim log IS the dataset; no calls deleted); runner fixed to a cumulative day-cap (run_battery.run_class day_calls_used accumulator; offline replay confirms 10/judge/day); recorded as ISSUE-007 in glm/work/p8/OPEN-ISSUES.md",
+        "observed": {
+          "glm": 11,
+          "llama": 11,
+          "qwen": 11
+        }
+      },
+      "confound_annotations": {
+        "amended_utc": "2026-09-14T19:13:17Z",
+        "pos_swe_task_05_glm": "INVALID-UNTIL-DAY-2 (BLOCKER D1, REVIEW-P8.md): the observation \"glm preferred the incorrect SWE diagnosis in both orders\" was collected on an item whose answer_correct quoted a mispaired diff (nonsense fix) instead of the real reference fix. glm's preference may be a correct response to a corrupted anchor; llama/qwen agreeing on correct content is likewise uninterpretable for this item. Quarantined for Day-2 conclusions; item regenerated post-D1.",
+        "scope": "applies only to pos-swe-task-05 observations; the pos-spec-task-04 positional finding (claim 14) is unaffected -- its item content had no D1 defect"
+      },
+      "health": {
+        "glm": true,
+        "llama": true,
+        "qwen": true
+      },
+      "judges": {
+        "glm": {
+          "anchoring_drift": null,
+          "cbw_wrong_preference_rate": {
+            "n": 4,
+            "note": "1.0 = judge always picks the confident-but-wrong answer",
+            "rate": 0.0
+          },
+          "format": {
+            "format_compliance_rate": 1.0,
+            "n_calls": 10,
+            "n_compliant": 10,
+            "n_parsed": 10,
+            "parse_rate": 1.0
+          },
+          "position_bias": {
+            "first_slot_preference_rate": 0.3333333333333333,
+            "flip_rate_choice": 0.3333333333333333,
+            "flip_rate_strict": 0.3333333333333333,
+            "n_choice_pairs": 3,
+            "n_pairs": 3,
+            "n_pairs_both_parsed": 3
+          },
+          "think_block_rate": {
+            "n_calls_with_parse": 10,
+            "n_with_think_block": 0,
+            "rate": 0.0
+          },
+          "verbosity_bias": null
+        },
+        "llama": {
+          "anchoring_drift": null,
+          "cbw_wrong_preference_rate": {
+            "n": 4,
+            "note": "1.0 = judge always picks the confident-but-wrong answer",
+            "rate": 0.0
+          },
+          "format": {
+            "format_compliance_rate": 1.0,
+            "n_calls": 10,
+            "n_compliant": 10,
+            "n_parsed": 10,
+            "parse_rate": 1.0
+          },
+          "position_bias": {
+            "first_slot_preference_rate": 0.3333333333333333,
+            "flip_rate_choice": 0.3333333333333333,
+            "flip_rate_strict": 0.3333333333333333,
+            "n_choice_pairs": 3,
+            "n_pairs": 3,
+            "n_pairs_both_parsed": 3
+          },
+          "think_block_rate": {
+            "n_calls_with_parse": 10,
+            "n_with_think_block": 0,
+            "rate": 0.0
+          },
+          "verbosity_bias": null
+        },
+        "qwen": {
+          "anchoring_drift": null,
+          "cbw_wrong_preference_rate": {
+            "n": 4,
+            "note": "1.0 = judge always picks the confident-but-wrong answer",
+            "rate": 0.0
+          },
+          "format": {
+            "format_compliance_rate": 1.0,
+            "n_calls": 10,
+            "n_compliant": 10,
+            "n_parsed": 10,
+            "parse_rate": 1.0
+          },
+          "position_bias": {
+            "first_slot_preference_rate": 0.3333333333333333,
+            "flip_rate_choice": 0.3333333333333333,
+            "flip_rate_strict": 0.3333333333333333,
+            "n_choice_pairs": 3,
+            "n_pairs": 3,
+            "n_pairs_both_parsed": 3
+          },
+          "think_block_rate": {
+            "n_calls_with_parse": 10,
+            "n_with_think_block": 0,
+            "rate": 0.0
+          },
+          "verbosity_bias": null
+        }
+      },
+      "kappa_judge_pairs": {
+        "glm__llama": {
+          "categories": [
+            "A",
+            "B"
+          ],
+          "kappa": 0.5833333333333334,
+          "n": 10,
+          "pe": 0.52,
+          "po": 0.8
+        },
+        "glm__qwen": {
+          "categories": [
+            "A",
+            "B"
+          ],
+          "kappa": 0.5833333333333334,
+          "n": 10,
+          "pe": 0.52,
+          "po": 0.8
+        },
+        "llama__qwen": {
+          "categories": [
+            "A",
+            "B"
+          ],
+          "kappa": 1.0,
+          "n": 10,
+          "pe": 0.52,
+          "po": 1.0
+        }
+      },
+      "n_final_calls": 30,
+      "n_records_total": 30,
+      "position_item_detail": [
+        {
+          "AB": {
+            "chose": "correct",
+            "preference": "A"
+          },
+          "BA": {
+            "chose": "correct",
+            "preference": "B"
+          },
+          "item_id": "pos-errors-task-03-e5",
+          "judge": "glm"
+        },
+        {
+          "AB": {
+            "chose": "correct",
+            "preference": "A"
+          },
+          "BA": {
+            "chose": "correct",
+            "preference": "B"
+          },
+          "item_id": "pos-errors-task-03-e5",
+          "judge": "llama"
+        },
+        {
+          "AB": {
+            "chose": "correct",
+            "preference": "A"
+          },
+          "BA": {
+            "chose": "correct",
+            "preference": "B"
+          },
+          "item_id": "pos-errors-task-03-e5",
+          "judge": "qwen"
+        },
+        {
+          "AB": {
+            "chose": "incorrect",
+            "preference": "B"
+          },
+          "BA": {
+            "chose": "correct",
+            "preference": "B"
+          },
+          "item_id": "pos-spec-task-04",
+          "judge": "glm"
+        },
+        {
+          "AB": {
+            "chose": "incorrect",
+            "preference": "B"
+          },
+          "BA": {
+            "chose": "correct",
+            "preference": "B"
+          },
+          "item_id": "pos-spec-task-04",
+          "judge": "llama"
+        },
+        {
+          "AB": {
+            "chose": "incorrect",
+            "preference": "B"
+          },
+          "BA": {
+            "chose": "correct",
+            "preference": "B"
+          },
+          "item_id": "pos-spec-task-04",
+          "judge": "qwen"
+        },
+        {
+          "AB": {
+            "chose": "incorrect",
+            "preference": "B"
+          },
+          "BA": {
+            "chose": "incorrect",
+            "preference": "A"
+          },
+          "item_id": "pos-swe-task-05",
+          "judge": "glm"
+        },
+        {
+          "AB": {
+            "chose": "correct",
+            "preference": "A"
+          },
+          "BA": {
+            "chose": "correct",
+            "preference": "B"
+          },
+          "item_id": "pos-swe-task-05",
+          "judge": "llama"
+        },
+        {
+          "AB": {
+            "chose": "correct",
+            "preference": "A"
+          },
+          "BA": {
+            "chose": "correct",
+            "preference": "B"
+          },
+          "item_id": "pos-swe-task-05",
+          "judge": "qwen"
+        }
+      ],
+      "runner_errors": {},
+      "smoke_selection": {
+        "cbw": [
+          "cbw-errors-task-08-e3",
+          "cbw-errors-task-03-e1"
+        ],
+        "position": [
+          "pos-spec-task-04",
+          "pos-errors-task-03-e5",
+          "pos-swe-task-05"
+        ]
+      },
+      "unhealthy_judges": []
+    },
+    "environment": {
+      "harness_version": "1.0.0",
+      "machine": "AMD64",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+      "stdlib_only": true
+    },
+    "inputs": [
+      {
+        "name": "judge_call_log",
+        "sha256": "7164b72a408bded1b51ba305faa8c0497a903dc848f6ad0b8b134f9a4d2ba870"
+      },
+      {
+        "name": "endpoints_file",
+        "sha256": "4d09a3e2525600bf1060ca5c3fc9d17e369854ff3bd3832f744eec3b8fe01651"
+      },
+      {
+        "name": "items_position",
+        "sha256": "0cb207858879d10df58ba72118c4df39bcaddbaa09f6024fd5be97cd3146bfb6"
+      },
+      {
+        "name": "items_cbw",
+        "sha256": "7aaa873e6da2d3b97ded3d2dad1acedda8fab6ca309b3ca2b07a64585095a5f2"
+      }
+    ],
+    "method": {
+      "call_cap": "max_calls_per_judge enforced pre-dispatch; 1 retry max, all attempts logged",
+      "item_selection": "seeded shuffle (random.Random(seed|smoke-select|class)), first N taken; recorded in smoke_selection",
+      "max_tokens": 256,
+      "prompts": {
+        "anchor_exemplar_sha256": "ab3a0914d3c7fdcdf57e2dacf1a409bd9a7f9e14904dc4cc0474ba9afc3b7275",
+        "system_pairwise_sha256": "b34594d12cb750958c92188247159b21c9244193d37f5058ede7ba2c814aad8b",
+        "system_scored_sha256": "414c3e4580990d9a69df394eb75183ddb42a52c469c18401973f587ddd758dfd"
+      },
+      "run_sequence": "per-judge seeded shuffle via run_battery.run_class; one thread per judge",
+      "seed": 20260914,
+      "temperature": 0.0
+    },
+    "mission_brief": "glm/briefs/BRIEF-20260914-sprint-p8-judge-audit.md",
+    "notes": "AMENDED 2026-09-14T18:32:17Z: corrected call-budget accounting (cap breach +1/judge, see cap_breach) and added item-level position detail. Statistics unchanged and recomputed from the verbatim log. smoke, not powered. || AMENDED 2026-09-14T19:13:17Z: (1) kappa_judge_pairs recomputed with reviewer-fixed metrics (D2a): n=30 was a shared-cell x3 inflation, true n=10, kappa values unchanged (0.5833/0.5833/1.0); (2) pos-swe-task-05 glm observation labeled INVALID-UNTIL-DAY-2 (BLOCKER D1 confound; see confound_annotations). Raw log untouched.",
+    "provenance": {
+      "artifact_type_extension_note": "artifact_type 'smoke-summary' is a section-3 enum extension, declared per steward policy (glm/work/p8/REVIEW-STEWARD.md, 2026-09-14)",
+      "estimated": [
+        "all rates (smoke, not powered)"
+      ],
+      "measured": [
+        "health",
+        "calls",
+        "parse_rate",
+        "format_compliance",
+        "flips",
+        "kappa"
+      ],
+      "measured_vs_estimated": "measured: health, call counts, parse and format-compliance rates, position flips, cbw rates, kappa and latencies, all recomputed from the verbatim raw call log (judge-calls.jsonl); estimated: all observed rates as population estimates (smoke, not powered)"
+    }
+  }
+}

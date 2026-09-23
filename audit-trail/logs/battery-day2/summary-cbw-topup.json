@@ -1,0 +1,104 @@
+{
+  "envelope": {
+    "artifact_type": "judge-battery-run",
+    "created_utc": "2026-09-15T17:59:23Z",
+    "agent": "WORKER-2 (GLM)",
+    "mission_brief": "glm/briefs/BRIEF-20260914-sprint-p8-judge-audit.md",
+    "inputs": [
+      {
+        "name": "runner_config",
+        "sha256": "3144b465429efba22a435b778445d1a61522e3c59bdcb887a0616387c1672252"
+      },
+      {
+        "name": "endpoints_file",
+        "sha256": "ee9f39b2164a4019b893e8d62125beb6ac6a693af7c50e98d905c665532c00f1"
+      },
+      {
+        "name": "items_file",
+        "sha256": "89aaafad4a65943b693154ceda64b3a98f2617e72fcc75ab3b1f3a1c077a7720"
+      }
+    ],
+    "environment": {
+      "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "machine": "AMD64",
+      "harness_version": "1.0.0",
+      "stdlib_only": true
+    },
+    "method": {
+      "seed": 20260914,
+      "temperature": 0.0,
+      "max_tokens": 256,
+      "max_calls_per_judge": 20,
+      "run_sequence": "seeded shuffle of (spec, judge) jobs; per-call seed derived via random.Random('|'.join(seed,class,judge,item,condition,order))",
+      "prompts": {
+        "system_pairwise_sha256": "b34594d12cb750958c92188247159b21c9244193d37f5058ede7ba2c814aad8b",
+        "system_scored_sha256": "414c3e4580990d9a69df394eb75183ddb42a52c469c18401973f587ddd758dfd",
+        "anchor_exemplar_sha256": "ab3a0914d3c7fdcdf57e2dacf1a409bd9a7f9e14904dc4cc0474ba9afc3b7275"
+      },
+      "retry_policy": "max 1 retry on connection error/timeout/5xx/429; every attempt logged verbatim"
+    },
+    "data": {
+      "health": {
+        "glm": {
+          "healthy": true,
+          "status": 200,
+          "detail": "{\"models\":[{\"name\":\"glm-4-9b-chat\",\"model\":\"glm-4-9b-chat\",\"modified_at\":\"\",\"size\":\"\",\"digest\":\"\",\"type\":\"model\",\"description\":\"\",\"tags\":[\"\"],\"capabilities\":[\"completion\"],\"parameters\":\"\",\"details\":{\"parent_model\":\"\",\"format\":\"gguf\",\"family\":\"\",\"families\":[\"\"],\"parameter_size\":\"\",\"quantization_level\":\"\"}}],\"object\":\"list\",\"data\":[{\"id\":\"glm-4-9b-chat\",\"aliases\":[\"glm-4-9b-chat\"],\"tags\":[],\"object\":\"model\",\"created\":1789494312,\"owned_by\":\"llamacpp\",\"meta\":{\"vocab_type\":true,\"n_vocab\":151552,\"n_ct"
+        },
+        "llama": {
+          "healthy": true,
+          "status": 200,
+          "detail": "{\"models\":[{\"name\":\"llama-3.1-8b-instruct\",\"model\":\"llama-3.1-8b-instruct\",\"modified_at\":\"\",\"size\":\"\",\"digest\":\"\",\"type\":\"model\",\"description\":\"\",\"tags\":[\"\"],\"capabilities\":[\"completion\"],\"parameters\":\"\",\"details\":{\"parent_model\":\"\",\"format\":\"gguf\",\"family\":\"\",\"families\":[\"\"],\"parameter_size\":\"\",\"quantization_level\":\"\"}}],\"object\":\"list\",\"data\":[{\"id\":\"llama-3.1-8b-instruct\",\"aliases\":[\"llama-3.1-8b-instruct\"],\"tags\":[],\"object\":\"model\",\"created\":1789494312,\"owned_by\":\"llamacpp\",\"meta\":{\"vocab_t"
+        },
+        "qwen": {
+          "healthy": true,
+          "status": 200,
+          "detail": "{\"models\":[{\"name\":\"qwen3-8b\",\"model\":\"qwen3-8b\",\"modified_at\":\"\",\"size\":\"\",\"digest\":\"\",\"type\":\"model\",\"description\":\"\",\"tags\":[\"\"],\"capabilities\":[\"completion\"],\"parameters\":\"\",\"details\":{\"parent_model\":\"\",\"format\":\"gguf\",\"family\":\"\",\"families\":[\"\"],\"parameter_size\":\"\",\"quantization_level\":\"\"}}],\"object\":\"list\",\"data\":[{\"id\":\"qwen3-8b\",\"aliases\":[\"qwen3-8b\"],\"tags\":[],\"object\":\"model\",\"created\":1789494312,\"owned_by\":\"llamacpp\",\"meta\":{\"vocab_type\":true,\"n_vocab\":151936,\"n_ctx\":8192,\"n_ctx_train"
+        }
+      },
+      "summaries": {
+        "cbw": {
+          "bias_class": "cbw",
+          "n_items": 20,
+          "n_specs": 40,
+          "n_jobs": 120,
+          "n_jobs_total": 120,
+          "n_jobs_by_judge": {
+            "glm": 40,
+            "llama": 40,
+            "qwen": 40
+          },
+          "calls_made": {
+            "glm": 20,
+            "llama": 20,
+            "qwen": 20
+          },
+          "n_already_logged": 60,
+          "n_skipped_already_logged": 60,
+          "n_already_logged_by_judge": {
+            "glm": 20,
+            "llama": 20,
+            "qwen": 20
+          },
+          "n_skipped_by_cap": 0,
+          "n_skipped_by_cap_by_judge": {
+            "glm": 0,
+            "llama": 0,
+            "qwen": 0
+          },
+          "n_errors": 0,
+          "n_parsed": 60
+        }
+      }
+    },
+    "provenance": {
+      "measured": [
+        "health",
+        "calls_made",
+        "n_errors",
+        "n_parsed"
+      ],
+      "estimated": []
+    }
+  }
+}

@@ -1,0 +1,1487 @@
+{
+  "envelope": {
+    "agent": "WORKER-2 (GLM)",
+    "artifact_type": "judge-corrections",
+    "created_utc": "2026-09-15T21:48:56Z",
+    "data": {
+      "application_notes": {
+        "anchoring": "coefficient = drift: anchored minus unanchored mean score on identical items. Consumers correct scores produced under a strong exemplar: s_corrected = s - drift. MAY NOT be applied unless significant.",
+        "cbw": "coefficient = wrong_pref: probability the judge prefers the confident-but-wrong answer. Consumers correct: s_corrected = s - wrong_pref. MAY NOT be applied unless significant.",
+        "position": "coefficient = flip_rate (already the bias). Consumers reduce pairwise trust for this judge: s_corrected = s - flip_rate (equivalently scale preference confidence by 1 - flip_rate). MAY NOT be applied unless significant.",
+        "selfpref": "no correction available this round (generation-only).",
+        "verbosity": "coefficient = padded_pref: probability the judge prefers the padded (longer, incorrect) answer. Consumers correct length-sensitive scores: s_corrected = s - padded_pref. MAY NOT be applied unless significant."
+      },
+      "corrections": [
+        {
+          "aux": {
+            "flip_items": [
+              "pos-analysis-task-01",
+              "pos-analysis-task-02",
+              "pos-analysis-task-03",
+              "pos-analysis-task-05",
+              "pos-spec-task-01",
+              "pos-spec-task-02",
+              "pos-spec-task-03",
+              "pos-spec-task-04",
+              "pos-spec-task-05"
+            ],
+            "flips": 9,
+            "n_pairs_both_orders": 36,
+            "n_pairs_tie_excluded": 0,
+            "per_item": {
+              "pos-analysis-task-01": {
+                "ab": "correct",
+                "ba": "incorrect",
+                "flip": true
+              },
+              "pos-analysis-task-02": {
+                "ab": "correct",
+                "ba": "incorrect",
+                "flip": true
+              },
+              "pos-analysis-task-03": {
+                "ab": "correct",
+                "ba": "incorrect",
+                "flip": true
+              },
+              "pos-analysis-task-04": {
+                "ab": "correct",
+                "ba": "correct",
+                "flip": false
+              },
+              "pos-analysis-task-05": {
+                "ab": "correct",
+                "ba": "incorrect",
+                "flip": true
+              },
+              "pos-errors-task-01-e2": {
+                "ab": "correct",
+                "ba": "correct",
+                "flip": false
+              },
+              "pos-errors-task-01-e3": {
+                "ab": "correct",
+                "ba": "correct",
+                "flip": false
+              },
+              "pos-errors-task-02-e1": {
+                "ab": "correct",
+                "ba": "correct",
+                "flip": false
+              },
+              "pos-errors-task-02-e2": {
+                "ab": "correct",
+                "ba": "correct",
+                "flip": false
+              },
+              "pos-errors-task-02-e4": {
+                "ab": "correct",
+                "ba": "correct",
+                "flip": false
+              },
+              "pos-errors-task-03-e5": {
+                "ab": "correct",
+                "ba": "correct",
+                "flip": false
+              },
+              "pos-errors-task-04-e2": {
+                "ab": "correct",
+                "ba": "correct",
+                "flip": false
+              },
+              "pos-errors-task-04-e3": {
+                "ab": "correct",
+                "ba": "correct",
+                "flip": false
+              },
+              "pos-errors-task-06-e2": {
+                "ab": "correct",
+                "ba": "correct",
+                "flip": false
+              },
+              "pos-errors-task-06-e3": {
+                "ab": "correct",
+                "ba": "correct",
+                "flip": false
+              },
+              "pos-errors-task-07-e3": {
+                "ab": "correct",
+                "ba": "correct",
+                "flip": false
+              },
+              "pos-errors-task-07-e4": {
+                "ab": "correct",
+                "ba": "correct",
+                "flip": false
+              },
+              "pos-errors-task-07-e5": {
+                "ab": "correct",
+                "ba": "correct",
+                "flip": false
+              },
+              "pos-errors-task-08-e1": {
+                "ab": "correct",
+                "ba": "correct",
+                "flip": false
+              },
+              "pos-errors-task-08-e4": {
+                "ab": "correct",
+                "ba": "correct",
+                "flip": false
+              },
+              "pos-errors-task-08-e5": {
+                "ab": "correct",
+                "ba": "correct",
+                "flip": false
+              },
+              "pos-errors-task-09-e3": {
+                "ab": "correct",
+                "ba": "correct",
+                "flip": false
+              },
+              "pos-errors-task-10-e4": {
+                "ab": "correct",
+                "ba": "correct",
+                "flip": false
+              },
+              "pos-spec-task-01": {
+                "ab": "incorrect",
+                "ba": "correct",
+                "flip": true
+              },
+              "pos-spec-task-02": {
+                "ab": "incorrect",
+                "ba": "correct",
+                "flip": true
+              },
+              "pos-spec-task-03": {
+                "ab": "incorrect",
+                "ba": "correct",
+                "flip": true
+              },
+              "pos-spec-task-04": {
+                "ab": "incorrect",
+                "ba": "correct",
+                "flip": true
+              },
+              "pos-spec-task-05": {
+                "ab": "incorrect",
+                "ba": "correct",
+                "flip": true
+              },
+              "pos-swe-task-01": {
+                "ab": "correct",
+                "ba": "correct",
+                "flip": false
+              },
+              "pos-swe-task-02": {
+                "ab": "correct",
+                "ba": "correct",
+                "flip": false
+              },
+              "pos-swe-task-03": {
+                "ab": "correct",
+                "ba": "correct",
+                "flip": false
+              },
+              "pos-swe-task-04": {
+                "ab": "correct",
+                "ba": "correct",
+                "flip": false
+              },
+              "pos-swe-task-05": {
+                "ab": "correct",
+                "ba": "correct",
+                "flip": false
+              },
+              "pos-swe-task-06": {
+                "ab": "correct",
+                "ba": "correct",
+                "flip": false
+              },
+              "pos-swe-task-07": {
+                "ab": "correct",
+                "ba": "correct",
+                "flip": false
+              },
+              "pos-swe-task-08": {
+                "ab": "correct",
+                "ba": "correct",
+                "flip": false
+              }
+            },
+            "strict_flip_rate": 0.25
+          },
+          "ci95": [
+            0.1375047766299484,
+            0.41070453766728343
+          ],
+          "class": "position",
+          "coefficient": 0.25,
+          "coefficient_name": "flip_rate",
+          "computed_utc": "2026-09-15T17:58:54Z",
+          "judge": "glm",
+          "method_sha": "18e27702ad728e703f8b010da24cad9c5fdf23d3a79f4adac80689a4059c41b2",
+          "n": 36,
+          "run_tags": [
+            "battery-day2-position"
+          ],
+          "significant": true,
+          "tie_rate": 0.0
+        },
+        {
+          "aux": {
+            "delta_padded_minus_plain": 0.0625,
+            "n_non_tie_picks": 48,
+            "padded_answer_preferences": 12,
+            "plain_condition_incorrect_choice_rate": 0.1875
+          },
+          "ci95": [
+            0.14920633673797912,
+            0.3878437280950796
+          ],
+          "class": "verbosity",
+          "coefficient": 0.25,
+          "coefficient_name": "padded_pref",
+          "computed_utc": "2026-09-15T17:58:54Z",
+          "judge": "glm",
+          "method_sha": "18e27702ad728e703f8b010da24cad9c5fdf23d3a79f4adac80689a4059c41b2",
+          "n": 48,
+          "run_tags": [
+            "battery-day2-verbosity",
+            "battery-day2b-verbosity"
+          ],
+          "significant": true,
+          "tie_rate": 0.0
+        },
+        {
+          "aux": {
+            "ties": 0,
+            "wrong_preferences": 0
+          },
+          "ci95": [
+            0.0,
+            0.0876216011972866
+          ],
+          "class": "cbw",
+          "coefficient": 0.0,
+          "coefficient_name": "wrong_pref",
+          "computed_utc": "2026-09-15T17:58:54Z",
+          "judge": "glm",
+          "method_sha": "18e27702ad728e703f8b010da24cad9c5fdf23d3a79f4adac80689a4059c41b2",
+          "n": 40,
+          "run_tags": [
+            "battery-day2-cbw",
+            "battery-day2b-cbw"
+          ],
+          "significant": false,
+          "tie_rate": 0.0
+        },
+        {
+          "aux": {
+            "bootstrap": {
+              "resamples": 10000,
+              "seed_source": "20260914|anchoring|glm|<resample>"
+            },
+            "mean_anchored": 9.5,
+            "mean_unanchored": 9.083333333333334,
+            "per_item_deltas": {
+              "anch-cbw-errors-task-03-e1": {
+                "anchored": 9.0,
+                "delta": 2.0,
+                "unanchored": 7.0
+              },
+              "anch-cbw-errors-task-05-e1": {
+                "anchored": 10.0,
+                "delta": 0.0,
+                "unanchored": 10.0
+              },
+              "anch-cbw-errors-task-06-e1": {
+                "anchored": 10.0,
+                "delta": 2.0,
+                "unanchored": 8.0
+              },
+              "anch-cbw-errors-task-07-e1": {
+                "anchored": 10.0,
+                "delta": 0.0,
+                "unanchored": 10.0
+              },
+              "anch-cbw-errors-task-10-e1": {
+                "anchored": 10.0,
+                "delta": 0.0,
+                "unanchored": 10.0
+              },
+              "anch-cbw-errors-task-10-e2": {
+                "anchored": 10.0,
+                "delta": 0.0,
+                "unanchored": 10.0
+              },
+              "anch-pos-analysis-task-01": {
+                "anchored": 10.0,
+                "delta": 0.0,
+                "unanchored": 10.0
+              },
+              "anch-pos-analysis-task-02": {
+                "anchored": 10.0,
+                "delta": 0.0,
+                "unanchored": 10.0
+              },
+              "anch-pos-analysis-task-03": {
+                "anchored": 10.0,
+                "delta": 0.0,
+                "unanchored": 10.0
+              },
+              "anch-pos-analysis-task-04": {
+                "anchored": 10.0,
+                "delta": 0.0,
+                "unanchored": 10.0
+              },
+              "anch-pos-analysis-task-05": {
+                "anchored": 5.0,
+                "delta": 0.0,
+                "unanchored": 5.0
+              },
+              "anch-pos-spec-task-01": {
+                "anchored": 10.0,
+                "delta": 1.0,
+                "unanchored": 9.0
+              }
+            }
+          },
+          "ci95": [
+            0.0,
+            0.9166666666666666
+          ],
+          "class": "anchoring",
+          "coefficient": 0.4166666666666667,
+          "coefficient_name": "drift",
+          "computed_utc": "2026-09-15T17:58:54Z",
+          "judge": "glm",
+          "method_sha": "18e27702ad728e703f8b010da24cad9c5fdf23d3a79f4adac80689a4059c41b2",
+          "n": 12,
+          "run_tags": [
+            "battery-day2-anchoring"
+          ],
+          "significant": false,
+          "tie_rate": null
+        },
+        {
+          "aux": {
+            "flip_items": [
+              "pos-analysis-task-01",
+              "pos-analysis-task-02",
+              "pos-analysis-task-03",
+              "pos-errors-task-01-e3",
+              "pos-errors-task-02-e1",
+              "pos-errors-task-02-e2",
+              "pos-errors-task-06-e3",
+              "pos-errors-task-10-e4",
+              "pos-spec-task-01",
+              "pos-spec-task-02",
+              "pos-spec-task-03",
+              "pos-spec-task-04",
+              "pos-spec-task-05",
+              "pos-swe-task-01",
+              "pos-swe-task-02",
+              "pos-swe-task-04",
+              "pos-swe-task-07",
+              "pos-swe-task-08"
+            ],
+            "flips": 18,
+            "n_pairs_both_orders": 36,
+            "n_pairs_tie_excluded": 0,
+            "per_item": {
+              "pos-analysis-task-01": {
+                "ab": "incorrect",
+                "ba": "correct",
+                "flip": true
+              },
+              "pos-analysis-task-02": {
+                "ab": "incorrect",
+                "ba": "correct",
+                "flip": true
+              },
+              "pos-analysis-task-03": {
+                "ab": "incorrect",
+                "ba": "correct",
+                "flip": true
+              },
+              "pos-analysis-task-04": {
+                "ab": "correct",
+                "ba": "correct",
+                "flip": false
+              },
+              "pos-analysis-task-05": {
+                "ab": "incorrect",
+                "ba": "incorrect",
+                "flip": false
+              },
+              "pos-errors-task-01-e2": {
+                "ab": "correct",
+                "ba": "correct",
+                "flip": false
+              },
+              "pos-errors-task-01-e3": {
+                "ab": "incorrect",
+                "ba": "correct",
+                "flip": true
+              },
+              "pos-errors-task-02-e1": {
+                "ab": "incorrect",
+                "ba": "correct",
+                "flip": true
+              },
+              "pos-errors-task-02-e2": {
+                "ab": "incorrect",
+                "ba": "correct",
+                "flip": true
+              },
+              "pos-errors-task-02-e4": {
+                "ab": "correct",
+                "ba": "correct",
+                "flip": false
+              },
+              "pos-errors-task-03-e5": {
+                "ab": "correct",
+                "ba": "correct",
+                "flip": false
+              },
+              "pos-errors-task-04-e2": {
+                "ab": "correct",
+                "ba": "correct",
+                "flip": false
+              },
+              "pos-errors-task-04-e3": {
+                "ab": "correct",
+                "ba": "correct",
+                "flip": false
+              },
+              "pos-errors-task-06-e2": {
+                "ab": "correct",
+                "ba": "correct",
+                "flip": false
+              },
+              "pos-errors-task-06-e3": {
+                "ab": "incorrect",
+                "ba": "correct",
+                "flip": true
+              },
+              "pos-errors-task-07-e3": {
+                "ab": "correct",
+                "ba": "correct",
+                "flip": false
+              },
+              "pos-errors-task-07-e4": {
+                "ab": "correct",
+                "ba": "correct",
+                "flip": false
+              },
+              "pos-errors-task-07-e5": {
+                "ab": "correct",
+                "ba": "correct",
+                "flip": false
+              },
+              "pos-errors-task-08-e1": {
+                "ab": "correct",
+                "ba": "correct",
+                "flip": false
+              },
+              "pos-errors-task-08-e4": {
+                "ab": "correct",
+                "ba": "correct",
+                "flip": false
+              },
+              "pos-errors-task-08-e5": {
+                "ab": "correct",
+                "ba": "correct",
+                "flip": false
+              },
+              "pos-errors-task-09-e3": {
+                "ab": "correct",
+                "ba": "correct",
+                "flip": false
+              },
+              "pos-errors-task-10-e4": {
+                "ab": "incorrect",
+                "ba": "correct",
+                "flip": true
+              },
+              "pos-spec-task-01": {
+                "ab": "incorrect",
+                "ba": "correct",
+                "flip": true
+              },
+              "pos-spec-task-02": {
+                "ab": "incorrect",
+                "ba": "correct",
+                "flip": true
+              },
+              "pos-spec-task-03": {
+                "ab": "incorrect",
+                "ba": "correct",
+                "flip": true
+              },
+              "pos-spec-task-04": {
+                "ab": "incorrect",
+                "ba": "correct",
+                "flip": true
+              },
+              "pos-spec-task-05": {
+                "ab": "incorrect",
+                "ba": "correct",
+                "flip": true
+              },
+              "pos-swe-task-01": {
+                "ab": "incorrect",
+                "ba": "correct",
+                "flip": true
+              },
+              "pos-swe-task-02": {
+                "ab": "incorrect",
+                "ba": "correct",
+                "flip": true
+              },
+              "pos-swe-task-03": {
+                "ab": "correct",
+                "ba": "correct",
+                "flip": false
+              },
+              "pos-swe-task-04": {
+                "ab": "incorrect",
+                "ba": "correct",
+                "flip": true
+              },
+              "pos-swe-task-05": {
+                "ab": "correct",
+                "ba": "correct",
+                "flip": false
+              },
+              "pos-swe-task-06": {
+                "ab": "incorrect",
+                "ba": "incorrect",
+                "flip": false
+              },
+              "pos-swe-task-07": {
+                "ab": "incorrect",
+                "ba": "correct",
+                "flip": true
+              },
+              "pos-swe-task-08": {
+                "ab": "incorrect",
+                "ba": "correct",
+                "flip": true
+              }
+            },
+            "strict_flip_rate": 0.5
+          },
+          "ci95": [
+            0.34474325409626827,
+            0.6552567459037317
+          ],
+          "class": "position",
+          "coefficient": 0.5,
+          "coefficient_name": "flip_rate",
+          "computed_utc": "2026-09-15T17:58:54Z",
+          "judge": "llama",
+          "method_sha": "18e27702ad728e703f8b010da24cad9c5fdf23d3a79f4adac80689a4059c41b2",
+          "n": 36,
+          "run_tags": [
+            "battery-day2-position"
+          ],
+          "significant": true,
+          "tie_rate": 0.0
+        },
+        {
+          "aux": {
+            "delta_padded_minus_plain": 0.10416666666666669,
+            "n_non_tie_picks": 48,
+            "padded_answer_preferences": 20,
+            "plain_condition_incorrect_choice_rate": 0.3125
+          },
+          "ci95": [
+            0.2884966777841157,
+            0.5571866771602373
+          ],
+          "class": "verbosity",
+          "coefficient": 0.4166666666666667,
+          "coefficient_name": "padded_pref",
+          "computed_utc": "2026-09-15T17:58:54Z",
+          "judge": "llama",
+          "method_sha": "18e27702ad728e703f8b010da24cad9c5fdf23d3a79f4adac80689a4059c41b2",
+          "n": 48,
+          "run_tags": [
+            "battery-day2-verbosity",
+            "battery-day2b-verbosity"
+          ],
+          "significant": true,
+          "tie_rate": 0.0
+        },
+        {
+          "aux": {
+            "ties": 0,
+            "wrong_preferences": 3
+          },
+          "ci95": [
+            0.025836025774588198,
+            0.19864233524310543
+          ],
+          "class": "cbw",
+          "coefficient": 0.075,
+          "coefficient_name": "wrong_pref",
+          "computed_utc": "2026-09-15T17:58:54Z",
+          "judge": "llama",
+          "method_sha": "18e27702ad728e703f8b010da24cad9c5fdf23d3a79f4adac80689a4059c41b2",
+          "n": 40,
+          "run_tags": [
+            "battery-day2-cbw",
+            "battery-day2b-cbw"
+          ],
+          "significant": true,
+          "tie_rate": 0.0
+        },
+        {
+          "aux": {
+            "bootstrap": {
+              "resamples": 10000,
+              "seed_source": "20260914|anchoring|llama|<resample>"
+            },
+            "mean_anchored": 5.666666666666667,
+            "mean_unanchored": 6.833333333333333,
+            "per_item_deltas": {
+              "anch-cbw-errors-task-03-e1": {
+                "anchored": 0.0,
+                "delta": 0.0,
+                "unanchored": 0.0
+              },
+              "anch-cbw-errors-task-05-e1": {
+                "anchored": 10.0,
+                "delta": 0.0,
+                "unanchored": 10.0
+              },
+              "anch-cbw-errors-task-06-e1": {
+                "anchored": 10.0,
+                "delta": 2.0,
+                "unanchored": 8.0
+              },
+              "anch-cbw-errors-task-07-e1": {
+                "anchored": 10.0,
+                "delta": 0.0,
+                "unanchored": 10.0
+              },
+              "anch-cbw-errors-task-10-e1": {
+                "anchored": 10.0,
+                "delta": 2.0,
+                "unanchored": 8.0
+              },
+              "anch-cbw-errors-task-10-e2": {
+                "anchored": 0.0,
+                "delta": 0.0,
+                "unanchored": 0.0
+              },
+              "anch-pos-analysis-task-01": {
+                "anchored": 0.0,
+                "delta": -8.0,
+                "unanchored": 8.0
+              },
+              "anch-pos-analysis-task-02": {
+                "anchored": 0.0,
+                "delta": -10.0,
+                "unanchored": 10.0
+              },
+              "anch-pos-analysis-task-03": {
+                "anchored": 10.0,
+                "delta": 0.0,
+                "unanchored": 10.0
+              },
+              "anch-pos-analysis-task-04": {
+                "anchored": 10.0,
+                "delta": 0.0,
+                "unanchored": 10.0
+              },
+              "anch-pos-analysis-task-05": {
+                "anchored": 0.0,
+                "delta": 0.0,
+                "unanchored": 0.0
+              },
+              "anch-pos-spec-task-01": {
+                "anchored": 8.0,
+                "delta": 0.0,
+                "unanchored": 8.0
+              }
+            }
+          },
+          "ci95": [
+            -3.5,
+            0.5
+          ],
+          "class": "anchoring",
+          "coefficient": -1.1666666666666667,
+          "coefficient_name": "drift",
+          "computed_utc": "2026-09-15T17:58:54Z",
+          "judge": "llama",
+          "method_sha": "18e27702ad728e703f8b010da24cad9c5fdf23d3a79f4adac80689a4059c41b2",
+          "n": 12,
+          "run_tags": [
+            "battery-day2-anchoring"
+          ],
+          "significant": false,
+          "tie_rate": null
+        },
+        {
+          "aux": {
+            "flip_items": [
+              "pos-analysis-task-01",
+              "pos-analysis-task-05",
+              "pos-spec-task-03",
+              "pos-spec-task-04",
+              "pos-spec-task-05",
+              "pos-swe-task-06"
+            ],
+            "flips": 6,
+            "n_pairs_both_orders": 36,
+            "n_pairs_tie_excluded": 0,
+            "per_item": {
+              "pos-analysis-task-01": {
+                "ab": "incorrect",
+                "ba": "correct",
+                "flip": true
+              },
+              "pos-analysis-task-02": {
+                "ab": "correct",
+                "ba": "correct",
+                "flip": false
+              },
+              "pos-analysis-task-03": {
+                "ab": "correct",
+                "ba": "correct",
+                "flip": false
+              },
+              "pos-analysis-task-04": {
+                "ab": "correct",
+                "ba": "correct",
+                "flip": false
+              },
+              "pos-analysis-task-05": {
+                "ab": "incorrect",
+                "ba": "correct",
+                "flip": true
+              },
+              "pos-errors-task-01-e2": {
+                "ab": "correct",
+                "ba": "correct",
+                "flip": false
+              },
+              "pos-errors-task-01-e3": {
+                "ab": "correct",
+                "ba": "correct",
+                "flip": false
+              },
+              "pos-errors-task-02-e1": {
+                "ab": "correct",
+                "ba": "correct",
+                "flip": false
+              },
+              "pos-errors-task-02-e2": {
+                "ab": "correct",
+                "ba": "correct",
+                "flip": false
+              },
+              "pos-errors-task-02-e4": {
+                "ab": "correct",
+                "ba": "correct",
+                "flip": false
+              },
+              "pos-errors-task-03-e5": {
+                "ab": "correct",
+                "ba": "correct",
+                "flip": false
+              },
+              "pos-errors-task-04-e2": {
+                "ab": "correct",
+                "ba": "correct",
+                "flip": false
+              },
+              "pos-errors-task-04-e3": {
+                "ab": "correct",
+                "ba": "correct",
+                "flip": false
+              },
+              "pos-errors-task-06-e2": {
+                "ab": "correct",
+                "ba": "correct",
+                "flip": false
+              },
+              "pos-errors-task-06-e3": {
+                "ab": "correct",
+                "ba": "correct",
+                "flip": false
+              },
+              "pos-errors-task-07-e3": {
+                "ab": "correct",
+                "ba": "correct",
+                "flip": false
+              },
+              "pos-errors-task-07-e4": {
+                "ab": "correct",
+                "ba": "correct",
+                "flip": false
+              },
+              "pos-errors-task-07-e5": {
+                "ab": "correct",
+                "ba": "correct",
+                "flip": false
+              },
+              "pos-errors-task-08-e1": {
+                "ab": "correct",
+                "ba": "correct",
+                "flip": false
+              },
+              "pos-errors-task-08-e4": {
+                "ab": "correct",
+                "ba": "correct",
+                "flip": false
+              },
+              "pos-errors-task-08-e5": {
+                "ab": "correct",
+                "ba": "correct",
+                "flip": false
+              },
+              "pos-errors-task-09-e3": {
+                "ab": "correct",
+                "ba": "correct",
+                "flip": false
+              },
+              "pos-errors-task-10-e4": {
+                "ab": "correct",
+                "ba": "correct",
+                "flip": false
+              },
+              "pos-spec-task-01": {
+                "ab": "correct",
+                "ba": "correct",
+                "flip": false
+              },
+              "pos-spec-task-02": {
+                "ab": "correct",
+                "ba": "correct",
+                "flip": false
+              },
+              "pos-spec-task-03": {
+                "ab": "incorrect",
+                "ba": "correct",
+                "flip": true
+              },
+              "pos-spec-task-04": {
+                "ab": "incorrect",
+                "ba": "correct",
+                "flip": true
+              },
+              "pos-spec-task-05": {
+                "ab": "incorrect",
+                "ba": "correct",
+                "flip": true
+              },
+              "pos-swe-task-01": {
+                "ab": "correct",
+                "ba": "correct",
+                "flip": false
+              },
+              "pos-swe-task-02": {
+                "ab": "correct",
+                "ba": "correct",
+                "flip": false
+              },
+              "pos-swe-task-03": {
+                "ab": "correct",
+                "ba": "correct",
+                "flip": false
+              },
+              "pos-swe-task-04": {
+                "ab": "correct",
+                "ba": "correct",
+                "flip": false
+              },
+              "pos-swe-task-05": {
+                "ab": "correct",
+                "ba": "correct",
+                "flip": false
+              },
+              "pos-swe-task-06": {
+                "ab": "correct",
+                "ba": "incorrect",
+                "flip": true
+              },
+              "pos-swe-task-07": {
+                "ab": "correct",
+                "ba": "correct",
+                "flip": false
+              },
+              "pos-swe-task-08": {
+                "ab": "correct",
+                "ba": "correct",
+                "flip": false
+              }
+            },
+            "strict_flip_rate": 0.16666666666666666
+          },
+          "ci95": [
+            0.07870447595018114,
+            0.3189079431127946
+          ],
+          "class": "position",
+          "coefficient": 0.16666666666666666,
+          "coefficient_name": "flip_rate",
+          "computed_utc": "2026-09-15T17:58:54Z",
+          "judge": "qwen",
+          "method_sha": "18e27702ad728e703f8b010da24cad9c5fdf23d3a79f4adac80689a4059c41b2",
+          "n": 36,
+          "run_tags": [
+            "battery-day2-position"
+          ],
+          "significant": true,
+          "tie_rate": 0.0
+        },
+        {
+          "aux": {
+            "delta_padded_minus_plain": 0.04166666666666667,
+            "n_non_tie_picks": 48,
+            "padded_answer_preferences": 7,
+            "plain_condition_incorrect_choice_rate": 0.10416666666666667
+          },
+          "ci95": [
+            0.07248249326603709,
+            0.2716717652474627
+          ],
+          "class": "verbosity",
+          "coefficient": 0.14583333333333334,
+          "coefficient_name": "padded_pref",
+          "computed_utc": "2026-09-15T17:58:54Z",
+          "judge": "qwen",
+          "method_sha": "18e27702ad728e703f8b010da24cad9c5fdf23d3a79f4adac80689a4059c41b2",
+          "n": 48,
+          "run_tags": [
+            "battery-day2-verbosity",
+            "battery-day2b-verbosity"
+          ],
+          "significant": true,
+          "tie_rate": 0.0
+        },
+        {
+          "aux": {
+            "ties": 0,
+            "wrong_preferences": 0
+          },
+          "ci95": [
+            0.0,
+            0.0876216011972866
+          ],
+          "class": "cbw",
+          "coefficient": 0.0,
+          "coefficient_name": "wrong_pref",
+          "computed_utc": "2026-09-15T17:58:54Z",
+          "judge": "qwen",
+          "method_sha": "18e27702ad728e703f8b010da24cad9c5fdf23d3a79f4adac80689a4059c41b2",
+          "n": 40,
+          "run_tags": [
+            "battery-day2-cbw",
+            "battery-day2b-cbw"
+          ],
+          "significant": false,
+          "tie_rate": 0.0
+        },
+        {
+          "aux": {
+            "bootstrap": {
+              "resamples": 10000,
+              "seed_source": "20260914|anchoring|qwen|<resample>"
+            },
+            "mean_anchored": 6.75,
+            "mean_unanchored": 6.916666666666667,
+            "per_item_deltas": {
+              "anch-cbw-errors-task-03-e1": {
+                "anchored": 6.0,
+                "delta": 1.0,
+                "unanchored": 5.0
+              },
+              "anch-cbw-errors-task-05-e1": {
+                "anchored": 9.0,
+                "delta": -1.0,
+                "unanchored": 10.0
+              },
+              "anch-cbw-errors-task-06-e1": {
+                "anchored": 5.0,
+                "delta": 0.0,
+                "unanchored": 5.0
+              },
+              "anch-cbw-errors-task-07-e1": {
+                "anchored": 9.0,
+                "delta": -1.0,
+                "unanchored": 10.0
+              },
+              "anch-cbw-errors-task-10-e1": {
+                "anchored": 6.0,
+                "delta": 1.0,
+                "unanchored": 5.0
+              },
+              "anch-cbw-errors-task-10-e2": {
+                "anchored": 8.0,
+                "delta": -2.0,
+                "unanchored": 10.0
+              },
+              "anch-pos-analysis-task-01": {
+                "anchored": 5.0,
+                "delta": 0.0,
+                "unanchored": 5.0
+              },
+              "anch-pos-analysis-task-02": {
+                "anchored": 10.0,
+                "delta": 0.0,
+                "unanchored": 10.0
+              },
+              "anch-pos-analysis-task-03": {
+                "anchored": 10.0,
+                "delta": 0.0,
+                "unanchored": 10.0
+              },
+              "anch-pos-analysis-task-04": {
+                "anchored": 5.0,
+                "delta": 0.0,
+                "unanchored": 5.0
+              },
+              "anch-pos-analysis-task-05": {
+                "anchored": 0.0,
+                "delta": 0.0,
+                "unanchored": 0.0
+              },
+              "anch-pos-spec-task-01": {
+                "anchored": 8.0,
+                "delta": 0.0,
+                "unanchored": 8.0
+              }
+            }
+          },
+          "ci95": [
+            -0.6666666666666666,
+            0.25
+          ],
+          "class": "anchoring",
+          "coefficient": -0.16666666666666666,
+          "coefficient_name": "drift",
+          "computed_utc": "2026-09-15T17:58:54Z",
+          "judge": "qwen",
+          "method_sha": "18e27702ad728e703f8b010da24cad9c5fdf23d3a79f4adac80689a4059c41b2",
+          "n": 12,
+          "run_tags": [
+            "battery-day2-anchoring"
+          ],
+          "significant": false,
+          "tie_rate": null
+        }
+      ],
+      "cross_checks": {
+        "call_accounting": {
+          "results": {
+            "glm/anchoring": {
+              "calls": 24,
+              "format_compliant": 24,
+              "generation_only_unparsed": 0,
+              "join_failures": 0,
+              "parse_failures": 0,
+              "parsed": 24,
+              "run_tags": [
+                "battery-day2-anchoring"
+              ]
+            },
+            "glm/cbw": {
+              "calls": 40,
+              "format_compliant": 40,
+              "generation_only_unparsed": 0,
+              "join_failures": 0,
+              "parse_failures": 0,
+              "parsed": 40,
+              "run_tags": [
+                "battery-day2-cbw",
+                "battery-day2b-cbw"
+              ]
+            },
+            "glm/position": {
+              "calls": 72,
+              "format_compliant": 72,
+              "generation_only_unparsed": 0,
+              "join_failures": 0,
+              "parse_failures": 0,
+              "parsed": 72,
+              "run_tags": [
+                "battery-day2-position"
+              ]
+            },
+            "glm/selfpref": {
+              "calls": 15,
+              "format_compliant": 0,
+              "generation_only_unparsed": 15,
+              "join_failures": 0,
+              "parse_failures": 0,
+              "parsed": 0,
+              "run_tags": [
+                "battery-day2-selfpref_generation"
+              ]
+            },
+            "glm/verbosity": {
+              "calls": 96,
+              "format_compliant": 96,
+              "generation_only_unparsed": 0,
+              "join_failures": 0,
+              "parse_failures": 0,
+              "parsed": 96,
+              "run_tags": [
+                "battery-day2-verbosity",
+                "battery-day2b-verbosity"
+              ]
+            },
+            "llama/anchoring": {
+              "calls": 24,
+              "format_compliant": 24,
+              "generation_only_unparsed": 0,
+              "join_failures": 0,
+              "parse_failures": 0,
+              "parsed": 24,
+              "run_tags": [
+                "battery-day2-anchoring"
+              ]
+            },
+            "llama/cbw": {
+              "calls": 40,
+              "format_compliant": 40,
+              "generation_only_unparsed": 0,
+              "join_failures": 0,
+              "parse_failures": 0,
+              "parsed": 40,
+              "run_tags": [
+                "battery-day2-cbw",
+                "battery-day2b-cbw"
+              ]
+            },
+            "llama/position": {
+              "calls": 72,
+              "format_compliant": 72,
+              "generation_only_unparsed": 0,
+              "join_failures": 0,
+              "parse_failures": 0,
+              "parsed": 72,
+              "run_tags": [
+                "battery-day2-position"
+              ]
+            },
+            "llama/selfpref": {
+              "calls": 15,
+              "format_compliant": 0,
+              "generation_only_unparsed": 15,
+              "join_failures": 0,
+              "parse_failures": 0,
+              "parsed": 0,
+              "run_tags": [
+                "battery-day2-selfpref_generation"
+              ]
+            },
+            "llama/verbosity": {
+              "calls": 96,
+              "format_compliant": 96,
+              "generation_only_unparsed": 0,
+              "join_failures": 0,
+              "parse_failures": 0,
+              "parsed": 96,
+              "run_tags": [
+                "battery-day2-verbosity",
+                "battery-day2b-verbosity"
+              ]
+            },
+            "qwen/anchoring": {
+              "calls": 24,
+              "format_compliant": 24,
+              "generation_only_unparsed": 0,
+              "join_failures": 0,
+              "parse_failures": 0,
+              "parsed": 24,
+              "run_tags": [
+                "battery-day2-anchoring"
+              ]
+            },
+            "qwen/cbw": {
+              "calls": 40,
+              "format_compliant": 40,
+              "generation_only_unparsed": 0,
+              "join_failures": 0,
+              "parse_failures": 0,
+              "parsed": 40,
+              "run_tags": [
+                "battery-day2-cbw",
+                "battery-day2b-cbw"
+              ]
+            },
+            "qwen/position": {
+              "calls": 72,
+              "format_compliant": 72,
+              "generation_only_unparsed": 0,
+              "join_failures": 0,
+              "parse_failures": 0,
+              "parsed": 72,
+              "run_tags": [
+                "battery-day2-position"
+              ]
+            },
+            "qwen/selfpref": {
+              "calls": 15,
+              "format_compliant": 0,
+              "generation_only_unparsed": 15,
+              "join_failures": 0,
+              "parse_failures": 0,
+              "parsed": 0,
+              "run_tags": [
+                "battery-day2-selfpref_generation"
+              ]
+            },
+            "qwen/verbosity": {
+              "calls": 96,
+              "format_compliant": 96,
+              "generation_only_unparsed": 0,
+              "join_failures": 0,
+              "parse_failures": 0,
+              "parsed": 96,
+              "run_tags": [
+                "battery-day2-verbosity",
+                "battery-day2b-verbosity"
+              ]
+            }
+          },
+          "rule": "calls == parsed + parse_failures + generation_only_unparsed + join_failures (per judge/class)",
+          "verdict": "PASS"
+        },
+        "coverage": {
+          "results": {
+            "anchoring": {
+              "glm": {
+                "covered": 24,
+                "expected": 24,
+                "note": "parsed-ok jobs",
+                "ok": true
+              },
+              "llama": {
+                "covered": 24,
+                "expected": 24,
+                "note": "parsed-ok jobs",
+                "ok": true
+              },
+              "qwen": {
+                "covered": 24,
+                "expected": 24,
+                "note": "parsed-ok jobs",
+                "ok": true
+              }
+            },
+            "cbw": {
+              "glm": {
+                "covered": 40,
+                "expected": 40,
+                "note": "parsed-ok jobs",
+                "ok": true
+              },
+              "llama": {
+                "covered": 40,
+                "expected": 40,
+                "note": "parsed-ok jobs",
+                "ok": true
+              },
+              "qwen": {
+                "covered": 40,
+                "expected": 40,
+                "note": "parsed-ok jobs",
+                "ok": true
+              }
+            },
+            "position": {
+              "glm": {
+                "covered": 72,
+                "expected": 72,
+                "note": "parsed-ok jobs",
+                "ok": true
+              },
+              "llama": {
+                "covered": 72,
+                "expected": 72,
+                "note": "parsed-ok jobs",
+                "ok": true
+              },
+              "qwen": {
+                "covered": 72,
+                "expected": 72,
+                "note": "parsed-ok jobs",
+                "ok": true
+              }
+            },
+            "selfpref": {
+              "glm": {
+                "covered": 15,
+                "expected": 15,
+                "note": "generation calls (no verdicts expected)",
+                "ok": true
+              },
+              "llama": {
+                "covered": 15,
+                "expected": 15,
+                "note": "generation calls (no verdicts expected)",
+                "ok": true
+              },
+              "qwen": {
+                "covered": 15,
+                "expected": 15,
+                "note": "generation calls (no verdicts expected)",
+                "ok": true
+              }
+            },
+            "verbosity": {
+              "glm": {
+                "covered": 96,
+                "expected": 96,
+                "note": "parsed-ok jobs",
+                "ok": true
+              },
+              "llama": {
+                "covered": 96,
+                "expected": 96,
+                "note": "parsed-ok jobs",
+                "ok": true
+              },
+              "qwen": {
+                "covered": 96,
+                "expected": 96,
+                "note": "parsed-ok jobs",
+                "ok": true
+              }
+            }
+          },
+          "rule": "per judge: position 72, verbosity 96 (incl. top-up), cbw 40 (incl. top-up), anchoring 24, selfpref 15 generation calls, minus documented parse exclusions",
+          "verdict": "PASS"
+        },
+        "integrity": {
+          "item_seed_source_component_mismatches": 0,
+          "join_failures": 0,
+          "prompt_placement_mismatches": 0,
+          "reparse_mismatches": 0,
+          "slot_rule_violations": 0,
+          "superseded_retry_rows": 0,
+          "verdict": "PASS"
+        },
+        "summary_recompute_diff": {
+          "mismatch_count": 0,
+          "sha256": "fc0bef2be9a1a41d755093182516765a4d4dbaa526536cb79c7f66c4b0bc40cd",
+          "source": "logs/battery-day2/summary-recompute-diff.json",
+          "verdict": "MATCH"
+        }
+      },
+      "findings": [
+        {
+          "detail": "battery-spec.json pins pre-D1-regeneration items payload shas (e.g. verbosity 8ac486f1...) while the Day-2 run consumed the regenerated files (runner summaries record 1a71b18c...; 624/624 pairwise prompts byte-match the current payloads). ISSUE-009's 'battery-spec input hashes re-pinned' did not land in battery-spec.json. Derivation joins the CURRENT payloads, which provably match the served prompts.",
+          "id": "F-1",
+          "severity": "MAJOR (provenance, no coefficient impact)"
+        }
+      ],
+      "selfpref": {
+        "n": 15,
+        "n_generation_calls_total": 45,
+        "n_per_judge_generation_calls": {
+          "glm": 15,
+          "llama": 15,
+          "qwen": 15
+        },
+        "note": "Day-2 data is generation-only; grading phase is Day 3+. No coefficient this round (COEF-METHOD section 2).",
+        "status": "generation-only"
+      }
+    },
+    "environment": {
+      "harness_version": "1.0.0",
+      "machine": "AMD64",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+      "stdlib_only": true
+    },
+    "inputs": [
+      {
+        "name": "logs/battery-day2/judge-calls.jsonl",
+        "role": "verbatim judge-call log (741 calls, 0 errors; FT8-DISPOSITION: zero timing overlap, no exclusions)",
+        "sha256": "2e1eb9a04ded4185ad3beeb3f1893a5b8b744417866f54a20bcfbb31fbb93174"
+      },
+      {
+        "name": "bias-battery/items/position-items.json",
+        "sha256": "8a1a33935015fad8a7632e900ca26d853aac5e4cdf362328ede192ee1c576df3"
+      },
+      {
+        "name": "bias-battery/items/verbosity-items.json",
+        "sha256": "1a71b18c92fad2cd825fa24adf72b7003e2876644bd10ba28018e1c3b11f3938"
+      },
+      {
+        "name": "bias-battery/items/cbw-items.json",
+        "sha256": "89aaafad4a65943b693154ceda64b3a98f2617e72fcc75ab3b1f3a1c077a7720"
+      },
+      {
+        "name": "bias-battery/items/anchoring-items.json",
+        "sha256": "d1fd7c359eb1389738ac2617a7d6512c942287323761ae44fe6c7498dae3d038"
+      },
+      {
+        "name": "bias-battery/items/selfpref_generation-items.json",
+        "sha256": "36ed7ee8fdca2c3d57c7069b9ea1f7dfebc5a9d3afe0de792530e1f06f345eb1"
+      },
+      {
+        "name": "bias-battery/battery-spec.json",
+        "role": "class table (class -> items_file, counts); NOTE its embedded items sha pins are stale pre-D1 values (finding F-1 in DERIVATION-NOTES.md), the current files above are what the Day-2 run served (verified by prompt-content match)",
+        "sha256": "41e9c1450571fa8228d8c44d9277e35b5b870cf300dbd450ea295b97aa1bb3d3"
+      },
+      {
+        "name": "COEF-METHOD.md",
+        "role": "frozen method",
+        "sha256": "18e27702ad728e703f8b010da24cad9c5fdf23d3a79f4adac80689a4059c41b2"
+      },
+      {
+        "name": "harness/derive-corrections.py",
+        "role": "this script",
+        "sha256": "443a3350a1bc010eb166c537335f22e5102ba9067f859082231b879e53c0f722"
+      },
+      {
+        "name": "logs/battery-day2/summary-recompute-diff.json",
+        "role": "independent runner-summary recompute diff (cross-check mode)",
+        "sha256": "fc0bef2be9a1a41d755093182516765a4d4dbaa526536cb79c7f66c4b0bc40cd"
+      }
+    ],
+    "method": {
+      "computed_utc_convention": "per-row computed_utc is pinned to the verbatim log's final call timestamp for byte-identical re-runs (section 4.3); wall-clock appears only in envelope.created_utc",
+      "derivation_source": "verbatim log only; runner summaries never read by derivation (cross-check recomputes them independently, see data.cross_checks)",
+      "doc": "glm/work/p8/COEF-METHOD.md (FROZEN 2026-09-16)",
+      "doc_sha256": "18e27702ad728e703f8b010da24cad9c5fdf23d3a79f4adac80689a4059c41b2",
+      "estimators": {
+        "anchoring": "drift = mean(score_anchored) - mean(score_unanchored) over identical items (paired by item_id, 0-10 scale); CI: paired bootstrap over items, 10,000 resamples, per-resample RNG random.Random('20260914|anchoring|<judge>|<resample>'), percentile 2.5/97.5 (harness bootstrap_ci index convention)",
+        "cbw": "wrong_pref = P(judge prefers the confident-but-wrong answer); ties excluded from numerator, kept in n; CI: Wilson 95%",
+        "position": "flip_rate = P(content-choice differs across AB/BA on the same item); content identity via metadata.correct_slot; pairs with a TIE verdict are not mappable to {A,B} and are excluded from n (counted in n_pairs_tie_excluded; strict rate that counts tie-mismatches reported in aux); CI: Wilson 95%",
+        "selfpref": "generation-only; no coefficient this round",
+        "verbosity": "padded_pref = P(judge prefers the padded answer) over padded-condition pairs; ties excluded from numerator, kept in n; tie_rate reported; CI: Wilson 95%. Plain condition reported as control (aux), not in the coefficient"
+      },
+      "exclusions": "rows with parsed.ok=false excluded per class and counted; retry-superseded attempts dropped (none present: 741 final rows); FT-8: no timing exclusions per FT8-DISPOSITION.json (zero overlap)",
+      "join": "metadata.item_seed_source components (seed|class|judge|item|condition|order) -> items payload by item_id",
+      "seed": 20260914
+    },
+    "mission_brief": "glm/briefs/BRIEF-20260914-sprint-p8-judge-audit.md",
+    "provenance": {
+      "estimated": [],
+      "measured": [
+        "all coefficients",
+        "ci95 intervals",
+        "n",
+        "tie_rate",
+        "call accounting",
+        "coverage",
+        "prompt placement",
+        "verdict re-parse",
+        "summary recompute diff"
+      ],
+      "measured_vs_estimated": "every number derived from the verbatim log + items payloads; nothing taken from runner summaries; no estimates"
+    }
+  }
+}

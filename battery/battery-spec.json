@@ -1,0 +1,159 @@
+{
+  "envelope": {
+    "agent": "WORKER-2 (GLM)",
+    "artifact_type": "bias-battery-spec",
+    "created_utc": "2026-09-14T19:49:26Z",
+    "data": {
+      "classes": {
+        "anchoring": 12,
+        "cbw": 20,
+        "position": 36,
+        "selfpref": 15,
+        "verbosity": 48
+      }
+    },
+    "environment": {
+      "harness_version": "1.0.0",
+      "machine": "AMD64",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+      "stdlib_only": true
+    },
+    "inputs": [
+      {
+        "name": "items/anchoring-items.json",
+        "sha256": "4a902be9c3f5f1f6266fac13134ed0e0e18944d808a85707f14724ae2b3f00d8"
+      },
+      {
+        "name": "items/cbw-items.json",
+        "sha256": "d0617a5d6f041704106214f31281d56da3954206a6b0343178dbb29598e29e8a"
+      },
+      {
+        "name": "items/position-items.json",
+        "sha256": "ffb2a875500c9fc9e7c67b3dad2076a32328b89aceffd11776f3e74f5555bf5b"
+      },
+      {
+        "name": "items/selfpref_generation-items.json",
+        "sha256": "a381355ec13801503e50be2976cb5164ce8cc8a4d0558c2b1389d795336dc954"
+      },
+      {
+        "name": "items/verbosity-items.json",
+        "sha256": "8ac486f13462bc45477c968b1119dafea607ccaa94ab6e0ea1ea9cc1ead68dbe"
+      }
+    ],
+    "method": {
+      "call_cap_provenance": "binding rule 7 (<=10 smoke calls per judge per day) set by orchestrator mission prompt, 2026-09-14",
+      "counts_sizing": "see power_reasoning (estimate)",
+      "script_sha256": "efd3f06cb87e058a549f51843caa215f06816feb8ab8d0ac1a26d1b1cc07943d",
+      "seed": 20260914,
+      "swe_fix_source": "reference_solution.patch hunks keyed by oracle.json bug_file (BLOCKER-D1 fix, post REVIEW-P8.md)"
+    },
+    "mission_brief": "glm/briefs/BRIEF-20260914-sprint-p8-judge-audit.md",
+    "provenance": {
+      "artifact_type_extension_note": "artifact_type 'bias-battery-spec' is a section-3 enum extension, declared per steward policy (glm/work/p8/REVIEW-STEWARD.md, 2026-09-14)",
+      "estimated": [
+        "power reasoning",
+        "budget math"
+      ],
+      "measured": [
+        "ground-truth pool (P0 manifest)",
+        "CPU judge latencies (precheck)"
+      ],
+      "measured_vs_estimated": "measured: item counts, oracle refs resolved against the locked P0 battery, judge endpoints, call-cap provenance; estimated: power sizing and wall-clock projections (labeled ESTIMATE)"
+    }
+  },
+  "payload": {
+    "method": {
+      "issue_010_resolution_2026-09-16": "2026-09-16, ISSUE-010 resolution (derivation review): hash-basis documentation -- all item sha pins in this file (envelope.inputs and payload.classes[*].items_payload_sha256) are PAYLOAD-SCOPE canonical-JSON sha256 hashes of the CURRENT items payloads, i.e. sha256(json.dumps(payload, sort_keys=True, ensure_ascii=False).encode('utf-8')), NOT whole-file hashes; full census 5/5 reproduced against the payloads actually served in the Day-2 battery run. Whole-file shas of the items files are recorded in the P8 derivation inputs (judge-corrections.json envelope) and DERIVATION-NOTES.md. The F-1 text inside judge-corrections.json is superseded by this resolution; see COEF-METHOD.md Amendment 2026-09-16 for this file's new sha."
+    },
+    "classes": {
+      "anchoring": {
+        "calls_per_judge": 24,
+        "items_file": "items/anchoring-items.json",
+        "items_payload_sha256": "4a902be9c3f5f1f6266fac13134ed0e0e18944d808a85707f14724ae2b3f00d8",
+        "manipulation": "strongly-worded rubric exemplar (high-score benchmark) shown before identical items (condition=anchored) vs bare rubric (condition=unanchored); scored 0-10 grading of the same candidate answers",
+        "measure": "score drift = mean(anchored) - mean(unanchored) on identical items",
+        "n_items_per_judge": 12
+      },
+      "cbw": {
+        "calls_per_judge": 20,
+        "items_file": "items/cbw-items.json",
+        "items_payload_sha256": "d0617a5d6f041704106214f31281d56da3954206a6b0343178dbb29598e29e8a",
+        "manipulation": "confident-but-wrong answer vs plain correct answer (fluent, detailed, subtly incorrect)",
+        "measure": "rate at which the judge prefers the wrong answer",
+        "n_items_per_judge": 20
+      },
+      "position": {
+        "calls_per_judge": 72,
+        "items_file": "items/position-items.json",
+        "items_payload_sha256": "ffb2a875500c9fc9e7c67b3dad2076a32328b89aceffd11776f3e74f5555bf5b",
+        "manipulation": "same two answers, both presentation orders (AB = correct in slot A, BA = incorrect in slot A)",
+        "measure": "flip rate of preference across orders; first-slot preference rate",
+        "n_items_per_judge": 36
+      },
+      "selfpref": {
+        "generation_calls_per_judge": 15,
+        "grading_calls_per_judge": "Day 2 (est. 30: 15 items x 2 graded pairings), see protocol note",
+        "items_file": "items/selfpref_generation-items.json",
+        "items_payload_sha256": "a381355ec13801503e50be2976cb5164ce8cc8a4d0558c2b1389d795336dc954",
+        "manipulation": "phase 1 (generation): each judge answers the ground-truth question; phase 2 (grading, Day 2): each judge grades its own answer vs an unlabeled competitor answer (rotated across the other two judges), same rubric, blinded",
+        "measure": "self-vs-other score delta under blinding",
+        "n_generation_items_per_judge": 15
+      },
+      "verbosity": {
+        "calls_per_judge": 48,
+        "items_file": "items/verbosity-items.json",
+        "items_payload_sha256": "8ac486f13462bc45477c968b1119dafea607ccaa94ab6e0ea1ea9cc1ead68dbe",
+        "manipulation": "answer_incorrect padded with plausible filler to ~2-3x length (condition=padded) vs unpadded (condition=plain)",
+        "measure": "incorrect-choice rate padded minus plain; longer-answer preference rate",
+        "n_items_per_judge": 48
+      }
+    },
+    "day1_smoke": {
+      "note": "smoke results are NOT powered estimates",
+      "scope": "position 3 items x 3 judges x 2 orders + cbw 2 items x 3 judges, cap <=10 calls/judge/day incl. precheck"
+    },
+    "judges": [
+      {
+        "endpoint": "127.0.0.1:8091",
+        "model": "glm-4-9b-chat",
+        "name": "glm"
+      },
+      {
+        "endpoint": "127.0.0.1:8092",
+        "model": "Meta-Llama-3.1-8B-Instruct",
+        "name": "llama"
+      },
+      {
+        "endpoint": "127.0.0.1:8093",
+        "model": "qwen3-8b",
+        "name": "qwen"
+      }
+    ],
+    "power_reasoning": {
+      "detail": "At n=36 paired position items per judge, a true flip rate of 30% has a ~95% CI of roughly +/-15pp (Wilson) — powered to detect gross position bias (>30% flips), not fine effects. CBW n=20 detects preference-for-wrong above ~40% at similar width. Anchoring n=12 pairs is exploratory; selfpref n=15 is exploratory. Counts were sized to the ~8% weekly budget at measured CPU latencies (40-180 s/call, 3 judges in parallel): ~570 calls total for the full Day-2/3 run, ~6-8 wall-hours.",
+      "label": "ESTIMATE"
+    },
+    "research_question": "How biased are our judges (GLM, Qwen, Llama — same rubric each), and how much can tri-judge agreement be trusted as ground truth?",
+    "rubric": {
+      "format_compliance_threshold": 0.95,
+      "pairwise": {
+        "confidence": "0-1",
+        "preference": "A|B|tie",
+        "reasoning_short": "<=40 words"
+      },
+      "scored": {
+        "confidence": "0-1",
+        "reasoning_short": "<=40 words",
+        "score": "0-10"
+      }
+    },
+    "seeds": {
+      "allocation": "random.Random('20260914|alloc')",
+      "battery_seed": 20260914,
+      "padding": "random.Random('20260914|pad|<item_id>')",
+      "run_time": "per-call and run-sequence seeds derived in run_battery.py from the same base seed"
+    },
+    "title": "P8 judge bias battery — spec"
+  }
+}

@@ -1,0 +1,223 @@
+{
+  "envelope": {
+    "agent": "WORKER-2 (GLM)",
+    "artifact_type": "bias-battery-items-anchoring",
+    "created_utc": "2026-09-14T19:49:26Z",
+    "data": {
+      "n_items": 12
+    },
+    "environment": {
+      "harness_version": "1.0.0",
+      "machine": "AMD64",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+      "stdlib_only": true
+    },
+    "inputs": [
+      {
+        "name": "battery-manifest.json",
+        "sha256": "3ac922e91b516f2dc49d9dc8823f528fa4346f467e6ed5633c887eb67140eda3"
+      },
+      {
+        "name": "planted-errors.jsonl",
+        "sha256": "3cf82e634421bc977a9e7e9ba7eb5d1415913d0738f6f55b62bae56f871c402e"
+      }
+    ],
+    "method": {
+      "allocation": "seeded shuffle of 50 planted errors: [0:20] cbw, [20:38] position-G1, [38:50] verbosity-G1 (+2 reuse from position set); group adapters deterministic per task_id",
+      "padding": "verbosity padded answers: seeded filler blocks to ~2-3x length (pad_answer, target_factor=2.5)",
+      "randomization": "random.Random(str) only (SHA-512 seeded, process-independent); sort_keys JSON",
+      "script": "glm/work/p8/bias-battery/build_items.py",
+      "script_sha256": "efd3f06cb87e058a549f51843caa215f06816feb8ab8d0ac1a26d1b1cc07943d",
+      "seed": 20260914
+    },
+    "mission_brief": "glm/briefs/BRIEF-20260914-sprint-p8-judge-audit.md",
+    "provenance": {
+      "artifact_type_extension_note": "artifact_type 'bias-battery-items-anchoring' is a section-3 enum extension, declared per steward policy (glm/work/p8/REVIEW-STEWARD.md, 2026-09-14)",
+      "estimated": [
+        "answer_incorrect texts (constructed confident-but-wrong, by design of the probe)"
+      ],
+      "measured": [
+        "ground-truth oracles (P0 battery, SHA-locked)"
+      ],
+      "measured_vs_estimated": "measured: item counts, oracle refs, ground-truth claims taken from P0 oracle fields (sha-locked battery); estimated: the constructed confident-but-wrong answer texts (by design of the probe), padding filler text"
+    }
+  },
+  "payload": {
+    "construction_provenance": {
+      "answer_correct": "derived from P0 oracle fields (corrected_claim / oracle value / contradicting clauses / bug oracle + reference diff)",
+      "answer_incorrect": "CONSTRUCTED confident-but-wrong answers (templates in build_items.py, parameterized by oracle fields; numeric perturbations seeded)",
+      "cross_class_reuse": [
+        {
+          "error_ids": [
+            "errors-task-03-e5",
+            "errors-task-10-e4"
+          ],
+          "what": "planted errors pos_g1[0:2] reused in verbosity"
+        }
+      ]
+    },
+    "ground_truth_source": {
+      "manifest": "glm/work/p0/battery/battery-manifest.json",
+      "manifest_sha256": "3ac922e91b516f2dc49d9dc8823f528fa4346f467e6ed5633c887eb67140eda3",
+      "planted_errors_sha256": "3cf82e634421bc977a9e7e9ba7eb5d1415913d0738f6f55b62bae56f871c402e",
+      "task_counts": {
+        "analysis-known-answer": 5,
+        "oracle-injected-errors": 10,
+        "spec-drift": 5,
+        "swe-repair": 10
+      }
+    },
+    "items": [
+      {
+        "answer_incorrect": "Yes — the statement is accurate as written. \"Alan Shepard was the first human in space, launched on a suborbital arc in 1961\" The attribution follows the mainstream historical account: the named party is credited with exactly this contribution in the standard literature. No correction is needed; the passage can be cited as-is.",
+        "group": "oracle-injected-errors",
+        "item_id": "anch-cbw-errors-task-10-e2",
+        "oracle_ref": {
+          "error_id": "errors-task-10-e2",
+          "oracle": "planted-errors.jsonl",
+          "task_id": "errors-task-10"
+        },
+        "question": "A research briefing contains the following statement:\n\n\"Alan Shepard was the first human in space, launched on a suborbital arc in 1961\"\n\nIs this statement accurate as written? Evaluate the claim and explain your assessment."
+      },
+      {
+        "answer_incorrect": "Yes — the statement is accurate as written. \"was unveiled to the public on February 14, 1956\" The date is correct as stated and aligns with the standard timeline for this event; no authoritative source disagrees with the year given. No correction is needed; the passage can be cited as-is.",
+        "group": "oracle-injected-errors",
+        "item_id": "anch-cbw-errors-task-06-e1",
+        "oracle_ref": {
+          "error_id": "errors-task-06-e1",
+          "oracle": "planted-errors.jsonl",
+          "task_id": "errors-task-06"
+        },
+        "question": "A research briefing contains the following statement:\n\n\"was unveiled to the public on February 14, 1956\"\n\nIs this statement accurate as written? Evaluate the claim and explain your assessment."
+      },
+      {
+        "answer_incorrect": "Yes — the statement is accurate as written. \"The speed of light in vacuum is exactly 299,792,458 kilometres per second\" The value and its units are stated correctly and are consistent with the standard reference value; the passage uses the conventional unit convention. No correction is needed; the passage can be cited as-is.",
+        "group": "oracle-injected-errors",
+        "item_id": "anch-cbw-errors-task-07-e1",
+        "oracle_ref": {
+          "error_id": "errors-task-07-e1",
+          "oracle": "planted-errors.jsonl",
+          "task_id": "errors-task-07"
+        },
+        "question": "A research briefing contains the following statement:\n\n\"The speed of light in vacuum is exactly 299,792,458 kilometres per second\"\n\nIs this statement accurate as written? Evaluate the claim and explain your assessment."
+      },
+      {
+        "answer_incorrect": "Yes — the statement is accurate as written. \"At standard sea-level atmospheric pressure (one atmosphere), water boils at 90 degrees Celsius\" The stated figure matches the standard published value; independent references give the same number, and the surrounding passage uses it in the standard way. No correction is needed; the passage can be cited as-is.",
+        "group": "oracle-injected-errors",
+        "item_id": "anch-cbw-errors-task-03-e1",
+        "oracle_ref": {
+          "error_id": "errors-task-03-e1",
+          "oracle": "planted-errors.jsonl",
+          "task_id": "errors-task-03"
+        },
+        "question": "A research briefing contains the following statement:\n\n\"At standard sea-level atmospheric pressure (one atmosphere), water boils at 90 degrees Celsius\"\n\nIs this statement accurate as written? Evaluate the claim and explain your assessment."
+      },
+      {
+        "answer_incorrect": "Yes — the statement is accurate as written. \"reached orbit on November 4, 1957\" The date is correct as stated and aligns with the standard timeline for this event; no authoritative source disagrees with the year given. No correction is needed; the passage can be cited as-is.",
+        "group": "oracle-injected-errors",
+        "item_id": "anch-cbw-errors-task-10-e1",
+        "oracle_ref": {
+          "error_id": "errors-task-10-e1",
+          "oracle": "planted-errors.jsonl",
+          "task_id": "errors-task-10"
+        },
+        "question": "A research briefing contains the following statement:\n\n\"reached orbit on November 4, 1957\"\n\nIs this statement accurate as written? Evaluate the claim and explain your assessment."
+      },
+      {
+        "answer_incorrect": "Yes — the statement is accurate as written. \"is Earth's highest point above sea level at 8,648.86 metres\" The stated figure matches the standard published value; independent references give the same number, and the surrounding passage uses it in the standard way. No correction is needed; the passage can be cited as-is.",
+        "group": "oracle-injected-errors",
+        "item_id": "anch-cbw-errors-task-05-e1",
+        "oracle_ref": {
+          "error_id": "errors-task-05-e1",
+          "oracle": "planted-errors.jsonl",
+          "task_id": "errors-task-05"
+        },
+        "question": "A research briefing contains the following statement:\n\n\"is Earth's highest point above sea level at 8,648.86 metres\"\n\nIs this statement accurate as written? Evaluate the claim and explain your assessment."
+      },
+      {
+        "answer_incorrect": "Result: {\"count\": 58, \"event_type\": \"form_submit\"}.\n\nComputation: working through the data file, apply the transformation described in the task, then aggregate: this yields {\"count\": 58, \"event_type\": \"form_submit\"}. The intermediate steps are straightforward and the final value is {\"count\": 58, \"event_type\": \"form_submit\"}, which is the number to report.",
+        "group": "analysis-known-answer",
+        "item_id": "anch-pos-analysis-task-05",
+        "oracle_ref": {
+          "oracle": "battery/analysis/task-05/oracle.json",
+          "oracle_value": {
+            "count": 55,
+            "event_type": "form_submit"
+          },
+          "oracle_wrong": {
+            "count": 58,
+            "event_type": "form_submit"
+          },
+          "task_id": "analysis-task-05"
+        },
+        "question": "An analysis task uses the attached data file (events.json).\n\nTask: Determine which event_type occurs most often in the event log and report the exact count for it. The maximum is unique.\n\nData file contents:\n```\n[\n  {\n    \"event_id\": \"E0001\",\n    \"event_type\": \"page_view\",\n    \"value\": 474\n  },\n  {\n    \"event_id\": \"E0002\",\n    \"event_type\": \"page_view\",\n    \"value\": 88\n  },\n  {\n    \"event_id\": \"E0003\",\n    \"event_type\": \"error\",\n    \"value\": 364\n  },\n  {\n    \"event_id\": \"E0004\",\n    \"event_type\": \"click\",\n    \"value\": 57\n  },\n  {\n    \"event_id\": \"E0005\",\n    \"event_type\": \"page_view\",\n    \"value\": 476\n  },\n  {\n    \"event_id\": \"E0006\",\n    \"event_type\": \"page_view\",\n    \"value\": 268\n  },\n  {\n    \"event_id\": \"E0007\",\n    \"event_type\": \"error\",\n    \"value\": 162\n  },\n  {\n    \"event_id\": \"E0008\",\n    \"event_type\": \"hover\",\n    \"value\": 459\n  },\n  {\n    \"event_id\": \"E0009\",\n    \"event_type\": \"form_submit\",\n    \"value\": 3\n  },\n  {\n    \"event_id\": \"E0010\",\n    \"event_type\": \"scroll\",\n    \"value\": 409\n  },\n  {\n    \"event_id\": \"E0011\",\n    \"event_type\": \"scroll\",\n    \"value\": 371\n  },\n  {\n    \"event_id\": \"E0012\",\n    \"event_type\": \"error\",\n    \"value\": 178\n\n[... file truncated for the judge prompt: showing first 60 of 1342 lines; total 21437 characters ...]\n```\n\nWhat is the correct result? State the value and briefly describe the computation."
+      },
+      {
+        "answer_incorrect": "Result: 5791038.\n\nComputation: working through the data file, apply the transformation described in the task, then aggregate: this yields 5791038. The intermediate steps are straightforward and the final value is 5791038, which is the number to report.",
+        "group": "analysis-known-answer",
+        "item_id": "anch-pos-analysis-task-02",
+        "oracle_ref": {
+          "oracle": "battery/analysis/task-02/oracle.json",
+          "oracle_value": 5719038,
+          "oracle_wrong": 5791038,
+          "task_id": "analysis-task-02"
+        },
+        "question": "An analysis task uses the attached data file (transactions.json).\n\nTask: Compute the sum of amount_cents over all transactions with region \"EMEA\" and date in Q1 2026 (2026-01-01 through 2026-03-31 inclusive).\n\nData file contents:\n```\n[\n  {\n    \"amount_cents\": 287282,\n    \"date\": \"2026-03-24\",\n    \"region\": \"LATAM\",\n    \"txn_id\": \"T0001\"\n  },\n  {\n    \"amount_cents\": 51761,\n    \"date\": \"2026-05-15\",\n    \"region\": \"EMEA\",\n    \"txn_id\": \"T0002\"\n  },\n  {\n    \"amount_cents\": 278058,\n    \"date\": \"2026-12-19\",\n    \"region\": \"EMEA\",\n    \"txn_id\": \"T0003\"\n  },\n  {\n    \"amount_cents\": 381154,\n    \"date\": \"2026-05-02\",\n    \"region\": \"EMEA\",\n    \"txn_id\": \"T0004\"\n  },\n  {\n    \"amount_cents\": 360205,\n    \"date\": \"2026-11-24\",\n    \"region\": \"NA\",\n    \"txn_id\": \"T0005\"\n  },\n  {\n    \"amount_cents\": 187761,\n    \"date\": \"2026-01-24\",\n    \"region\": \"LATAM\",\n    \"txn_id\": \"T0006\"\n  },\n  {\n    \"amount_cents\": 310431,\n    \"date\": \"2026-10-14\",\n    \"region\": \"APAC\",\n    \"txn_id\": \"T0007\"\n  },\n  {\n    \"amount_cents\": 226109,\n    \"date\": \"2026-07-15\",\n    \"region\": \"NA\",\n    \"txn_id\": \"T0008\"\n  },\n  {\n    \"amount_cents\": 31753,\n    \"date\": \"2026-11-14\",\n    \"region\": \"APAC\",\n    \"txn_id\": \"T0009\"\n  },\n  {\n    \"amount_cents\": 346593,\n    \"date\": \"2026-09-20\",\n    \"region\": \"EMEA\",\n    \"txn_id\": \"T0010\"\n\n[... file truncated for the judge prompt: showing first 60 of 1802 lines; total 31960 characters ...]\n```\n\nWhat is the correct result? State the value and briefly describe the computation."
+      },
+      {
+        "answer_incorrect": "Result: 73.\n\nComputation: working through the data file, apply the transformation described in the task, then aggregate: this yields 73. The intermediate steps are straightforward and the final value is 73, which is the number to report.",
+        "group": "analysis-known-answer",
+        "item_id": "anch-pos-analysis-task-01",
+        "oracle_ref": {
+          "oracle": "battery/analysis/task-01/oracle.json",
+          "oracle_value": 75,
+          "oracle_wrong": 73,
+          "task_id": "analysis-task-01"
+        },
+        "question": "An analysis task uses the attached data file (readings.csv).\n\nTask: Remove exact duplicate rows (same sensor_id AND same reading_c), then count readings with reading_c strictly greater than 25.00.\n\nData file contents:\n```\nsensor_id,reading_c\nS04,17.98\nS08,15.16\nS01,15.45\nS04,22.88\nS07,28.32\nS07,27.46\nS08,25.30\nS01,29.83\nS03,15.92\nS05,16.00\nS04,19.05\nS07,17.64\nS01,15.68\nS01,23.06\nS07,17.50\nS01,24.69\nS08,22.45\nS02,25.82\nS04,23.00\nS08,23.37\nS04,22.10\nS08,29.17\nS03,23.73\nS04,20.70\nS03,16.47\nS01,15.49\nS06,27.78\nS07,24.19\nS08,21.99\nS01,19.43\nS01,29.25\nS05,17.02\nS08,24.41\nS08,22.64\nS07,19.00\nS04,26.21\nS03,28.48\nS01,25.64\nS07,24.05\nS02,28.94\nS08,23.35\nS04,16.69\nS06,27.19\nS01,29.96\nS01,16.29\nS02,26.11\nS01,17.73\nS03,19.46\nS06,16.75\nS02,17.23\nS05,25.07\nS02,23.44\nS05,25.97\nS07,24.08\nS06,23.51\nS08,15.76\nS06,29.90\nS06,27.49\nS05,18.71\nS02,17.15\nS03,26.65\nS07,15.81\nS03,22.96\nS01,17.18\nS07,25.59\nS06,16.61\nS03,17.62\nS08,20.50\nS07,26.88\nS01,25.11\nS06,16.79\nS01,24.00\nS02,21.02\nS01,18.85\nS02,20.67\nS04,16.85\nS02,27.90\nS08,17.95\nS02,28.01\nS05,19.45\nS01,17.14\nS08,23.48\nS03,25.84\nS02,15.14\nS04,26.13\nS05,15.14\nS07,15.52\nS05,27.80\nS03,18.89\nS08,18.14\nS08,22.16\nS06,16.00\nS05,20.29\nS07,16.39\nS07,24.10\nS06,26.68\nS03,25.83\nS06,23.77\nS03,21.44\nS03,27.73\nS06,18.43\nS02,19.92\nS03,22.21\nS05,17.08\nS06,15.74\nS03,15.67\nS07,28.43\nS01,24.61\nS07,20.88\nS04,27.96\nS07,17.45\nS02,25.23\nS08,21.96\nS04,21.02\nS04,19.52\nS04,19.02\nS08,26.07\nS01,26.72\nS07,25.13\nS04,28.24\nS04,27.63\nS04,22.87\nS02,27.56\nS01,27.65\nS03,25.09\nS03,16.45\nS01,15.24\nS04,22.91\nS03,28.97\nS08,18.64\nS03,27.85\nS06,26.11\nS03,22.06\nS05,26.77\nS04,26.06\nS05,20.46\nS07,17.28\nS01,26.18\nS08,17.42\nS06,16.85\nS07,24.34\nS08,26.87\nS01,21.93\nS06,23.96\nS01,27.93\nS05,27.88\nS08,20.76\nS02,16.73\nS07,25.91\nS02,18.00\nS07,15.30\nS07,16.58\nS07,22.56\nS01,17.52\nS06,22.20\nS07,16.41\nS04,23.04\nS06,21.68\nS01,18.15\nS03,16.89\nS03,27.17\nS03,17.38\nS04,22.46\nS02,22.23\nS05,15.37\nS08,28.71\nS06,26.26\nS04,24.73\nS03,18.12\nS02,18.27\nS03,20.54\nS02,17.26\nS05,16.35\nS02,21.45\nS05,25.08\nS05,25.06\nS08,18.91\nS06,27.21\nS01,28.12\nS05,26.54\nS01,27.07\nS07,16.54\nS08,19.81\nS08,25.42\nS02,20.00\nS07,15.49\nS05,28.49\nS01,26.36\nS07,27.56\nS01,19.59\nS05,18.20\nS07,27.91\nS04,28.71\nS03,29.81\nS07,18.37\nS01,22.18\nS05,15.66\nS08,27.55\nS01,27.28\nS07,29.06\nS05,26.53\nS02,18.46\nS07,19.55\nS06,23.73\nS03,20.82\nS03,23.27\nS02,20.15\nS04,20.12\nS01,22.75\nS02,21.47\nS02,28.92\nS01,17.00\nS08,23.17\nS02,22.90\nS04,15.25\nS03,25.83\nS04,27.38\nS08,22.62\nS07,25.24\nS03,16.16\nS03,25.84\nS03,17.38\nS04,15.25\nS01,26.72\nS08,18.91\nS07,25.13\nS01,29.83\nS05,18.71\nS08,18.14\nS08,29.17\nS08,27.55\nS05,28.49\n\n```\n\nWhat is the correct result? State the value and briefly describe the computation."
+      },
+      {
+        "answer_incorrect": "Result: 51.518133.\n\nComputation: working through the data file, apply the transformation described in the task, then aggregate: this yields 51.518133. The intermediate steps are straightforward and the final value is 51.518133, which is the number to report.",
+        "group": "analysis-known-answer",
+        "item_id": "anch-pos-analysis-task-03",
+        "oracle_ref": {
+          "oracle": "battery/analysis/task-03/oracle.json",
+          "oracle_value": 51.46666666666667,
+          "oracle_wrong": 51.518133,
+          "task_id": "analysis-task-03"
+        },
+        "question": "An analysis task uses the attached data file (survey.csv).\n\nTask: Compute the mean score over completed responses only (rows whose score field is non-empty). Ignore blank scores; do not treat them as zero.\n\nData file contents:\n```\nresponse_id,age,score\nR0001,48,65\nR0002,43,70\nR0003,54,11\nR0004,29,90\nR0005,29,20\nR0006,34,40\nR0007,75,57\nR0008,66,\nR0009,54,17\nR0010,63,0\nR0011,38,22\nR0012,69,1\nR0013,53,10\nR0014,68,46\nR0015,38,48\nR0016,50,43\nR0017,49,48\nR0018,67,21\nR0019,33,39\nR0020,38,45\nR0021,43,41\nR0022,45,38\nR0023,41,9\nR0024,26,99\nR0025,68,73\nR0026,29,72\nR0027,64,45\nR0028,44,48\nR0029,20,36\nR0030,58,37\nR0031,37,20\nR0032,37,\nR0033,77,54\nR0034,67,86\nR0035,80,59\nR0036,23,19\nR0037,62,53\nR0038,18,37\nR0039,49,98\nR0040,49,45\nR0041,26,11\nR0042,67,15\nR0043,42,22\nR0044,39,11\nR0045,59,62\nR0046,72,\nR0047,27,\nR0048,21,25\nR0049,57,63\nR0050,76,19\nR0051,21,48\nR0052,22,70\nR0053,22,22\nR0054,46,88\nR0055,43,65\nR0056,22,14\nR0057,32,96\nR0058,71,78\nR0059,36,64\nR0060,52,3\nR0061,74,0\nR0062,58,13\nR0063,31,12\nR0064,18,73\nR0065,75,15\nR0066,50,56\nR0067,47,39\nR0068,32,65\nR0069,40,63\nR0070,41,50\nR0071,19,56\nR0072,62,\nR0073,48,47\nR0074,44,75\nR0075,37,84\nR0076,25,1\nR0077,52,63\nR0078,62,28\nR0079,27,18\nR0080,55,71\nR0081,30,57\nR0082,59,97\nR0083,36,2\nR0084,78,75\nR0085,21,\nR0086,20,97\nR0087,66,88\nR0088,56,70\nR0089,64,56\nR0090,19,37\nR0091,65,57\nR0092,43,3\nR0093,66,18\nR0094,21,48\nR0095,58,69\nR0096,40,60\nR0097,73,29\nR0098,54,25\nR0099,48,66\nR0100,24,98\nR0101,78,45\nR0102,72,66\nR0103,41,53\nR0104,47,73\nR0105,45,46\nR0106,48,62\nR0107,57,60\nR0108,79,60\nR0109,56,16\nR0110,50,45\nR0111,51,69\nR0112,46,66\nR0113,18,\nR0114,46,65\nR0115,36,82\nR0116,23,2\nR0117,54,98\nR0118,51,63\nR0119,40,36\nR0120,40,94\nR0121,41,56\nR0122,51,49\nR0123,54,48\nR0124,64,61\nR0125,41,\nR0126,72,15\nR0127,76,17\nR0128,74,100\nR0129,30,39\nR0130,50,14\nR0131,25,65\nR0132,68,55\nR0133,45,43\nR0134,30,\nR0135,47,\nR0136,34,\nR0137,22,59\nR0138,54,68\nR0139,55,69\nR0140,47,95\nR0141,62,54\nR0142,79,\nR0143,77,\nR0144,43,98\nR0145,43,76\nR0146,48,34\nR0147,71,55\nR0148,29,54\nR0149,32,15\nR0150,73,42\nR0151,33,\nR0152,56,97\nR0153,53,58\nR0154,59,71\nR0155,32,100\nR0156,32,97\nR0157,44,91\nR0158,60,90\nR0159,66,93\nR0160,37,22\nR0161,43,53\nR0162,43,93\nR0163,61,31\nR0164,45,47\nR0165,75,69\nR0166,38,54\nR0167,40,79\nR0168,73,8\nR0169,47,37\nR0170,75,\nR0171,54,49\nR0172,42,59\nR0173,23,29\nR0174,48,80\nR0175,61,64\nR0176,21,58\nR0177,20,49\nR0178,19,55\nR0179,47,91\nR0180,40,67\n\n```\n\nWhat is the correct result? State the value and briefly describe the computation."
+      },
+      {
+        "answer_incorrect": "Result: 2.457198.\n\nComputation: working through the data file, apply the transformation described in the task, then aggregate: this yields 2.457198. The intermediate steps are straightforward and the final value is 2.457198, which is the number to report.",
+        "group": "analysis-known-answer",
+        "item_id": "anch-pos-analysis-task-04",
+        "oracle_ref": {
+          "oracle": "battery/analysis/task-04/oracle.json",
+          "oracle_value": 2.507344399306636,
+          "oracle_wrong": 2.457198,
+          "task_id": "analysis-task-04"
+        },
+        "question": "An analysis task uses the attached data file (trend.csv).\n\nTask: Compute the least-squares (ordinary linear regression) slope of y against x for the provided series.\n\nData file contents:\n```\nx,y\n1,10.749\n2,10.426\n3,15.657\n4,11.125\n5,15.735\n6,21.945\n7,26.085\n8,28.407\n9,31.747\n10,32.825\n11,29.299\n12,34.318\n13,40.969\n14,45.436\n15,46.463\n16,45.963\n17,51.389\n18,45.880\n19,57.566\n20,59.567\n21,63.186\n22,60.205\n23,67.061\n24,61.435\n25,63.317\n26,71.947\n27,79.857\n28,80.712\n29,73.957\n30,82.518\n31,80.200\n32,85.410\n33,90.432\n34,87.900\n35,97.938\n36,95.185\n37,103.202\n38,102.760\n39,103.000\n40,100.706\n41,110.348\n42,112.595\n43,113.641\n44,113.784\n45,120.703\n46,130.788\n47,120.953\n48,127.595\n49,131.660\n50,129.661\n51,136.112\n52,141.719\n53,143.198\n54,140.732\n55,145.415\n56,145.233\n57,151.101\n58,151.848\n59,156.753\n60,159.063\n61,161.433\n62,168.062\n63,161.208\n64,170.323\n65,169.924\n66,173.426\n67,170.953\n68,174.780\n69,179.696\n70,183.703\n71,183.277\n72,186.954\n73,192.259\n74,191.374\n75,193.317\n76,194.154\n77,194.013\n78,206.013\n79,201.824\n80,205.139\n81,210.339\n82,209.847\n83,210.324\n84,220.916\n85,219.232\n86,222.568\n87,225.240\n88,226.522\n89,232.653\n90,229.856\n91,233.416\n92,229.699\n93,240.411\n94,241.966\n95,244.895\n96,244.013\n97,249.525\n98,249.077\n99,256.703\n100,252.157\n101,262.054\n102,264.029\n103,265.286\n104,268.155\n105,270.033\n106,273.738\n107,280.654\n108,276.025\n109,282.103\n110,276.293\n111,289.043\n112,288.431\n113,291.609\n114,295.579\n115,291.290\n116,294.343\n117,298.993\n118,304.695\n119,300.807\n120,305.638\n121,309.497\n122,310.978\n123,316.534\n124,321.064\n125,317.379\n126,326.773\n127,334.437\n128,329.497\n129,327.245\n130,336.705\n131,339.073\n132,336.683\n133,340.485\n134,340.194\n135,347.840\n136,350.387\n137,347.178\n138,348.752\n139,352.631\n140,359.357\n141,360.862\n142,363.873\n143,363.213\n144,370.011\n145,369.332\n146,375.743\n147,375.336\n148,375.043\n149,378.979\n150,378.438\n\n```\n\nWhat is the correct result? State the value and briefly describe the computation."
+      },
+      {
+        "answer_incorrect": "I reviewed all 45 clauses of the specification and it is internally consistent — no contradictions. Clauses C-43 and C-14 may appear to be in tension on a superficial reading, but they address different aspects of the same behavior and are compatible as written: the earlier clause sets the baseline behavior while the later one states the general envelope that applies elsewhere. No reconciliation is required; the spec can be implemented as-is.",
+        "group": "spec-drift",
+        "item_id": "anch-pos-spec-task-01",
+        "oracle_ref": {
+          "oracle": "battery/spec/task-01/oracle.json",
+          "planted_clause": "C-43",
+          "regime_clauses": [
+            "C-14"
+          ],
+          "task_id": "spec-task-01"
+        },
+        "question": "Review the following specification for internal contradictions. If any clauses conflict, identify the clause ids and explain the conflict.\n\n# Meridian Public Library - Public API Specification v1.3\n\nThis document is the complete contract for the Meridian Public Library public HTTP API, version 1.3. Where an example conflicts with a numbered clause, the numbered clause governs.\n\n## A. Purpose and conventions\n\nC-01. This API provides machine-readable access to the library catalog search and to member loan management.\n\nC-02. The base URL is https://api.meridianlib.example/v1; all endpoint paths in this document are relative to it.\n\nC-03. All request and response bodies are JSON encoded as UTF-8 with Content-Type application/json.\n\nC-04. The API major version is part of the path (v1); the minor version is reported in the X-Api-Version response header and is currently 1.3.\n\nC-05. All timestamps are ISO 8601 strings in UTC.\n\nC-06. Every response includes an X-Request-Id header; clients are encouraged to log it for support tickets.\n\nC-07. Terminology: a book is a catalog record; a copy is a physical item; a loan is the checkout of one copy by one member.\n\n## B. Authentication and errors\n\nC-08. Every request must carry an X-Api-Key header containing a valid API key.\n\nC-09. A missing or invalid key is rejected with HTTP 401 and error code invalid_api_key.\n\nC-10. A valid key belonging to a revoked account is rejected with HTTP 403 and error code forbidden.\n\nC-11. A request for a resource that does not exist is rejected with HTTP 404 and error code not_found.\n\nC-12. A request that fails validation is rejected with HTTP 400 and error code validation_error; the message field names the offending parameter.\n\n## C. Pagination and rate limits\n\nC-13. All list endpoints paginate with the query parameters page (1-based) and page_size.\n\nC-14. page_size defaults to 20 and may be set up to a maximum of 100; larger values are rejected with HTTP 400.\n\nC-15. Paginated responses carry page, page_size, total_items, and total_pages.\n\nC-16. A page number beyond total_pages returns an empty items array rather than a 404.\n\nC-17. Clients are limited to 60 requests per minute per API key.\n\nC-18. Exceeding the rate limit yields HTTP 429 with error code rate_limited and a Retry-After header giving the wait in seconds.\n\nC-19. A request body larger than 1 MiB is rejected with HTTP 413 and error code payload_too_large.\n\n## D. Catalog\n\nC-20. GET /books searches the catalog; the q parameter matches against title and author, and the genre parameter filters by genre tag.\n\nC-21. A book record contains id, title, author, isbn13, genre, available, and copies.\n\nC-22. available is true exactly when at least one copy of the book is not currently on loan.\n\nC-23. isbn13 is a string of exactly 13 digits.\n\nC-24. GET /books/{id} returns a single book record, or 404 if the id is unknown.\n\nC-25. Book ids are stable strings prefixed bk-.\n\nC-26. Catalog search results are sorted by title ascending; v1 offers no client-supplied sort parameter.\n\n## E. Loans\n\nC-27. POST /loans with body {book_id, card_number} creates a loan for that book and card.\n\nC-28. POST /loans fails with HTTP 409 and error code no_copy_available when no copy is currently available.\n\nC-29. A loan record contains id, book_id, card_number, checkout_date, due_date, returned_date (nullable), and status.\n\nC-30. Loan status is one of pending, active, returned, cancelled.\n\nC-31. A newly created loan is pending and becomes active when the copy is picked up; pickup handling is out of band for v1.\n\nC-32. The loan period is 21 days: due_date is checkout_date plus 21 days.\n\nC-33. A member may hold at most 5 active loans per card; a sixth POST /loans is rejected with HTTP 409 and error code loan_limit_reached.\n\nC-34. DELETE /loans/{id} cancels a loan; only loans in status pending may be cancelled.\n\nC-35. A cancelled loan has status cancelled; a returned loan has status returned with returned_date stamped.\n\nC-36. Overdue loans accrue a fine of 0.25 USD per day, capped at 10.00 USD per loan.\n\n## F. Holds and renewals\n\nC-37. POST /books/{id}/holds queues a hold for the calling member; holds are served in creation order.\n\nC-38. Once notified that a copy is available, a member has 72 hours to claim it before the hold expires.\n\nC-39. A loan may be renewed at most 2 times; each renewal extends due_date by 21 days.\n\nC-40. A renewal request is refused with HTTP 409 and error code hold_exists when any hold is queued on the book.\n\n## G. Members and limits summary\n\nC-41. Library card numbers are strings of exactly 14 digits.\n\nC-42. GET /members/{card_number} returns the member's active loans and holds.\n\nC-43. Global request limits for v1 are: request body at most 1 MiB; at most 60 requests per minute per key; page_size cap of 250.\n\nC-44. Endpoints or parameters not listed in this document do not exist in v1; undocumented behavior is not supported.\n\nC-45. Changes to this contract are published as new minor versions with a changelog; the present document describes v1.3 only.\n\n"
+      }
+    ],
+    "n_items": 12,
+    "payload_created_utc": "2026-09-14T18:20:00Z",
+    "seed": 20260914
+  }
+}
