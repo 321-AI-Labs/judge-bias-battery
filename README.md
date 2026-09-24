@@ -110,6 +110,10 @@ examples/           sanitized endpoints + runner config and expected outputs
 
 ## Citation
 
+Paper and study page: [Measuring and Correcting Systematic Bias in
+LLM-as-Judge Panels (321 AI Labs TR#8)](https://321ai.xyz/studies/llm-judge-bias-battery/)
+— [PDF](https://321ai.xyz/studies/llm-judge-bias-battery/TR8-judge-bias-audit.pdf)
+
 Zenodo DOI: **TBD** (placeholder — will be minted on release). See
 `CITATION.cff`.
 
