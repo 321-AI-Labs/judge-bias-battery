@@ -1,13 +1,73 @@
 # Judge Bias Battery
 
-**LLM-as-judge panels have measurable, correctable biases.** This repository
-ships a 5-class bias battery (position, verbosity, confident-but-wrong,
-anchoring, self-preference), a stdlib-only Python harness that runs it against
-any OpenAI-compatible judge endpoint with verbatim logging, and the correction
-model we derived by running the battery against three open-weight judges —
-glm-4-9b-chat, Llama-3.1-8B-Instruct, and qwen3-8b (CPU-served, temperature 0).
-Run the battery against *your* judge, get bias coefficients out, and correct
-judge-derived scores before you trust them.
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
+[![Tests: 44 passing](https://img.shields.io/badge/tests-44%20passing-brightgreen.svg)](#quickstart)
+[![DOI: pending](https://img.shields.io/badge/DOI-pending%20(Zenodo)-lightgrey.svg)](#citation)
+
+**Your LLM judge has measurable biases. This battery measures them, and the
+correction model fixes what is significant — nothing else.**
+
+A 5-class bias battery (position, verbosity, confident-but-wrong, anchoring,
+self-preference), a stdlib-only Python harness that runs it against any
+OpenAI-compatible judge endpoint (llama.cpp, vLLM, Ollama), and the correction
+model derived from running the battery against three open-weight judges.
+Point it at *your* judge this afternoon, get bias coefficients out, and know
+which of your eval scores to stop trusting.
+
+## Run it in 5 minutes
+
+Requirements: Python 3.10+ (standard library only — no dependencies) and one
+judge served behind an OpenAI-compatible `/v1/chat/completions` endpoint.
+
+```bash
+git clone https://github.com/321-AI-Labs/judge-bias-battery.git && cd judge-bias-battery
+
+# optional: 44 offline tests against a mock server, zero tokens spent
+python -m unittest discover -s harness/tests
+
+# point at your judge, then run the position leg (72 calls)
+cp examples/endpoints.example.json endpoints.json   # fill in base_url + model
+python harness/run_battery.py --config examples/runner-config.example.json
+
+# derive your judge's bias coefficients
+python harness/summarize.py --log logs/judge-calls.jsonl --out logs/summary.json
+python harness/derive-corrections.py derive --log logs/judge-calls.jsonl --out my-corrections.json
+```
+
+## What you get out
+
+One coefficient per bias class, with its 95% CI and a significance flag —
+a real record from this repo's audit:
+
+```json
+{
+  "class": "position",
+  "judge": "glm",
+  "coefficient": 0.25,
+  "coefficient_name": "flip_rate",
+  "ci95": [0.1375, 0.4107],
+  "n": 36,
+  "significant": true,
+  "method_sha": "18e27702…"
+}
+```
+
+Every call is logged verbatim (full request, raw response, parsed verdict,
+latency). The log file IS the dataset; the coefficients are reproducible from
+it, and derivation is deterministic — pin `--created-utc` and re-runs are
+byte-identical.
+
+## Why this exists
+
+If you use LLM-as-judge scores anywhere — eval pipelines, reward models,
+leaderboards, routing — those scores carry the judge's biases in silence.
+Swap the order of two answers and the verdict can flip. Pad a wrong answer to
+three times the length and it starts winning. And a judge grading its own
+model's outputs is not grading on the same curve as everyone else's. None of
+this shows up in the score itself. The only way to know whether it applies to
+*your* judge, on *your* tasks, is to measure it — which is what an afternoon
+with this battery does.
 
 ## Headline findings (P8 Judge Reliability Audit, 321 AI Labs, Sept 2026)
 
@@ -38,47 +98,18 @@ classes): <!-- source: judge-corrections.json (envelope.inputs: "741 calls, 0 er
   [−8.14, −3.14] (scores its own answers lower) — all significant on a 0–10
   scale. <!-- source: selfpref-corrections.json, data.corrections -->
 
-Correction model: `s_corrected = s − coefficient` per bias class, with an
-honest rule — coefficients whose 95% CI crosses zero ship
-`"significant": false` and **may not** be used to claim a correction.
+## The correction model, with an honesty gate
+
+`s_corrected = s − coefficient` per bias class — with a hard rule:
+coefficients whose 95% CI crosses zero ship `"significant": false` and **may
+not** be used to claim a correction. The code enforces it. A correction
+derived from noise would manufacture precision that was never measured, so
+the gate matters more than the correction.
 <!-- source: COEF-METHOD.md §3 -->
 
-## Quickstart
-
-Requirements: Python 3.10+ (standard library only — no dependencies) and one
-or more judges served behind an OpenAI-compatible `/v1/chat/completions`
-endpoint (llama.cpp, vLLM, Ollama, …).
-
-1. **Clone and (optionally) run the offline test suite** (44 tests, mock
-   server, no live calls):
-
-   ```
-   git clone <repo-url> && cd judge-bias-battery
-   python -m unittest discover -s harness/tests
-   ```
-
-2. **Point at your judge.** Copy `examples/endpoints.example.json` and fill in
-   your endpoint's `base_url` and served `model` id.
-
-3. **Run one battery leg** (the `position` class, 72 calls):
-
-   ```
-   python harness/run_battery.py --config examples/runner-config.example.json
-   ```
-
-   Re-running the same config is safe: already-logged calls are skipped
-   before the cap check, so interrupted runs top up without duplicates.
-
-4. **Summarize and derive coefficients:**
-
-   ```
-   python harness/summarize.py --log logs/judge-calls.jsonl --out logs/summary.json
-   python harness/derive-corrections.py derive --log logs/judge-calls.jsonl --out my-corrections.json
-   ```
-
-   Derivation is deterministic: pin `--created-utc` and re-runs are
-   byte-identical. See `examples/README.md` for the expected outputs and
-   `data/README.md` for how to read the coefficients.
+Scope limits, stated flat: the audited judges are 8–9B open-weight models, so
+magnitudes do not transfer to frontier judges; and anchoring is unresolved at
+n=12, not absent. Re-run the battery against the judge you actually use.
 
 ## Repository layout
 
@@ -107,6 +138,11 @@ docs/
   DERIVATION-NOTES.md full derivation session write-up and reconciliation results
 examples/           sanitized endpoints + runner config and expected outputs
 ```
+
+Re-running any config is safe: already-logged calls are skipped before the
+cap check, so interrupted runs top up without duplicates. To run all bias
+classes, extend `bias_classes` in the runner config — see
+`examples/README.md`.
 
 ## Citation
 
