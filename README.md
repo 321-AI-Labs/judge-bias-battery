@@ -3,7 +3,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
 [![Tests: 44 passing](https://img.shields.io/badge/tests-44%20passing-brightgreen.svg)](#quickstart)
-[![DOI: pending](https://img.shields.io/badge/DOI-pending%20(Zenodo)-lightgrey.svg)](#citation)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22949194.svg)](https://doi.org/10.5281/zenodo.22949194)
 
 **Your LLM judge has measurable biases. This battery measures them, and the
 correction model fixes what is significant — nothing else.**
@@ -150,7 +150,8 @@ Paper and study page: [Measuring and Correcting Systematic Bias in
 LLM-as-Judge Panels (321 AI Labs TR#8)](https://321ai.xyz/studies/llm-judge-bias-battery/)
 — [PDF](https://321ai.xyz/studies/llm-judge-bias-battery/TR8-judge-bias-audit.pdf)
 
-Zenodo DOI: **TBD** (placeholder — will be minted on release). See
+Zenodo DOI: [10.5281/zenodo.22949194](https://doi.org/10.5281/zenodo.22949194)
+(concept DOI — always resolves to the latest release). See
 `CITATION.cff`.
 
 ```bibtex
@@ -160,7 +161,7 @@ Zenodo DOI: **TBD** (placeholder — will be minted on release). See
   title = {Judge Bias Battery: Measuring and Correcting Systematic Bias in LLM-as-Judge Panels},
   version = {1.0.0},
   year = {2026},
-  note = {Zenodo DOI TBD}
+  doi = {10.5281/zenodo.22949194}
 }
 ```
 
