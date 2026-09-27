@@ -6,7 +6,7 @@
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22949194.svg)](https://doi.org/10.5281/zenodo.22949194)
 
 **Your LLM judge has measurable biases. This battery measures them, and the
-correction model fixes what is significant — nothing else.**
+correction model fixes what is significant. Nothing else.**
 
 A 5-class bias battery (position, verbosity, confident-but-wrong, anchoring,
 self-preference), a stdlib-only Python harness that runs it against any
@@ -17,7 +17,7 @@ which of your eval scores to stop trusting.
 
 ## Run it in 5 minutes
 
-Requirements: Python 3.10+ (standard library only — no dependencies) and one
+Requirements: Python 3.10+ (standard library only, no dependencies) and one
 judge served behind an OpenAI-compatible `/v1/chat/completions` endpoint.
 
 ```bash
@@ -37,8 +37,8 @@ python harness/derive-corrections.py derive --log logs/judge-calls.jsonl --out m
 
 ## What you get out
 
-One coefficient per bias class, with its 95% CI and a significance flag —
-a real record from this repo's audit:
+One coefficient per bias class, with its 95% CI and a significance flag.
+This is a real record from this repo's audit:
 
 ```json
 {
@@ -55,19 +55,19 @@ a real record from this repo's audit:
 
 Every call is logged verbatim (full request, raw response, parsed verdict,
 latency). The log file IS the dataset; the coefficients are reproducible from
-it, and derivation is deterministic — pin `--created-utc` and re-runs are
+it, and derivation is deterministic: pin `--created-utc` and re-runs are
 byte-identical.
 
 ## Why this exists
 
-If you use LLM-as-judge scores anywhere — eval pipelines, reward models,
-leaderboards, routing — those scores carry the judge's biases in silence.
+If you use LLM-as-judge scores anywhere (eval pipelines, reward models,
+leaderboards, routing), those scores carry the judge's biases in silence.
 Swap the order of two answers and the verdict can flip. Pad a wrong answer to
 three times the length and it starts winning. And a judge grading its own
 model's outputs is not grading on the same curve as everyone else's. None of
 this shows up in the score itself. The only way to know whether it applies to
-*your* judge, on *your* tasks, is to measure it — which is what an afternoon
-with this battery does.
+*your* judge, on *your* tasks, is to measure it. An afternoon with this
+battery gets you that.
 
 ## Headline findings (P8 Judge Reliability Audit, 321 AI Labs, Sept 2026)
 
@@ -84,7 +84,7 @@ classes): <!-- source: judge-corrections.json (envelope.inputs: "741 calls, 0 er
 
 - **Position bias**: Llama-3.1-8B flipped its verdict between AB/BA
   presentation orders on **half** of its position pairs (0.50); glm and qwen
-  flipped 25% and 17% respectively — all three significantly above zero.
+  flipped 25% and 17%. All three significantly above zero.
   <!-- source: judge-corrections.json; DERIVATION-NOTES.md ("Substantive read") -->
 - **Verbosity bias**: all three judges preferred the padded (longer,
   incorrect) answer significantly above chance. <!-- source: judge-corrections.json -->
@@ -95,12 +95,12 @@ classes): <!-- source: judge-corrections.json (envelope.inputs: "741 calls, 0 er
 - **Self-preference** (44 paired blind grading rounds, preregistered
   estimator): glm scored its own answers **+3.53** points higher than
   competitors' [1.53, 5.67], qwen **+4.53** [2.20, 6.87], and Llama **−5.71**
-  [−8.14, −3.14] (scores its own answers lower) — all significant on a 0–10
+  [−8.14, −3.14] (scores its own answers lower). All significant on a 0–10
   scale. <!-- source: selfpref-corrections.json, data.corrections -->
 
 ## The correction model, with an honesty gate
 
-`s_corrected = s − coefficient` per bias class — with a hard rule:
+`s_corrected = s − coefficient` per bias class, with a hard rule:
 coefficients whose 95% CI crosses zero ship `"significant": false` and **may
 not** be used to claim a correction. The code enforces it. A correction
 derived from noise would manufacture precision that was never measured, so
@@ -141,17 +141,17 @@ examples/           sanitized endpoints + runner config and expected outputs
 
 Re-running any config is safe: already-logged calls are skipped before the
 cap check, so interrupted runs top up without duplicates. To run all bias
-classes, extend `bias_classes` in the runner config — see
-`examples/README.md`.
+classes, extend `bias_classes` in the runner config (see
+`examples/README.md`).
 
 ## Citation
 
 Paper and study page: [Measuring and Correcting Systematic Bias in
 LLM-as-Judge Panels (321 AI Labs TR#8)](https://321ai.xyz/studies/llm-judge-bias-battery/)
-— [PDF](https://321ai.xyz/studies/llm-judge-bias-battery/TR8-judge-bias-audit.pdf)
+| [PDF](https://321ai.xyz/studies/llm-judge-bias-battery/TR8-judge-bias-audit.pdf)
 
 Zenodo DOI: [10.5281/zenodo.22949194](https://doi.org/10.5281/zenodo.22949194)
-(concept DOI — always resolves to the latest release). See
+(concept DOI, always resolves to the latest release). See
 `CITATION.cff`.
 
 ```bibtex
@@ -167,6 +167,6 @@ Zenodo DOI: [10.5281/zenodo.22949194](https://doi.org/10.5281/zenodo.22949194)
 
 ## License
 
-MIT — see `LICENSE`. The battery items in `battery/items/` are the published
+MIT, see `LICENSE`. The battery items in `battery/items/` are the published
 scientific instrument; please do not edit them in derivative benchmarks
 without versioning the change, so coefficients stay comparable.
